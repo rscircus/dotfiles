@@ -1,0 +1,157 @@
+"" Basic Functionality
+call pathogen#runtime_append_all_bundles()          " pathogen
+call pathogen#helptags()
+filetype plugin indent on       " load file type plugins + indentation
+
+
+"" General vim options
+set nocompatible
+set showcmd                     " display incomplete commands
+set autoindent                  " keep indent, when indented
+set scrolloff=3                 " min lines above or below cursor
+set visualbell                  " I hate the acoustic bell
+set cursorline                  " highlight current line
+"set undofile                    " creates a <FILENAME>.un~ for eternal editing
+set relativenumber              " show line numbers from current line to calc distances
+set wildmenu                    " autocompletion
+set wildmode=list:longest       " show all
+set guioptions-=T               " don't show toolbar
+
+
+"" Hande lines
+set encoding=utf-8
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+set wrapmargin=79
+
+
+"" Look and feel
+syntax enable
+set background=dark
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibilty="high"
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+colorscheme solarized
+set splitright                  " split windows always vertically
+
+function ToggleBackgroundColor()
+  if (&background == 'light')
+    set background=dark
+    echo "background -> dark"
+  else
+    set background=light
+    echo "background -> light"
+  endif
+endfunction
+
+
+"" Whitespace
+"set nowrap                      " don't wrap lines
+"set wrap
+set tabstop=2 shiftwidth=2      " a tab is two spaces
+set expandtab                   " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+
+"" Searching
+noremap / /\v
+vnoremap / /\v
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter`
+
+set gdefault                    " replacing globally is default
+set hlsearch                    " highlight matches
+set showmatch                   " show matches
+set incsearch                   " incremental searching
+
+"clear search, it looks ugly:
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %                " I don't like to hit % for bracket matching
+vnoremap <tab> %
+
+
+"" Change keyboard shortcuts
+let mapleader = ','
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+map <F9>  :call ToggleBackgroundColor()<CR>
+
+"" Save on lost focus
+au FocusLost * :wa
+
+"" vimorganizer:
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au BufEnter *.org            call org#SetOrgFileType()
+let g:org_command_for_emacsclient = 'emacsclient'
+
+
+function! OrgCustomColors()
+    " various Org syntax item highlighting statements are below
+    " these are the current defaults.  Uncomment and edit a line if you
+    " want different highlighting fof the element
+
+    " below are defaults for any TODOS you define.  TODOS that
+    " come before the | in a definition will use  'NOTDONETODO'
+    " and those that come after are DONETODO
+    "hi! DONETODO guifg=green ctermfg=green
+    "hi! NOTDONETODO guifg=red ctermfg=lightred
+
+    " heading level highlighting is done in pairs, one for the
+    " heading when unfoled and one for folded.  Default is to make
+    " them the same except for the folded version being bold:
+    " assign OL1 pair for level 1, OL2 pair for level 2, etc.
+    "hi! OL1 guifg=somecolor guibg=somecolor 
+    "hi! OL1Folded guifg=somecolor guibg=somecolor gui=bold
+
+
+    " tags are lines below headings that have :colon:separated:tags:
+    "hi! Org_Tag guifg=lightgreen ctermfg=blue
+
+    "  lines that begin with '#+' in column 0 are config lines
+    "hi! Org_Config_Line guifg=darkgray ctermfg=magenta
+
+    "drawers are :PROPERTIES: and :LOGBOOK: lines and their associated
+    " :END: lines
+    hi! Org_Drawer guifg=#586e75 ctermfg=magenta
+    hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
+
+    " this applies to value names in :PROPERTIES: blocks 
+    hi! Org_Property_Value guifg=#657b83 ctermfg=magenta
+
+    " three lines below apply to different kinds of blocks
+    hi! Org_Block guifg=#586375 ctermfg=magenta
+    "hi! Org_Src_Block guifg=#555555 ctermfg=magenta
+    "hi! Org_Table guifg=#888888 guibg=#333333 ctermfg=magenta
+
+    " dates are date specs between angle brackets (<>) or square brackets ([])
+    hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
+
+    " Org_Star is used to "hide" initial asterisks in a heading
+    "hi! Org_Star guifg=#444444 ctermfg=darkgray
+
+    "hi! Props guifg=#ffa0a0 ctermfg=gray
+
+    " bold, itals, underline, and code are highlights applied
+    " to character formatting
+    "hi! Org_Code guifg=darkgray gui=bold ctermfg=14
+    "hi! Org_Itals gui=italic guifg=#aaaaaa ctermfg=lightgray
+    "hi! Org_Bold gui=bold guifg=#aaaaaa ctermfg=lightgray
+    "hi! Org_Underline gui=underline guifg=#aaaaaa ctermfg=lightgray
+    "hi! Org_Lnumber guifg=#999999 ctermfg=gray
+
+    " these lines apply to links: [[link]], and [[link][link desc]]
+    "if has("conceal")
+    "    hi! default linkends guifg=blue ctermfg=blue
+    "endif
+    "hi! Org_Full_Link guifg=cyan gui=underline ctermfg=lightblue cterm=underline
+    "hi! Org_Half_Link guifg=cyan gui=underline ctermfg=lightblue cterm=underline
+
+    "  applies to the Heading line that can be displayed in column view
+    "highlight OrgColumnHeadings guibg=#444444 guifg=#aaaaaa gui=underline
+
+    " Dark background, because it fits better:
+endfunction
+
+"" Utl
+let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &" 

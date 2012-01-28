@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Python specific
+alias ipy='ipython'
+alias py='python'
+alias py2.6='python2.6'
+alias webdir='python -m SimpleHTTPServer'
+# Django specific
+alias dshell='python manage.py shell'
+alias dserve='python manage.py runserver 0.0.0.0:9999 '
+alias dmigratelist='python manage.py migrate --list'
+alias dmigrate='python manage.py migrate '
+
+

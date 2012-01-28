@@ -1,0 +1,36 @@
+[submodule "gnome-terminal-colors-solarized"]
+	path = gnome-terminal-colors-solarized
+	url = https://github.com/sigurdga/gnome-terminal-colors-solarized
+[submodule "vim/bundle/color-solarized"]
+	path = vim/bundle/color-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/plgn-calendar"]
+	path = vim/bundle/plgn-calendar
+	url = git://github.com/mattn/calendar-vim.git
+[submodule "vim/bundle/plgn-vim-organizer"]
+	path = vim/bundle/plgn-vim-organizer
+	url = git://github.com/hsitz/VimOrganizer.git
+[submodule "vim/bundle/plgn-vim-surround"]
+	path = vim/bundle/plgn-vim-surround
+	url = git://github.com/tpope/vim-surround
+[submodule "vim/bundle/plgn-vim-powerline"]
+	path = vim/bundle/plgn-vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline
+[submodule "vim/bundle/plgn-vim-repeat"]
+	path = vim/bundle/plgn-vim-repeat
+	url = git://github.com/tpope/vim-repeat
+[submodule "vim/bundle/plgn-nrrwrgn"]
+	path = vim/bundle/plgn-nrrwrgn
+	url = git://github.com/chrisbra/NrrwRgn.git
+[submodule "vim/bundle/plgn-taglist"]
+	path = vim/bundle/plgn-taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/plgn-utl"]
+	path = vim/bundle/plgn-utl
+	url = git://github.com/vim-scripts/utl.vim
+[submodule "vim/bundle/plgn-tagbar"]
+	path = vim/bundle/plgn-tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/vim-css-color"]
+	path = vim/bundle/vim-css-color
+	url = git://github.com/ap/vim-css-color
