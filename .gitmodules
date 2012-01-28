@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = git://github.com/ap/vim-css-color
+[submodule "vim/bundle/plgn-supertab"]
+	path = vim/bundle/plgn-supertab
+	url = git://github.com/ervandew/supertab
