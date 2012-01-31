@@ -66,16 +66,26 @@ set hlsearch                    " highlight matches
 set showmatch                   " show matches
 set incsearch                   " incremental searching
 
-"clear search, it looks ugly:
+""clear search, it looks ugly:
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %                " I don't like to hit % for bracket matching
 vnoremap <tab> %
+
+"" Window movement
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 
 "" Change keyboard shortcuts
 let mapleader = ','
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F9>  :call ToggleBackgroundColor()<CR>
+
+"" Tagbar plugin
+let g:taskbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
 
 "" Save on lost focus
 au FocusLost * :wa
