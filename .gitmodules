@@ -38,5 +38,5 @@
 	path = vim/bundle/plgn-supertab
 	url = git://github.com/ervandew/supertab
 [submodule "ctrlp.vim"]
-	path = ctrlp.vim
+	path = vim/bundle/plgn-ctrlp
 	url = git://github.com/kien/ctrlp.vim

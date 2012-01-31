@@ -165,3 +165,6 @@ endfunction
 
 "" Utl
 let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &" 
+
+"" CtrlP
+let g:ctrlp_map = '<c-p>'
