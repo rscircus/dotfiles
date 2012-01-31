@@ -16,6 +16,7 @@ set relativenumber              " show line numbers from current line to calc di
 set wildmenu                    " autocompletion
 set wildmode=list:longest       " show all
 set guioptions-=T               " don't show toolbar
+au FocusLost * :wa              " Save on lost focus
 
 
 "" Hande lines
@@ -24,7 +25,6 @@ set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 set wrapmargin=79
-
 
 "" Look and feel
 syntax enable
@@ -87,8 +87,6 @@ map <F9>  :call ToggleBackgroundColor()<CR>
 let g:taskbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
-"" Save on lost focus
-au FocusLost * :wa
 
 "" vimorganizer:
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
@@ -168,3 +166,7 @@ let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &"
 
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"" Powerline
+set laststatus=2
