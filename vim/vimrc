@@ -167,6 +167,15 @@ let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &"
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+"set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
+
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+"   \ 'file': '\.exe$\|\.so$\|\.dll$',
+"   \ 'link': 'some_bad_symbolic_links',
+"   \ }
 
 "" Powerline
 set laststatus=2
