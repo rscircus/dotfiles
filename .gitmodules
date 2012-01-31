@@ -40,3 +40,6 @@
 [submodule "ctrlp.vim"]
 	path = vim/bundle/plgn-ctrlp
 	url = git://github.com/kien/ctrlp.vim
+[submodule "zsh"]
+	path = zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
