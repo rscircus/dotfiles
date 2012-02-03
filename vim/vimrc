@@ -11,12 +11,17 @@ set autoindent                  " keep indent, when indented
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
-"set undofile                    " creates a <FILENAME>.un~ for eternal editing
+set nobackup                    " git/hg
+set nowb
+set noswapfile                  " No swafile because git/hg
 set relativenumber              " show line numbers from current line to calc distances
 set wildmenu                    " autocompletion
 set wildmode=list:longest       " show all
 set guioptions-=T               " don't show toolbar
 au FocusLost * :wa              " Save on lost focus
+
+set undodir=~/.vim_runtime/undodir
+set undofile                    " creates a <FILENAME>.un~ for eternal editing
 
 
 "" Hande lines
@@ -25,6 +30,13 @@ set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 set wrapmargin=79
+"" Whitespace
+"set nowrap                      " don't wrap lines
+"set wrap
+set tabstop=2 shiftwidth=2      " a tab is two spaces
+set expandtab                   " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
 
 "" Look and feel
 syntax enable
@@ -47,14 +59,6 @@ function ToggleBackgroundColor()
 endfunction
 
 
-"" Whitespace
-"set nowrap                      " don't wrap lines
-"set wrap
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces, not tabs
-set backspace=indent,eol,start  " backspace through everything in insert mode
-
-
 "" Searching
 noremap / /\v
 vnoremap / /\v
@@ -67,9 +71,7 @@ set showmatch                   " show matches
 set incsearch                   " incremental searching
 
 ""clear search, it looks ugly:
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %                " I don't like to hit % for bracket matching
-vnoremap <tab> %
+map <silent> <leader><space> :noh<cr>
 
 "" Window movement
 nnoremap <c-j> <c-w>j
@@ -77,10 +79,50 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+"" Buffers
+map <leader>bd :Bclose<cr>
+map <leader>cd :cd %:p:h<cr>
+nmap <leader>w :w!<cr>
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+"" Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+" Bash like keys for the command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
 
 "" Change keyboard shortcuts
 let mapleader = ','
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F9>  :call ToggleBackgroundColor()<CR>
 
 "" Tagbar plugin
@@ -95,70 +137,11 @@ let g:org_command_for_emacsclient = 'emacsclient'
 
 
 function! OrgCustomColors()
-    " various Org syntax item highlighting statements are below
-    " these are the current defaults.  Uncomment and edit a line if you
-    " want different highlighting fof the element
-
-    " below are defaults for any TODOS you define.  TODOS that
-    " come before the | in a definition will use  'NOTDONETODO'
-    " and those that come after are DONETODO
-    "hi! DONETODO guifg=green ctermfg=green
-    "hi! NOTDONETODO guifg=red ctermfg=lightred
-
-    " heading level highlighting is done in pairs, one for the
-    " heading when unfoled and one for folded.  Default is to make
-    " them the same except for the folded version being bold:
-    " assign OL1 pair for level 1, OL2 pair for level 2, etc.
-    "hi! OL1 guifg=somecolor guibg=somecolor 
-    "hi! OL1Folded guifg=somecolor guibg=somecolor gui=bold
-
-
-    " tags are lines below headings that have :colon:separated:tags:
-    "hi! Org_Tag guifg=lightgreen ctermfg=blue
-
-    "  lines that begin with '#+' in column 0 are config lines
-    "hi! Org_Config_Line guifg=darkgray ctermfg=magenta
-
-    "drawers are :PROPERTIES: and :LOGBOOK: lines and their associated
-    " :END: lines
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
     hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
-
-    " this applies to value names in :PROPERTIES: blocks 
     hi! Org_Property_Value guifg=#657b83 ctermfg=magenta
-
-    " three lines below apply to different kinds of blocks
     hi! Org_Block guifg=#586375 ctermfg=magenta
-    "hi! Org_Src_Block guifg=#555555 ctermfg=magenta
-    "hi! Org_Table guifg=#888888 guibg=#333333 ctermfg=magenta
-
-    " dates are date specs between angle brackets (<>) or square brackets ([])
     hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
-
-    " Org_Star is used to "hide" initial asterisks in a heading
-    "hi! Org_Star guifg=#444444 ctermfg=darkgray
-
-    "hi! Props guifg=#ffa0a0 ctermfg=gray
-
-    " bold, itals, underline, and code are highlights applied
-    " to character formatting
-    "hi! Org_Code guifg=darkgray gui=bold ctermfg=14
-    "hi! Org_Itals gui=italic guifg=#aaaaaa ctermfg=lightgray
-    "hi! Org_Bold gui=bold guifg=#aaaaaa ctermfg=lightgray
-    "hi! Org_Underline gui=underline guifg=#aaaaaa ctermfg=lightgray
-    "hi! Org_Lnumber guifg=#999999 ctermfg=gray
-
-    " these lines apply to links: [[link]], and [[link][link desc]]
-    "if has("conceal")
-    "    hi! default linkends guifg=blue ctermfg=blue
-    "endif
-    "hi! Org_Full_Link guifg=cyan gui=underline ctermfg=lightblue cterm=underline
-    "hi! Org_Half_Link guifg=cyan gui=underline ctermfg=lightblue cterm=underline
-
-    "  applies to the Heading line that can be displayed in column view
-    "highlight OrgColumnHeadings guibg=#444444 guifg=#aaaaaa gui=underline
-
-    " Dark background, because it fits better:
 endfunction
 
 "" Utl
