@@ -40,3 +40,6 @@
 [submodule "vim/bundle/plgn-syntastic"]
 	path = vim/bundle/plgn-syntastic
 	url = https://github.com/scrooloose/syntastic
+[submodule "vim/bundle/plgn-delimitMate"]
+	path = vim/bundle/plgn-delimitMate
+	url = https://github.com/Raimondi/delimitMate
