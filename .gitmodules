@@ -22,9 +22,6 @@
 [submodule "vim/bundle/plgn-nrrwrgn"]
 	path = vim/bundle/plgn-nrrwrgn
 	url = git://github.com/chrisbra/NrrwRgn.git
-[submodule "vim/bundle/plgn-taglist"]
-	path = vim/bundle/plgn-taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/bundle/plgn-utl"]
 	path = vim/bundle/plgn-utl
 	url = git://github.com/vim-scripts/utl.vim
@@ -37,6 +34,9 @@
 [submodule "vim/bundle/plgn-supertab"]
 	path = vim/bundle/plgn-supertab
 	url = git://github.com/ervandew/supertab
-[submodule "ctrlp.vim"]
-	path = vim/bundle/plgn-ctrlp
-	url = git://github.com/kien/ctrlp.vim
+[submodule "vim/bundle/plgn-ctrlp"]
+  path = vim/bundle/plgn-ctrlp
+  url = git://github.com/kien/ctrlp.vim
+[submodule "vim/bundle/plgn-syntastic"]
+	path = vim/bundle/plgn-syntastic
+	url = https://github.com/scrooloose/syntastic
