@@ -1,3 +1,37 @@
+# shell
+shell /bin/bash
+
+# main options
+altscreen on
+attrcolor b ".I"
+autodetach on
+bell_msg '^Gbell in window %n...'
+bufferfile "$HOME/.screen/exchange"
+deflogin on
+defbce on
+defflow off
+defscrollback 5000
+defutf8 on
+encoding UTF-8
+shelltitle '/ |bash'
+startup_message off
+term xterm-256color
+vbell off
+
+# Bottomline
 hardstatus on
+# display settings
+sorendition '= dY'
+#hardstatus alwayslastline '%{= B}//%{= W}%H%{= B}/%{= W}%n%{= B}/%{= W}%t %= %{= B}//%{= W}%d %M %C%{= B}//'}
+# hardstatus alwayslastline
+# hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
 hardstatus alwayslastline
-hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+hardstatus string '%{= kw}[ %{= kb}%H%{= kw} ][%= %{= kw}%?%-Lw%?%{= kW}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ][ %{r}%l%{w} ]%{w}[%{r} %d/%m/%y %C %A %{w}]%{w}'
+
+# make scroll work
+termcapinfo rxvt-256color ti@:te@
+termcapinfo xterm-256color ti@:te@
+
+# make colors work
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'

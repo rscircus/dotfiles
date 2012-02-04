@@ -13,8 +13,8 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 # Set history file length.(See HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -80,7 +80,6 @@ export MNAZIMS_BASEPROMPT='\n\e${MNAZIMS_USER_COLOR}\u\
 export PS1="${MNAZIMS_BASEPROMPT}
 $ "
 
-#export TERM=xterm-color
 export TERM="xterm-256color"
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
