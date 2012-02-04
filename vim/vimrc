@@ -47,6 +47,7 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
 set splitright                  " split windows always vertically
+set t_Co=256                    " Explicitly tell vim terminal features
 
 function ToggleBackgroundColor()
   if (&background == 'light')
@@ -162,3 +163,4 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 "" Powerline
 set laststatus=2
+let g:Powerline_symbols= 'unicode'
