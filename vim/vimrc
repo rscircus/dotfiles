@@ -167,3 +167,4 @@ let g:Powerline_symbols= 'unicode'
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
+au VimEnter * RainbowParenthesesToggle
