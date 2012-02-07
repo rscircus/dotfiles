@@ -55,3 +55,6 @@
 [submodule "vim/bundle/plgn-tlib"]
 	path = vim/bundle/plgn-tlib
 	url = https://github.com/tomtom/tlib_vim
+[submodule "vim/bundle/plgn-snippets"]
+	path = vim/bundle/plgn-snippets
+	url = https://github.com/honza/snipmate-snippets.git
