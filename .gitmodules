@@ -46,6 +46,3 @@
 [submodule "vim/bundle/plgn-rainbow-parenthesis"]
 	path = vim/bundle/plgn-rainbow-parenthesis
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/plgn-snipmate"]
-	path = vim/bundle/plgn-snipmate
-	url = https://github.com/msanders/snipmate.vim
