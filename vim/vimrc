@@ -164,3 +164,6 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "" Powerline
 set laststatus=2
 let g:Powerline_symbols= 'unicode'
+
+"" Rainbow parentheses
+map <leader>r :RainbowParenthesesToggle<cr>

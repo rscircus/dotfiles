@@ -43,3 +43,6 @@
 [submodule "vim/bundle/plgn-delimitMate"]
 	path = vim/bundle/plgn-delimitMate
 	url = https://github.com/Raimondi/delimitMate
+[submodule "vim/bundle/plgn-rainbow-parenthesis"]
+	path = vim/bundle/plgn-rainbow-parenthesis
+	url = https://github.com/kien/rainbow_parentheses.vim.git

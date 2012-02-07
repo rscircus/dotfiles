@@ -1,3 +1,7 @@
+2012.02.07
+  * rainbow parentheses
+  * allowed .bash_local
+  * <leader>r mapped to :RainbowParenthesesToggle
 2012.02.04
   * syntastic
   * ctrlp
