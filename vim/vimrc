@@ -72,7 +72,7 @@ set showmatch                   " show matches
 set incsearch                   " incremental searching
 
 ""clear search, it looks ugly:
-map <silent> <leader><space> :noh<cr>
+nnoremap <silent> <leader> :noh<cr>
 
 "" Window movement
 nnoremap <c-j> <c-w>j
@@ -168,3 +168,6 @@ let g:Powerline_symbols= 'unicode'
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
 au VimEnter * RainbowParenthesesToggle
+
+"" Custom
+au BufNewFile,BufRead xns.in set filetype=xns
