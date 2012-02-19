@@ -18,6 +18,7 @@ set relativenumber              " show line numbers from current line to calc di
 set wildmenu                    " autocompletion
 set wildmode=list:longest       " show all
 set guioptions-=T               " don't show toolbar
+set guioptions-=m               " don't show menubar
 au FocusLost * :wa              " Save on lost focus
 
 set undodir=~/.vim_runtime/undodir
