@@ -58,3 +58,6 @@
 [submodule "vim/bundle/plgn-snippets"]
 	path = vim/bundle/plgn-snippets
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/bundle/plgn-conque-shell"]
+	path = vim/bundle/plgn-conque-shell
+	url = https://github.com/vim-scripts/Conque-Shell
