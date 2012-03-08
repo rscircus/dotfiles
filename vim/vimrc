@@ -15,8 +15,6 @@ set nobackup                    " git/hg
 set nowb
 set noswapfile                  " No swafile because git/hg
 set relativenumber              " show line numbers from current line to calc distances
-set wildmenu                    " autocompletion
-set wildmode=list:longest       " show all
 set guioptions-=T               " don't show toolbar
 set guioptions-=m               " don't show menubar
 set guioptions-=l               " remove scrollbars
@@ -28,6 +26,17 @@ au FocusLost * :wa              " Save on lost focus
 set undodir=~/.vim_runtime/undodir
 set undofile                    " creates a <FILENAME>.un~ for eternal editing
 
+"" wildmenu - Ignore files you never want to edit (hopefully)
+if has("wildmenu")
+  set wildmenu                    " autocompletion
+  set wildmode=list:longest       " show all
+  set wildignore+=*.a,*.o
+  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+  set wildignore+=.DS_Store
+  set wildignore+=*~,*.swp,*.tmp
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+  "set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
+endif
 
 "" Hande lines
 set encoding=utf-8
@@ -157,8 +166,6 @@ let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &"
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
-"set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
 
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " let g:ctrlp_custom_ignore = {
