@@ -7,7 +7,6 @@ filetype plugin indent on       " load file type plugins + indentation
 "" General vim options
 set nocompatible
 set showcmd                     " display incomplete commands
-set autoindent                  " keep indent, when indented
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
@@ -47,6 +46,10 @@ set wrapmargin=79
 "" Whitespace
 "set nowrap                      " don't wrap lines
 "set wrap
+set cindent
+set cinkeys=0{,0},:,0#,!,!^F
+set smartindent                 " Helps indenting after/before specific keywords
+set autoindent                  " keep indent, when indented
 set tabstop=2 shiftwidth=2      " a tab is two spaces
 set expandtab                   " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
