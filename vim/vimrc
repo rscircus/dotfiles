@@ -5,6 +5,7 @@ filetype plugin indent on       " load file type plugins + indentation
 
 
 "" General vim options
+set encoding=utf-8
 set nocompatible
 set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
@@ -38,7 +39,6 @@ if has("wildmenu")
 endif
 
 "" Hande lines
-set encoding=utf-8
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
@@ -154,7 +154,6 @@ au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 let g:org_command_for_emacsclient = 'emacsclient'
 
-
 function! OrgCustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
     hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
@@ -163,8 +162,12 @@ function! OrgCustomColors()
     hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
 endfunction
 
+
 "" Utl
 let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &" 
+
+"" YankRing
+nnoremap <silent> <F12> :YRShow<cr>
 
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -177,13 +180,76 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
 
+
 "" Powerline
 set laststatus=2
 let g:Powerline_symbols= 'unicode'
+
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
 au VimEnter * RainbowParenthesesToggle
 
-"" Custom
+
+"" XNS
 au BufNewFile,BufRead xns.in set filetype=xns
+
+
+"" Standards:
+" Number of spaces to use for an indent.
+" Python: 4 spaces
+" C: 8 spaces (pre-existing files) or 4 spaces (new files)
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead *.c,*.h set shiftwidth=8
+au BufNewFile *.c,*.h set shiftwidth=4
+
+" Number of spaces that a pre-existing tab is equal to.
+" For the amount of space used for a new tab use shiftwidth.
+" Python: 4
+" C: 4
+au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+
+" Replace tabs with the equivalent number of spaces.
+" Also have an autocmd for Makefiles since they require hard tabs.
+" Python: yes
+" C: no
+" Makefile: no
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+au BufRead,BufNewFile *.c,*.h set noexpandtab
+au BufRead,BufNewFile Makefile* set noexpandtab
+
+" Use the below highlight group when displaying bad whitespace is desired
+" highlight BadWhitespace ctermbg=red guisp=red gui=undercurl guifg=NONE guibg=NONE
+
+" Display tabs at the beginning of a line in Python mode as bad.
+" au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Wrap text after a certain number of characters
+" Python: 120
+" C: 120
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=120
+
+" Turn off settings in 'formatoptions' relating to comment formatting.
+" - c : do not automatically insert the comment leader when wrapping based on
+"    'textwidth'
+" - o : do not insert the comment leader when using 'o' or 'O' from command mode
+" - r : do not insert the comment leader when hitting <Enter> in insert mode
+" Python: not needed
+" C: prevents insertion of '*' at the beginning of every line in a comment
+au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
+
+" Use UNIX (\n) line endings.
+" Only used for new files so as to not force existing files to change their
+" line endings.
+" Python: yes
+" C: yes
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
+
+"" Rawland's Python IDE:
+" highlight variable under cursor (not smart)
+" " Python: yes
+" " C: yes
+ au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
+
