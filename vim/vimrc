@@ -252,4 +252,3 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 " " Python: yes
 " " C: yes
  au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
-

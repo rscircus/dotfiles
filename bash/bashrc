@@ -36,7 +36,8 @@ fi
 # some more ls aliases
 alias ll='ls -lhFA'
 alias la='ls -AF'
-alias l='ls -CF'
+alias l='ls -Fl --group-directories-first'
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -84,27 +85,6 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
-
-# virtualenvwrapper and pip
-#if [ `id -u` != '0' ]; then
-#  export VIRTUALENV_USE_DISTRIBUTE=1
-#  export WORKON_HOME=$HOME/.virtualenvs
-#  source /usr/local/bin/virtualenvwrapper.sh
-#  export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#  export PIP_RESPECT_VIRTUALENV=true
-#fi
-
-# pip bash completion start
-_pip_completion()
-{
-   COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                  COMP_CWORD=$COMP_CWORD \
-                  PIP_AUTO_COMPLETE=1 $1 ) )
-}
-complete -o default -F _pip_completion pip
-# pip bash completion end
-
-#source $HOME/.ec2rc
 
 # vman:
 
