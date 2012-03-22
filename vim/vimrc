@@ -47,7 +47,6 @@ set wrapmargin=79
 "set nowrap                      " don't wrap lines
 "set wrap
 set cindent
-set cinkeys=0{,0},:,0#,!,!^F
 set smartindent                 " Helps indenting after/before specific keywords
 set autoindent                  " keep indent, when indented
 set tabstop=2 shiftwidth=2      " a tab is two spaces
