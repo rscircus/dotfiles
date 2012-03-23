@@ -49,8 +49,9 @@ set wrapmargin=79
 set cindent
 set smartindent                 " Helps indenting after/before specific keywords
 set autoindent                  " keep indent, when indented
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces, not tabs
+"set tabstop=2 shiftwidth=2      " a tab is two spaces
+set tabstop=2
+"set expandtab                   " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 
