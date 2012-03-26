@@ -61,9 +61,6 @@
 [submodule "vim/bundle/plgn-conque-shell"]
 	path = vim/bundle/plgn-conque-shell
 	url = https://github.com/vim-scripts/Conque-Shell
-[submodule "vim/bundle/plgn-yankring"]
-	path = vim/bundle/plgn-yankring
-	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule "vim/bundle/plgn-pydoc"]
 	path = vim/bundle/plgn-pydoc
 	url = https://github.com/vim-scripts/pydoc.vim

@@ -3,28 +3,34 @@ call pathogen#runtime_append_all_bundles()          " pathogen
 call pathogen#helptags()
 filetype plugin indent on       " load file type plugins + indentation
 
-
 "" General vim options
 set encoding=utf-8
+set fileformats=unix,mac,dos    " in this order supported file types
 set nocompatible
 set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
-set nobackup                    " git/hg
-set nowb
-set noswapfile                  " No swafile because git/hg
+set undofile                    " creates a <FILENAME>.un~ for eternal editing
+set undodir=~/.vim/undodir
+set nowb                        " use git/svn/hg/eg...
+set noswapfile
+set nobackup
 set relativenumber              " show line numbers from current line to calc distances
+
+"" Control
+set autoread
+
+" GUI
 set guioptions-=T               " don't show toolbar
 set guioptions-=m               " don't show menubar
 set guioptions-=l               " remove scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=L
+set linespace=0 								" no extra space between lines (!)
+set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wa              " Save on lost focus
-
-set undodir=~/.vim_runtime/undodir
-set undofile                    " creates a <FILENAME>.un~ for eternal editing
 
 "" wildmenu - Ignore files you never want to edit (hopefully)
 if has("wildmenu")
@@ -38,22 +44,23 @@ if has("wildmenu")
   "set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
 endif
 
-"" Hande lines
-set textwidth=79
-set formatoptions=qrn1
-set colorcolumn=85
-set wrapmargin=79
-"" Whitespace
-"set nowrap                      " don't wrap lines
-"set wrap
-set cindent
-set smartindent                 " Helps indenting after/before specific keywords
-set autoindent                  " keep indent, when indented
-"set tabstop=2 shiftwidth=2      " a tab is two spaces
-set tabstop=2
-"set expandtab                   " use spaces, not tabs
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set magic                         " regex
 
+"" Hande lines
+set formatoptions=qrn1
+set colorcolumn=81
+set nowrap
+
+"" Whitespace
+set tabstop=2                   "Indent 2 spaces with >>
+set smarttab
+set expandtab
+set shiftwidth=4 								"Indent 2 spaces with <TAB>
+set shiftround 									" At 3 spaces >> goes to 4
+set smartindent                 " Helps indenting after/before specific keywords
+set autoindent                  " Keep indent, when indented
+set cindent 										" Like smartindent, but more clever
+set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "" Look and feel
 syntax enable
@@ -84,12 +91,11 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter`
 
 set gdefault                    " replacing globally is default
-set hlsearch                    " highlight matches
+set nohlsearch                  " do not highlight search
 set showmatch                   " show matches
 set incsearch                   " incremental searching
 
 ""clear search, it looks ugly:
-nnoremap <silent><leader>/ :noh<cr>
 
 "" Window movement
 nnoremap <c-j> <c-w>j
@@ -180,20 +186,19 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
 
-
 "" Powerline
 set laststatus=2
 let g:Powerline_symbols= 'unicode'
-
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
 au VimEnter * RainbowParenthesesToggle
 
+"" autoreload vimrc - you might want to change that line
+autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 
 "" XNS
 au BufNewFile,BufRead xns.in set filetype=xns
-
 
 "" Standards:
 " Number of spaces to use for an indent.
@@ -252,3 +257,13 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 " " Python: yes
 " " C: yes
  au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
+
+"" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
+let g:tagbar_type_markdown = {
+	\ 'ctagstype' : 'markdown',
+	\ 'kinds' : [
+		\ 'h:heading1',
+		\ 'h:heading2',
+		\ 'h:heading3'
+	\ ]
+\ }
