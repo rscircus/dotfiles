@@ -154,6 +154,15 @@ inoremap jk <Esc>                                   " Hardcore vim
 let g:taskbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
+"" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
+let g:tagbar_type_mkd = {
+	\ 'ctagstype' : 'markdown',
+	\ 'kinds' : [
+		\ 'h:Heading_L1',
+		\ 'i:Heading_L2',
+		\ 'k:Heading_L3'
+	\ ]
+\ }
 
 "" vimorganizer:
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
@@ -258,12 +267,3 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 " " C: yes
  au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
 
-"" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
-let g:tagbar_type_markdown = {
-	\ 'ctagstype' : 'markdown',
-	\ 'kinds' : [
-		\ 'h:heading1',
-		\ 'h:heading2',
-		\ 'h:heading3'
-	\ ]
-\ }
