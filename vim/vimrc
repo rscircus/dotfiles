@@ -13,12 +13,13 @@ set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
 set undofile                    " creates a <FILENAME>.un~ for eternal editing
 set undodir=~/.vim/undodir
+set undoreload=10000
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
 set relativenumber              " show line numbers from current line to calc distances
 
-"" Control
+"" Control 
 set autoread
 
 " GUI
@@ -30,8 +31,20 @@ set guioptions-=R
 set guioptions-=L
 set linespace=0 								" no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
-au FocusLost * :wa              " Save on lost focus
+au FocusLost * :wall            " Save on lost focus
+set title                       " Set terminal ttile
 
+" Set cursorline in current window and normal mode
+augroup cline
+    au!
+    au WinLeave * set nocursorline
+    au WinEnter * set cursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+augroup END
+
+set ttimeout                    " Keys but not mappings (sanity!)
+set ttimeoutlen=10
 "" wildmenu - Ignore files you never want to edit (hopefully)
 if has("wildmenu")
   set wildmenu                    " autocompletion
@@ -52,15 +65,21 @@ set colorcolumn=81
 set nowrap
 
 "" Whitespace
-set tabstop=2                   "Indent 2 spaces with >>
+set tabstop=4                   "Indent 4 spaces with <TAB>
 set smarttab
 set expandtab
-set shiftwidth=4 								"Indent 2 spaces with <TAB>
+set shiftwidth=4 								"Indent 4 spaces with >>
 set shiftround 									" At 3 spaces >> goes to 4
 set smartindent                 " Helps indenting after/before specific keywords
 set autoindent                  " Keep indent, when indented
 set cindent 										" Like smartindent, but more clever
 set backspace=indent,eol,start  " backspace through everything in insert mode
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set fillchars=diff:⣿,vert:│
+set showbreak=↪
+nnoremap <leader>s :set list!<cr>
+
+
 
 "" Look and feel
 syntax enable
@@ -70,6 +89,7 @@ let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
+" colorscheme badwolf
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -267,3 +287,6 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 " " C: yes
  au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
 
+"" Fortran
+let b:fortran_dialect = 'f90'
+let b:fortran_fixed_source = 0

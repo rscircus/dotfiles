@@ -64,3 +64,6 @@
 [submodule "vim/bundle/plgn-pydoc"]
 	path = vim/bundle/plgn-pydoc
 	url = https://github.com/vim-scripts/pydoc.vim
+[submodule "vim/bundle/color-badwolf"]
+	path = vim/bundle/color-badwolf
+	url = https://github.com/sjl/badwolf.git
