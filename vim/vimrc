@@ -290,3 +290,4 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 "" Fortran
 let b:fortran_dialect = 'f90'
 let b:fortran_fixed_source = 0
+source ~/.vimrc_local
