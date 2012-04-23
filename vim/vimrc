@@ -78,12 +78,15 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
 nnoremap <leader>s :set list!<cr>
+nnoremap <F2> :set invpaste paste?<cr>
+set pastetoggle=<F2>
+set showmode
 
 
 
 "" Look and feel
 syntax enable
-set background=dark
+set background=light
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
@@ -187,14 +190,28 @@ let g:tagbar_type_mkd = {
 "" vimorganizer:
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
+let g:ft_ignore_pat = '\.org'
 let g:org_command_for_emacsclient = 'emacsclient'
+let g:org_capture_file = '~/org/capture.org'
+let g:org_agenda_files = split(glob("~/org/*.org"),"\n")
+let g:org_agenda_include_clocktable = 1
+let g:org_todo_setup = 'TODO NEXT WAITING | DONE CANCELLED'
+let g:org_tags_alist='{@home(h) @work(w)} {easy(e) hard(d)} {computer(c) phone(p)}'
+command! OrgCapture :call org#CaptureBuffer()
+command! OrgCaptureFile :call org#OpenCaptureFile()
 
-function! OrgCustomColors()
+function! OrgustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
     hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
     hi! Org_Property_Value guifg=#657b83 ctermfg=magenta
     hi! Org_Block guifg=#586375 ctermfg=magenta
     hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
+    let g:org_todo_custom_highlights = 
+            \     { 'NEXT': { 'guifg':'#888888', 'guibg':'#222222',
+            \              'ctermfg':'gray', 'ctermbg':'darkgray'},
+            \      'WAITING': { 'guifg':'#aa3388', 
+            \                 'ctermfg':'red' } } 
+
 endfunction
 
 
