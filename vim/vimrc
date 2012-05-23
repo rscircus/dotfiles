@@ -29,6 +29,7 @@ set guioptions-=l               " remove scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=L
+set guifont=Monospace\ 11
 set linespace=0 								" no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wall            " Save on lost focus
@@ -62,6 +63,7 @@ set magic                         " regex
 "" Hande lines
 set formatoptions=qrn1
 set colorcolumn=81
+set lbr
 set nowrap
 
 "" Whitespace
@@ -192,13 +194,14 @@ au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 let g:ft_ignore_pat = '\.org'
 let g:org_command_for_emacsclient = 'emacsclient'
-let g:org_capture_file = '~/org/capture.org'
+let g:org_capture_file = '~/org/refile.org'
 let g:org_agenda_files = split(glob("~/org/*.org"),"\n")
 let g:org_agenda_include_clocktable = 1
-let g:org_todo_setup = 'TODO NEXT WAITING | DONE CANCELLED'
+let g:org_todo_setup = 'TODO NEXT WAITING | CANCELLED DONE'
 let g:org_tags_alist='{@home(h) @work(w)} {easy(e) hard(d)} {computer(c) phone(p)}'
 command! OrgCapture :call org#CaptureBuffer()
 command! OrgCaptureFile :call org#OpenCaptureFile()
+nnoremap <leader>c :OrgCapture<cr>
 
 function! OrgustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
