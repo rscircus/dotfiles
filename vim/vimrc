@@ -29,7 +29,6 @@ set guioptions-=l               " remove scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=L
-set guifont=Monospace\ 11
 set linespace=0 								" no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wall            " Save on lost focus
@@ -109,9 +108,9 @@ function ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-  set guifont=Mensch\ 10
+  set guifont=set guifont=DejaVu\ Sans\ Mono\ 11
 else
-  colorscheme=mustang
+  colorscheme mustang
 endif
 
 
