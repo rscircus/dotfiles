@@ -108,7 +108,8 @@ function ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-  set guifont=set guifont=DejaVu\ Sans\ Mono\ 11
+   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 11
+"   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
 else
   colorscheme mustang
 endif
@@ -242,7 +243,12 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 "" Powerline
 set laststatus=2
-let g:Powerline_symbols= 'unicode'
+" let g:Powerline_symbols= 'unicode'
+if has('gui_running')
+    let g:Powerline_symbols= 'fancy'
+else
+    let g:Powerline_symbols= 'unicode'
+endif
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
