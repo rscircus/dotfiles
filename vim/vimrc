@@ -250,6 +250,11 @@ else
     let g:Powerline_symbols= 'unicode'
 endif
 
+"" NERDTree
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark 
+map <leader>nf :NERDTreeFind<cr>
+
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
 au VimEnter * RainbowParenthesesToggle
