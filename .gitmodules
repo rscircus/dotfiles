@@ -67,3 +67,6 @@
 [submodule "vim/bundle/color-badwolf"]
 	path = vim/bundle/color-badwolf
 	url = https://github.com/sjl/badwolf.git
+[submodule "vim/bundle/plgn-nerdtree"]
+	path = vim/bundle/plgn-nerdtree
+	url = https://github.com/scrooloose/nerdtree
