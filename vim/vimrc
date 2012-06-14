@@ -78,7 +78,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
-nnoremap <leader>s :set list!<cr>
+nnoremap <leader>t :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
 set showmode
@@ -111,7 +111,7 @@ if has("gui_running")
    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 11
 "   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
 else
-  colorscheme mustang
+  colorscheme badwolf
 endif
 
 
@@ -184,6 +184,9 @@ inoremap jk <Esc>                                   " Hardcore vim
 "" Tagbar plugin
 let g:taskbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+"" Synatstic plugin:
+let g:syntastic_fortran_flags = '-ffree-form'
 
 "" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
 let g:tagbar_type_mkd = {
