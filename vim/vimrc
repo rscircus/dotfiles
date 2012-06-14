@@ -111,7 +111,7 @@ if has("gui_running")
    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 11
 "   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
 else
-  colorscheme badwolf
+  colorscheme jellybeans
 endif
 
 
