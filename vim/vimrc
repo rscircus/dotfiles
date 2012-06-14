@@ -45,6 +45,7 @@ augroup END
 
 set ttimeout                    " Keys but not mappings (sanity!)
 set ttimeoutlen=10
+
 "" wildmenu - Ignore files you never want to edit (hopefully)
 if has("wildmenu")
   set wildmenu                    " autocompletion
@@ -87,7 +88,7 @@ set showmode
 
 "" Look and feel
 syntax enable
-set background=light
+set background=dark
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
@@ -110,8 +111,9 @@ endfunction
 if has("gui_running")
    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 11
 "   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
+  colorscheme darkspectrum
 else
-  colorscheme jellybeans
+" colorscheme jellybeans
 endif
 
 
