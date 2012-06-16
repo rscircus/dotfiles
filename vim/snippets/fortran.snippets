@@ -1,0 +1,72 @@
+snippet pr
+	program ${1:name}
+	  implicit none
+	  ${2}
+	end program $1
+snippet if
+	if (${1:condition}) then
+	  ${2}
+	end if
+snippet do
+	do ${1:i} = ${2:1},${3:N}
+	  ${4}
+	end do
+snippet dow
+	do while (${1:condition})
+	  ${2}
+	end do
+snippet se
+	select case (${1})
+	  case (${2})
+	end select
+snippet def
+	case default
+	  ${1}
+snippet ty
+	type :: ${1:name}
+	end type $1
+snippet op
+	open (unit=${1:10}, file=${2:filename}, ${3})
+	${4}
+snippet fu
+	function ${1:name}(${2})
+	  ${4}
+	end function $1
+snippet fur
+	function ${1:name}(${2}) result(${3})
+	  ${4}
+	end function $1
+snippet rfu
+	recursive function ${1:name}(${2}) result(${3})
+	  ${4}
+	end function $1
+snippet su
+	subroutine ${1:name}(${2})
+	  ${3}
+	end subroutine $1
+snippet ar
+	${1:type}subroutine, dimension(${2}) :: ${3}
+snippet co
+	${1:type}, parameter :: ${3} =parameter ${4}
+snippet in
+	interface
+	  ${1}
+	end interface
+snippet i
+	integer${1} :: ${2}
+snippet r
+	real${1} :: ${2}
+snippet d
+	real*8${1} :: ${2}
+snippet l
+	logical${1} :: ${2}
+snippet c
+	character${1} :: ${2}
+snippet s
+	character(len=${1}character)${2} :: ${3}
+snippet t
+	type(${1}) :: ${2}type
+snippet cp
+	call p(${1})
+snippet p
+	print *, "${1}"
