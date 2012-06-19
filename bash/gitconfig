@@ -1,5 +1,7 @@
-[user]
-  name = "Roland Siegbert"
-  email = roland.siegbert@gmail.com
 [color]
-  ui = true
+	ui = true
+[user]
+	name = Roland Siegbert
+	email = roland.siegbert@gmail.com
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
