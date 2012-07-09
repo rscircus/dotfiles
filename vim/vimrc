@@ -17,7 +17,7 @@ set undoreload=10000
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
-set relativenumber              " show line numbers from current line to calc distances
+"set relativenumber              " show line numbers from current line to calc distances
 
 "" Control 
 set autoread
@@ -32,7 +32,7 @@ set guioptions-=L
 set linespace=0 								" no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wall            " Save on lost focus
-set title                       " Set terminal ttile
+set title                       " Set terminal title
 
 " Set cursorline in current window and normal mode
 augroup cline
@@ -78,6 +78,7 @@ set cindent 										" Like smartindent, but more clever
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
+set list
 set showbreak=↪
 nnoremap <leader>t :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
@@ -93,8 +94,8 @@ let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-colorscheme solarized
-" colorscheme badwolf
+" colorscheme solarized
+colorscheme badwolf
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -128,7 +129,8 @@ set nohlsearch                  " do not highlight search
 set showmatch                   " show matches
 set incsearch                   " incremental searching
 
-""clear search, it looks ugly:
+"" ESC:
+inoremap jj <ESC>
 
 "" Window movement
 nnoremap <c-j> <c-w>j
@@ -182,6 +184,14 @@ let mapleader = ','
 nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F9>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
+
+"" Numbers plugin
+nnoremap <F3> :NumbersToggle<CR>
+" set rnu
+" au InsertEnter * :set nu
+" au InsertLeave * :set rnu
+" au FocusLost * :set nu
+" au FocusGained * :set rnu
 
 "" Tagbar plugin
 let g:taskbar_usearrows = 1
