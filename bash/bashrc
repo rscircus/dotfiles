@@ -101,3 +101,5 @@ export IGNOREEOF=1
 export PYTHONDONTWRITEBYTECODE=1
 export LESS=FRSX
 
+# Z:
+. ~/dotfiles/zsh/z/z.sh
