@@ -182,7 +182,7 @@ cnoremap <C-N> <Down>
 "" Change keyboard shortcuts
 let mapleader = ','
 nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
-map <F9>  :call ToggleBackgroundColor()<CR>
+map <F5>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
 
 "" Numbers plugin
