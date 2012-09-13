@@ -17,7 +17,7 @@ set undoreload=10000
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
-"set relativenumber              " show line numbers from current line to calc distances
+set relativenumber              " show line numbers from current line to calc distances
 
 "" Control 
 set autoread
@@ -32,7 +32,7 @@ set guioptions-=L
 set linespace=0 								" no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wall            " Save on lost focus
-set title                       " Set terminal title
+set title                       " Set terminal ttile
 
 " Set cursorline in current window and normal mode
 augroup cline
@@ -67,20 +67,19 @@ set lbr
 set nowrap
 
 "" Whitespace
-set tabstop=4                   "Indent 4 spaces with <TAB>
-set softtabstop=4
-set shiftwidth=4 								"Indent 4 spaces with >>
-set smarttab
-set expandtab
+"set tabstop=4                   "Indent 4 spaces with <TAB>
+" set smarttab
+"set expandtab
+"set shiftwidth=4 								"Indent 4 spaces with >>
 set shiftround 									" At 3 spaces >> goes to 4
 set smartindent                 " Helps indenting after/before specific keywords
 set autoindent                  " Keep indent, when indented
-set cindent 										" Like smartindent, but more clever
+"set cindent 										" Like smartindent, but more clever
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
-set list
 set showbreak=↪
+set list
 nnoremap <leader>t :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
@@ -96,7 +95,7 @@ let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 " colorscheme solarized
-colorscheme badwolf
+" colorscheme badwolf
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -115,7 +114,7 @@ if has("gui_running")
 "   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
   colorscheme darkspectrum
 else
-" colorscheme jellybeans
+  colorscheme badwolf
 endif
 
 
@@ -130,8 +129,7 @@ set nohlsearch                  " do not highlight search
 set showmatch                   " show matches
 set incsearch                   " incremental searching
 
-"" ESC:
-inoremap jj <ESC>
+""clear search, it looks ugly:
 
 "" Window movement
 nnoremap <c-j> <c-w>j
@@ -183,16 +181,8 @@ cnoremap <C-N> <Down>
 "" Change keyboard shortcuts
 let mapleader = ','
 nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
-map <F5>  :call ToggleBackgroundColor()<CR>
+map <F9>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
-
-"" Numbers plugin
-nnoremap <F3> :NumbersToggle<CR>
-" set rnu
-" au InsertEnter * :set nu
-" au InsertLeave * :set rnu
-" au FocusLost * :set nu
-" au FocusGained * :set rnu
 
 "" Tagbar plugin
 let g:taskbar_usearrows = 1
@@ -264,7 +254,6 @@ if has('gui_running')
     let g:Powerline_symbols= 'fancy'
 else
     let g:Powerline_symbols= 'unicode'
-    let g:Powerline_symbols= 'fancy'
 endif
 
 "" NERDTree
@@ -338,11 +327,9 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix'
 " highlight variable under cursor (not smart)
 " " Python: yes
 " " C: yes
-au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
+ au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>')))
 
 "" Fortran
 let b:fortran_dialect = 'f90'
 let b:fortran_fixed_source = 0
-au BufRead,BufNewFile *.F set noexpandtab
-
 source ~/.vimrc_local

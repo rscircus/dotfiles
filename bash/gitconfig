@@ -2,7 +2,7 @@
 	ui = true
 [user]
 	name = Roland Siegbert
-	email = roland.siegbert@gmail.com
+	email = siegbert@cats.rwth-aachen.de
 [alias]
     st = status
     ci = commit
@@ -11,3 +11,5 @@
     co = checkout
     df = diff
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[gui]
+	recentrepo = /rwthfs/rz/cluster/home/rs169182/workspace/exp/rect_opti
