@@ -76,3 +76,6 @@
 [submodule "zsh/z"]
 	path = zsh/z
 	url = https://github.com/rupa/z
+[submodule "vim/bundle/plgn-tabular"]
+	path = vim/bundle/plgn-tabular
+	url = https://github.com/godlygeek/tabular

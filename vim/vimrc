@@ -90,13 +90,13 @@ set showmode
 
 "" Look and feel
 syntax enable
-set background=dark
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-" colorscheme solarized
-colorscheme badwolf
+colorscheme solarized
+set background=dark
+colorscheme Tomorrow-Night-Bright
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
