@@ -109,8 +109,8 @@ function ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
-"   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
+"   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
+   set guifont=Inconsolata-dzForPowerline\ 10
    colorscheme solarized
 else
 " colorscheme jellybeans
@@ -398,7 +398,7 @@ function! ToggleMinimap()
 
     else
 
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
+        set guifont=Inconsolata-dzForPowerline\ 10
         hi clear Visible
         set nocursorline
         set antialias
