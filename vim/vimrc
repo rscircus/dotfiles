@@ -2,6 +2,7 @@
 call pathogen#runtime_append_all_bundles()          " pathogen
 call pathogen#helptags()
 filetype plugin indent on       " load file type plugins + indentation
+let mapleader = ","
 
 "" General vim options
 set encoding=utf-8
@@ -94,9 +95,7 @@ let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-colorscheme solarized
 set background=dark
-colorscheme Tomorrow-Night-Bright
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -111,11 +110,12 @@ function ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 11
+   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
 "   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
-  colorscheme darkspectrum
+   colorscheme solarized
 else
 " colorscheme jellybeans
+colorscheme Tomorrow
 endif
 
 
@@ -181,7 +181,6 @@ cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
 "" Change keyboard shortcuts
-let mapleader = ','
 nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F5>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
