@@ -115,7 +115,7 @@ if has("gui_running")
    colorscheme solarized
 else
 " colorscheme jellybeans
-colorscheme Tomorrow
+colorscheme Tomorrow-Night-Bright
 endif
 
 
