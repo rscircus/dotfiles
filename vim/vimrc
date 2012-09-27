@@ -81,6 +81,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
+set list
 nnoremap <leader>t :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
@@ -114,7 +115,7 @@ if has("gui_running")
    colorscheme solarized
 else
 " colorscheme jellybeans
-colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow
 endif
 
 
