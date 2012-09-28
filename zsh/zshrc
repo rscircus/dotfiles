@@ -29,7 +29,7 @@ ZSH_THEME="pygmalion"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git mercurial autojump command-not-found python pip github gnu-utils history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,4 +61,4 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
-alias vim='~/share/vim/src/vim'
+#alias vim='~/share/vim/src/vim'
