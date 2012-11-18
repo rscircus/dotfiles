@@ -63,7 +63,7 @@ set magic                         " regex
 
 "" Hande lines
 set formatoptions=qrn1
-set colorcolumn=81
+set colorcolumn=79
 set lbr
 set nowrap
 
@@ -81,7 +81,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
-set list
+"set list
 nnoremap <leader>t :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
@@ -95,7 +95,7 @@ let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-set background=dark
+set background=light
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -115,7 +115,7 @@ if has("gui_running")
    colorscheme solarized
 else
 " colorscheme jellybeans
-colorscheme Tomorrow
+    colorscheme solarized
 endif
 
 
@@ -132,6 +132,13 @@ set incsearch                   " incremental searching
 
 "" ESC:
 inoremap jj <ESC>
+
+" Toggle spell checking on and off with `,s`
+let mapleader = ","
+nmap <silent> <leader>s :set spell!<CR>
+ 
+" Set region to British English
+set spelllang=en_gb
 
 "" Window movement
 nnoremap <c-j> <c-w>j
