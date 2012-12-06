@@ -1,4 +1,3 @@
-"" Basic Functionality
 call pathogen#runtime_append_all_bundles()          " pathogen
 call pathogen#helptags()
 filetype plugin indent on       " load file type plugins + indentation
@@ -68,15 +67,15 @@ set lbr
 set nowrap
 
 "" Whitespace
-set tabstop=4                   "Indent 4 spaces with <TAB>
-set softtabstop=4
-set shiftwidth=4 								"Indent 4 spaces with >>
-set smarttab
-set expandtab
+"set tabstop=4                   "Indent 4 spaces with <TAB>
+"set softtabstop=4
+"et shiftwidth=4 								"Indent 4 spaces with >>
+"et smarttab
+"et expandtab
+"set cindent 										" Like smartindent, but more clever
 set shiftround 									" At 3 spaces >> goes to 4
 set smartindent                 " Helps indenting after/before specific keywords
 set autoindent                  " Keep indent, when indented
-set cindent 										" Like smartindent, but more clever
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
@@ -263,6 +262,14 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
 
+"" SuperTab
+"This doesn't work for console version?:
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
+let g:SuperTabMappingForward = '<nul>'
+let g:SuperTabMappingBackward = '<s-nul>'
+
+
 "" Powerline
 set laststatus=2
 " let g:Powerline_symbols= 'unicode'
@@ -349,7 +356,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c  autocmd CursorMoved * silent! exe printf('
 "" Fortran
 let b:fortran_dialect = 'f90'
 let b:fortran_fixed_source = 0
-au BufRead,BufNewFile *.F set noexpandtab
+"au BufRead,BufNewFile *.F set noexpandtab
 " https://gist.github.com/1470884
 " https://gist.github.com/1471147
 " https://gist.github.com/2424873
@@ -422,6 +429,9 @@ function! ToggleMinimap()
 endfunction
 
 command! ToggleMinimap call ToggleMinimap()
+
+"" Autoremove white trailing white space:
+autocmd BufWritePre * :%s/\s\+$//e
 
 nmap <leader>' :ToggleMinimap<CR>
 
