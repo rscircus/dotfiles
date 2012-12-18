@@ -19,7 +19,7 @@ set noswapfile
 set nobackup
 "set relativenumber              " show line numbers from current line to calc distances
 
-"" Control 
+"" Control
 set autoread
 
 " GUI
@@ -94,7 +94,7 @@ let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-set background=light
+set background=dark
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -135,7 +135,7 @@ inoremap jj <ESC>
 " Toggle spell checking on and off with `,s`
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
- 
+
 " Set region to British English
 set spelllang=en_gb
 
@@ -217,7 +217,7 @@ let g:tagbar_type_mkd = {
 \ }
 
 "" vimorganizer:
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 let g:ft_ignore_pat = '\.org'
 let g:org_command_for_emacsclient = 'emacsclient'
@@ -236,17 +236,17 @@ function! OrgustomColors()
     hi! Org_Property_Value guifg=#657b83 ctermfg=magenta
     hi! Org_Block guifg=#586375 ctermfg=magenta
     hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
-    let g:org_todo_custom_highlights = 
+    let g:org_todo_custom_highlights =
             \     { 'NEXT': { 'guifg':'#888888', 'guibg':'#222222',
             \              'ctermfg':'gray', 'ctermbg':'darkgray'},
-            \      'WAITING': { 'guifg':'#aa3388', 
-            \                 'ctermfg':'red' } } 
+            \      'WAITING': { 'guifg':'#aa3388',
+            \                 'ctermfg':'red' } }
 
 endfunction
 
 
 "" Utl
-let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &" 
+let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &"
 
 "" YankRing
 nnoremap <silent> <F12> :YRShow<cr>
@@ -282,7 +282,7 @@ endif
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark 
+map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 
 "" Rainbow parentheses
