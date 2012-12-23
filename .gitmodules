@@ -79,3 +79,9 @@
 [submodule "vim/bundle/plgn-tabular"]
 	path = vim/bundle/plgn-tabular
 	url = https://github.com/godlygeek/tabular
+[submodule "utils/todo"]
+	path = utils/todo
+	url = https://github.com/ginatrapani/todo.txt-cli
+[submodule "utils/bitpocket"]
+	path = utils/bitpocket
+	url = https://github.com/sickill/bitpocket
