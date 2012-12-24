@@ -41,6 +41,7 @@ export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/home/rs169182/bin
 export PATH=$PATH:/home/rawland/bin
+export PATH=$PATH:/home/siegbert/bin
 
 # Terminal 256 colors
 export TERM="xterm-256color"
@@ -54,6 +55,20 @@ export _Z_NO_RESOLVE_SYMLINKS="true"
 export HOSTTYPE="rzxeon"
 
 export EDITOR="vim"
+
+vman() { man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
+alias vman='vman'
+
+# Common exports:
+export TERM="xterm-256color"
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export CLICOLOR=1
+export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
+export LC_CTYPE=en_US.utf-8
+export IGNOREEOF=1
+export PYTHONDONTWRITEBYTECODE=1
+export LESS=FRSX
+
 bindkey -v
 
 # vi style incremental search
@@ -62,4 +77,15 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
-alias vim='~/share/vim/src/vim'
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+#alias vim='~/share/vim/src/vim'
