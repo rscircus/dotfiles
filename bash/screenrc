@@ -47,6 +47,9 @@ bind ^j focus down
 bind k focus up
 bind ^k focus up
 
+bind o next
+bind ^o next
+
 bind q remove
 bind ^q remove
 
@@ -58,5 +61,3 @@ bind r eval 'echo "Resize window"' 'command -c resize'
 bind -c resize ; eval 'resize +1' 'command -c resize'
 bind -c resize - eval 'resize -1' 'command -c resize''
 
-bindkey "[27;5;9~" next
-bindkey "[27;6;9~" prev
