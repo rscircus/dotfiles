@@ -85,3 +85,6 @@
 [submodule "utils/bitpocket"]
 	path = utils/bitpocket
 	url = https://github.com/sickill/bitpocket
+[submodule "vim/bundle/plgn-minibufexplr"]
+	path = vim/bundle/plgn-minibufexplr
+	url = https://github.com/fholgado/minibufexpl.vim.git
