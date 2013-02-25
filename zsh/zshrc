@@ -29,7 +29,7 @@ ZSH_THEME="rawland"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial autojump command-not-found python pip github gnu-utils history-substring-search)
+plugins=(git lol git-extras mercurial autojump command-not-found python pip github gnu-utils history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,4 +90,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias t='~/dotfiles/utils/todo/todo.sh'
-#alias vim='~/share/vim/src/vim'
+alias vim='~/share/vim/src/vim'
+alias screen='~/share/screen/src/screen'
+alias mmv='noglob zmv -W'
