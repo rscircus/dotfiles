@@ -88,3 +88,6 @@
 [submodule "vim/bundle/plgn-easymotion"]
 	path = vim/bundle/plgn-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "vim/bundle/plgn-detectindent"]
+	path = vim/bundle/plgn-detectindent
+	url = https://github.com/ciaranm/detectindent

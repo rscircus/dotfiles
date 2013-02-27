@@ -362,6 +362,9 @@ let b:fortran_fixed_source = 0
 " https://gist.github.com/2424873
 "" last/newest one is used here
 
+"" Everything else:
+:autocmd BufReadPost * :DetectIndent
+
 function! ToggleMinimap()
 
     if !has("gui_running")
