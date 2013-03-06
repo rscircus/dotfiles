@@ -230,6 +230,10 @@ command! OrgCapture :call org#CaptureBuffer()
 command! OrgCaptureFile :call org#OpenCaptureFile()
 nnoremap <leader>c :OrgCapture<cr>
 
+"" Git Gutter:
+map <leader>g :ToggleGitGutter<cr>
+map <leader>gg :ToggleGitGutterLineHighlights<cr>
+
 function! OrgustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
     hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold

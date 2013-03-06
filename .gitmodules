@@ -91,3 +91,6 @@
 [submodule "vim/bundle/plgn-detectindent"]
 	path = vim/bundle/plgn-detectindent
 	url = https://github.com/ciaranm/detectindent
+[submodule "vim/bundle/plgn-gitgutter"]
+	path = vim/bundle/plgn-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
