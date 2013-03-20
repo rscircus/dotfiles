@@ -94,3 +94,6 @@
 [submodule "vim/bundle/plgn-gitgutter"]
 	path = vim/bundle/plgn-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/plgn-ycm"]
+	path = vim/bundle/plgn-ycm
+	url = https://github.com/Valloric/YouCompleteMe
