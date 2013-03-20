@@ -93,3 +93,5 @@ alias t='~/dotfiles/utils/todo/todo.sh'
 alias vim='~/share/vim/src/vim'
 alias screen='~/share/screen/src/screen'
 alias mmv='noglob zmv -W'
+
+source .zshrc_local
