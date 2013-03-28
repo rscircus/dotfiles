@@ -111,10 +111,10 @@ endfunction
 if has("gui_running")
 "   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
     set guifont=Inconsolata-dzForPowerline\ 10
-    colorscheme solarized
+    colorscheme Tomorrow
 else
 " colorscheme jellybeans
-    colorscheme solarized
+    colorscheme Tomorrow
 endif
 
 
