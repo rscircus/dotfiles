@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh configuration.
+
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -92,4 +92,4 @@ fi
 alias t='~/dotfiles/utils/todo/todo.sh'
 alias mmv='noglob zmv -W'
 
-source .zshrc_local
+source ~/.zshrc_local
