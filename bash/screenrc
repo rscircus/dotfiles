@@ -28,7 +28,8 @@ vbell off
 # hardstatus alwayslastline
 # hardstatus string '%{= kw}[ %{= kb}%H%{= kw} ][%= %{= kw}%?%-Lw%?%{= kW}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ][ %{r}%l%{w} ]%{w}[%{r} %d/%m/%y %C %A %{w}]%{w}'
 
-caption always '%{= dg} %{B}%H %{G}|%=%?%{d}%-w%?%{G}[ %{G}%n %t%?{%uw}%?%{G} ]%{w}%?%+w%?%=%{G}| %{B}%D %c'
+# caption always '%{= dg} %{B}%H %{G}|%=%?%{d}%-w%?%{G}[ %{G}%n %t%?{%uw}%?%{G} ]%{w}%?%+w%?%=%{G}| %{B}%D %c'
+caption always '%{= Kg} %H %{G}| %{B}%l %{G}|%=%?%{d}%-w%?%{r}(%{d}%n %t%? {%u} %?%{r})%{d}%?%+w%?%=%{G}| %{B}%M %d %c:%s '
 
 # make scroll work
 termcapinfo rxvt-256color ti@:te@
