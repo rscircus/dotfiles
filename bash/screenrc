@@ -33,7 +33,9 @@ caption always '%{= Kg} %H %{G}| %{B}%l %{G}|%=%?%{d}%-w%?%{r}(%{d}%n %t%? {%u} 
 
 # make scroll work
 #termcapinfo rxvt-256color ti@:te@
-termcapinfo xterm-256color ti@:te@
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
 
 # make colors work
 #termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
