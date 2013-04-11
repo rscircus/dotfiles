@@ -54,7 +54,7 @@
 	url = https://github.com/tomtom/tlib_vim
 [submodule "vim/bundle/plgn-snippets"]
 	path = vim/bundle/plgn-snippets
-	url = https://github.com/honza/snipmate-snippets.git
+	url = https://github.com/honza/vim-snippets.git
 [submodule "vim/bundle/plgn-conque-shell"]
 	path = vim/bundle/plgn-conque-shell
 	url = https://github.com/vim-scripts/Conque-Shell
