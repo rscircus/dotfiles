@@ -69,9 +69,9 @@ set nowrap
 "" Whitespace
 "set tabstop=4                   "Indent 4 spaces with <TAB>
 "set softtabstop=4
-"et shiftwidth=4 								"Indent 4 spaces with >>
+set shiftwidth=4 								"Indent 4 spaces with >>
 "et smarttab
-"et expandtab
+set expandtab
 "set cindent 										" Like smartindent, but more clever
 set shiftround 									" At 3 spaces >> goes to 4
 set smartindent                 " Helps indenting after/before specific keywords
@@ -302,7 +302,7 @@ au BufNewFile,BufRead xns.in set filetype=xns
 "" Fortran
 let b:fortran_dialect = 'f90'
 let b:fortran_fixed_source = 0
-"au BufRead,BufNewFile *.F set noexpandtab
+au BufRead,BufNewFile *.F set noexpandtab
 " https://gist.github.com/1470884
 " https://gist.github.com/1471147
 " https://gist.github.com/2424873
