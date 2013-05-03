@@ -5,8 +5,8 @@
 
 " Default GUI Colours
 let s:foreground = "2d2d2c"
-let s:background = "fafafa"
-let s:selection = "d6d6d6"
+let s:background = "fdfdfd"
+let s:selection = "e6e6e6"
 let s:line = "efefef"
 let s:comment = "8e908c"
 let s:red = "c82829"
