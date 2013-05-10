@@ -67,7 +67,7 @@ set lbr
 set nowrap
 
 "" Whitespace
-"set tabstop=4                   "Indent 4 spaces with <TAB>
+set tabstop=4                   "Indent 4 spaces with <TAB>
 "set softtabstop=4
 set shiftwidth=4                 "Indent 4 spaces with >>
 "et smarttab
@@ -304,7 +304,7 @@ let b:fortran_dialect = 'f90'
 let b:fortran_fixed_source = 0
 hi link fortranTab NONE
 au BufRead,BufNewFile *.F set noexpandtab
-au BufRead,BufNewFile *.F set softtabstop=0
+" au BufRead,BufNewFile *.F set softtabstop=0
 au BufRead,BufNewFile *.F set shiftwidth=0
 " https://gist.github.com/1470884
 " https://gist.github.com/1471147
@@ -314,8 +314,8 @@ au BufRead,BufNewFile *.F set shiftwidth=0
 "" Everything else:
 ":autocmd BufReadPost * :DetectIndent
 
-"" Autoremove white trailing white space:
-" autocmd BufWritePre * :%s/\s\+$//e
+" Autoremove white trailing white space:
+ autocmd BufWritePre * :%s/\s\+$//e
 
 "" Remap vim's autocompletion to Tab-Key:
 "Use TAB to complete when typing words, else inserts TABs as usual.
