@@ -95,5 +95,6 @@ fi
 
 alias t='~/dotfiles/utils/todo/todo.sh'
 alias mmv='noglob zmv -W'
+alias t='ls'
 
 source ~/.zshrc_local
