@@ -52,7 +52,7 @@ export TERM="xterm-256color"
 #    }
 #set $_Z_NO_RESOLVE_SYMLINKS
 export _Z_NO_RESOLVE_SYMLINKS="true"
-export HOSTTYPE="rzxeon"
+export HOSTTYPE="rzbull"
 
 export EDITOR="vim"
 
