@@ -79,9 +79,6 @@
 [submodule "utils/bitpocket"]
 	path = utils/bitpocket
 	url = https://github.com/sickill/bitpocket
-[submodule "vim/bundle/plgn-minibufexplr"]
-	path = vim/bundle/plgn-minibufexplr
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/bundle/plgn-easymotion"]
 	path = vim/bundle/plgn-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
@@ -91,3 +88,6 @@
 [submodule "vim/bundle/plgn-airline"]
 	path = vim/bundle/plgn-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "vim/bundle/plgn-bufferline"]
+	path = vim/bundle/plgn-bufferline
+	url = https://github.com/bling/vim-bufferline.git
