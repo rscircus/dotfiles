@@ -44,7 +44,7 @@ augroup cline
 augroup END
 
 set ttimeout                    " Keys but not mappings (sanity!)
-set ttimeoutlen=10
+set ttimeoutlen=10              " Speed/Responsiveness
 
 "" wildmenu - Ignore files you never want to edit (hopefully)
 if has("wildmenu")
@@ -274,15 +274,25 @@ let g:SuperTabMappingForward = '<nul>'
 let g:SuperTabMappingBackward = '<s-nul>'
 
 
-"" Powerline
+""" Airline
 set laststatus=2
-" let g:Powerline_symbols= 'unicode'
-if has('gui_running')
-    let g:Powerline_symbols= 'fancy'
-else
-    let g:Powerline_symbols= 'unicode'
-    let g:Powerline_symbols= 'fancy'
-endif
+let g:airline_enable_syntastic=1
+let g:airline_theme='badwolf'
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_paste_symbol = 'Þ'
+let g:airline_paste_symbol = '∥'
+
+
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
