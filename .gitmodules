@@ -13,9 +13,6 @@
 [submodule "vim/bundle/plgn-vim-surround"]
 	path = vim/bundle/plgn-vim-surround
 	url = git://github.com/tpope/vim-surround
-[submodule "vim/bundle/plgn-vim-powerline"]
-	path = vim/bundle/plgn-vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline
 [submodule "vim/bundle/plgn-vim-repeat"]
 	path = vim/bundle/plgn-vim-repeat
 	url = git://github.com/tpope/vim-repeat
