@@ -42,6 +42,7 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/home/rs169182/bin
 export PATH=$PATH:/home/rawland/bin
 export PATH=$PATH:/home/siegbert/bin
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 
 # Terminal 256 colors
 export TERM="xterm-256color"
@@ -66,7 +67,7 @@ export CLICOLOR=1
 export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 export LC_CTYPE=en_US.utf-8
 export IGNOREEOF=1
-export PYTHONDONTWRITEBYTECODE=1
+#export PYTHONDONTWRITEBYTECODE=1
 export LESS=FRSX
 
 bindkey -v
@@ -95,6 +96,6 @@ fi
 
 alias t='~/dotfiles/utils/todo/todo.sh'
 alias mmv='noglob zmv -W'
-alias t='ls'
+alias l='ls'
 
 source ~/.zshrc_local
