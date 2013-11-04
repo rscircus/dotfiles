@@ -310,8 +310,9 @@ autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 au BufNewFile,BufRead xns.in set filetype=xns
 
 "" Fortran
-let b:fortran_dialect = 'f90'
-let b:fortran_fixed_source = 0
+let fortran_dialect = 'f90'
+let fortran_fixed_source = 0
+let fortran_free_source = 1
 hi link fortranTab NONE
 au BufRead,BufNewFile *.F set noexpandtab
 " au BufRead,BufNewFile *.F set softtabstop=0
