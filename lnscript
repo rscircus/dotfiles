@@ -1,0 +1,15 @@
+#TODO: Input such that the user doesn't destroy his/her existing config files
+
+ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim ~/.vim
+
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+
+#TODO: copy rawland theme to .oh-my-zsh
+
+ln -s ~/dotfiles/bash/bashrc ~/.bashrc
+ln -s ~/dotfiles/bash/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/bash/ctags ~/.ctags
+ln -s ~/dotfiles/bash/screenrc ~/.screenrc
+ln -s ~/dotfiles/bash/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/bash/Xmodmap ~/.Xmodmap
