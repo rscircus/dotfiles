@@ -111,10 +111,10 @@ endfunction
 if has("gui_running")
 "   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
     set guifont=Inconsolata-dzForPowerline\ 10
-    colorscheme Tomorrow
+    colorscheme Tomorrow-Night-Bright
 else
 " colorscheme jellybeans
-    colorscheme Tomorrow
+    colorscheme Tomorrow-Night-Bright
 endif
 
 
@@ -324,9 +324,10 @@ au BufRead,BufNewFile *.F set shiftwidth=0
 
 "" Everything else:
 ":autocmd BufReadPost * :DetectIndent
+autocmd BufNewFile,BufRead *.ino setlocal ft=arduino
 
 " Autoremove white trailing white space:
- autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 "" Remap vim's autocompletion to Tab-Key:
 "Use TAB to complete when typing words, else inserts TABs as usual.
