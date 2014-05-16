@@ -20,6 +20,8 @@ endif
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
+set nofoldenable
+set foldmethod=indent
 "set relativenumber              " show line numbers from current line to calc distances
 
 "" Control
