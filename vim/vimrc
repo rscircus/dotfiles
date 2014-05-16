@@ -67,7 +67,12 @@ set magic                         " regex
 
 "" Hande lines
 set formatoptions=qrn1
-set colorcolumn=79
+
+" set colorcolumn=79
+" Highlight only the lines that go past 80 characters
+highlight ColorColumn ctermbg=green guibg=green
+call matchadd('ColorColumn', '\%82v', 100)
+
 set lbr
 set nowrap
 
