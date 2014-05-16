@@ -107,7 +107,7 @@ set background=dark
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
-function ToggleBackgroundColor()
+function! ToggleBackgroundColor()
   if (&background == 'light')
     set background=dark
     echo "background -> dark"
