@@ -11,9 +11,12 @@ set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
-set undofile                    " creates a <FILENAME>.un~ for eternal editing
-set undodir=~/.vim/undodir
-set undoreload=10000
+if has('persistent_undo')
+    set undofile                    " creates a <FILENAME>.un~ for eternal editing
+    set undodir=~/.vim/undodir
+    set undolevels=1000
+    set undoreload=10000
+endif
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
