@@ -310,6 +310,10 @@ let g:airline_paste_symbol = '∥'
 
 
 
+""" vimwiki:
+let g:vimwiki_list = [{'path': '~/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
