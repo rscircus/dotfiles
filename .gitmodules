@@ -97,3 +97,6 @@
 [submodule "gittoolsfromwill"]
 	path = gittoolsfromwill
 	url = git://gitorious.org/willgit/mainline.git
+[submodule "vim/bundle/plgn-vimwiki"]
+	path = vim/bundle/plgn-vimwiki
+	url = https://github.com/vimwiki/vimwiki
