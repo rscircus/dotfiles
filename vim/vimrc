@@ -97,14 +97,13 @@ set pastetoggle=<F2>
 set showmode
 
 
-
 "" Look and feel
 syntax enable
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-set background=light
+set background=dark
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
@@ -119,12 +118,10 @@ function ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-"   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 10
     set guifont=Inconsolata-dzForPowerline\ 10
-    colorscheme Tomorrow-Night-Bright
+    colorscheme solarized
 else
-" colorscheme jellybeans
-    colorscheme Tomorrow-Night-Bright
+    colorscheme solarized
 endif
 
 
