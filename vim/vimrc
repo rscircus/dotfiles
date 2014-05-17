@@ -119,9 +119,11 @@ endfunction
 
 if has("gui_running")
     set guifont=Inconsolata-dzForPowerline\ 10
-    colorscheme solarized
+     colorscheme Tomorrow-Night-Bright
+"     colorscheme jellybeans
 else
-    colorscheme solarized
+"     colorscheme jellybeans
+     colorscheme Tomorrow-Night-Bright
 endif
 
 
