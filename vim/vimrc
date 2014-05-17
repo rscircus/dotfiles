@@ -34,7 +34,7 @@ set guioptions-=l               " remove scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=L
-set linespace=0 								" no extra space between lines (!)
+set linespace=0                                 " no extra space between lines (!)
 set mat=2                       " Blinks 10ths of seconds"
 au FocusLost * :wall            " Save on lost focus
 set title                       " Set terminal title
@@ -219,12 +219,12 @@ let g:syntastic_fortran_flags = '-ffree-form'
 
 "" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
 let g:tagbar_type_mkd = {
-	\ 'ctagstype' : 'markdown',
-	\ 'kinds' : [
-		\ 'h:Heading_L1',
-		\ 'i:Heading_L2',
-		\ 'k:Heading_L3'
-	\ ]
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
 \ }
 
 "" vimorganizer:
