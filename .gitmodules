@@ -88,9 +88,6 @@
 [submodule "vim/bundle/plgn-airline"]
 	path = vim/bundle/plgn-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "vim/bundle/plgn-bufferline"]
-	path = vim/bundle/plgn-bufferline
-	url = https://github.com/bling/vim-bufferline.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
