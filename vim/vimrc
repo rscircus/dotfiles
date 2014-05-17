@@ -91,7 +91,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
 "set list
-nnoremap <leader>t :set list!<cr>
+nnoremap <leader>tt :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
 set showmode
@@ -382,7 +382,7 @@ function! StripTrailingWhitespace()
     endif
 endfunction
 
-nmap <leder>tW :cal StripTrailingWhitespace()<CR>
+nmap <leader>tw :call StripTrailingWhitespace()<CR>
 
 " Function to hide all the text except for the text selected in visual mode.
 " This is great for highlighting parts of the code. Just call the function
