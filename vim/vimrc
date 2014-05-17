@@ -157,7 +157,7 @@ nnoremap <c-l> <c-w>l
 "" Buffers
 map <leader>bd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
-nmap <leader>w :w!<cr>
+nmap <leader>wr :w!<cr>
 map <leader>bn :bn<cr>
 map <leader>bp :bp<cr>
 map <right> :bn<cr>
