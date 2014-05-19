@@ -29,7 +29,7 @@ ZSH_THEME="rawland"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras history-substring-search)
+plugins=(git git-extras lol command-not-found gnu-utils history-substring-search)
 
 skip_global_compinit=1
 source $ZSH/oh-my-zsh.sh
