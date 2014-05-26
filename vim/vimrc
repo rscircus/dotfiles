@@ -118,7 +118,7 @@ function! ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-    set guifont=Inconsolata-dzForPowerline\ 10
+    set guifont=Source\ Code\ Pro\ Medium\ 11
      colorscheme Tomorrow-Night-Bright
 "     colorscheme jellybeans
 else
