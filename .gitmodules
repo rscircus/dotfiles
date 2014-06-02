@@ -97,3 +97,6 @@
 [submodule "vim/bundle/plgn-vimwiki"]
 	path = vim/bundle/plgn-vimwiki
 	url = https://github.com/vimwiki/vimwiki
+[submodule "vim/bundle/vim-colorschemes"]
+	path = vim/bundle/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes
