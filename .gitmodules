@@ -103,3 +103,6 @@
 [submodule "vim/bundle/plgn-csapprox"]
 	path = vim/bundle/plgn-csapprox
 	url = https://github.com/godlygeek/csapprox
+[submodule "vim/bundle/plgn-goyo"]
+	path = vim/bundle/plgn-goyo
+	url = https://github.com/junegunn/goyo.vim

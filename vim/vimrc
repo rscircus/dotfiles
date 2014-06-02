@@ -119,11 +119,11 @@ endfunction
 
 if has("gui_running")
     set guifont=Source\ Code\ Pro\ Medium\ 11
-     colorscheme Tomorrow-Night-Bright
+     colorscheme autumnleaf
 "     colorscheme jellybeans
 else
 "     colorscheme jellybeans
-     colorscheme Tomorrow-Night-Bright
+     colorscheme autumnleaf
 endif
 
 
@@ -368,6 +368,9 @@ endfunction
 
 " Close NERDTree if it is the last buffer open
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+"" Map Goyo toggle to <Leader> + spacebar
+nnoremap <Leader><Space> :Goyo<CR>
 
 " Remove trailing whitespace
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
