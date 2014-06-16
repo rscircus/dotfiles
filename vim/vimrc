@@ -22,7 +22,7 @@ set noswapfile
 set nobackup
 set nofoldenable
 set foldmethod=indent
-"set relativenumber              " show line numbers from current line to calc distances
+set relativenumber              " show line numbers from current line to calc distances
 
 "" Control
 set autoread
@@ -201,14 +201,6 @@ cnoremap <C-N> <Down>
 nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F5>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
-
-"" Numbers plugin
-nnoremap <F3> :NumbersToggle<CR>
-" set rnu
-" au InsertEnter * :set nu
-" au InsertLeave * :set rnu
-" au FocusLost * :set nu
-" au FocusGained * :set rnu
 
 "" Tagbar plugin
 let g:taskbar_usearrows = 1
