@@ -211,7 +211,7 @@ let g:syntastic_fortran_flags = '-ffree-form'
 
 "" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
 let g:tagbar_type_mkd = {
-    \ 'ctagstype' : 'markdown',
+    \ 'ctagstype' : 'mkd',
     \ 'kinds' : [
         \ 'h:Heading_L1',
         \ 'i:Heading_L2',
