@@ -4,9 +4,6 @@
 [submodule "vim/bundle/color-solarized"]
 	path = vim/bundle/color-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/plgn-calendar"]
-	path = vim/bundle/plgn-calendar
-	url = git://github.com/mattn/calendar-vim.git
 [submodule "vim/bundle/plgn-vim-surround"]
 	path = vim/bundle/plgn-vim-surround
 	url = git://github.com/tpope/vim-surround
@@ -43,9 +40,6 @@
 [submodule "vim/bundle/plgn-snippets"]
 	path = vim/bundle/plgn-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "vim/bundle/plgn-conque-shell"]
-	path = vim/bundle/plgn-conque-shell
-	url = https://github.com/vim-scripts/Conque-Shell
 [submodule "vim/bundle/plgn-pydoc"]
 	path = vim/bundle/plgn-pydoc
 	url = https://github.com/vim-scripts/pydoc.vim
@@ -82,9 +76,6 @@
 [submodule "vim/bundle/vim-colorschemes"]
 	path = vim/bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
-[submodule "vim/bundle/plgn-csapprox"]
-	path = vim/bundle/plgn-csapprox
-	url = https://github.com/godlygeek/csapprox
 [submodule "vim/bundle/plgn-goyo"]
 	path = vim/bundle/plgn-goyo
 	url = https://github.com/junegunn/goyo.vim
