@@ -7,18 +7,12 @@
 [submodule "vim/bundle/plgn-calendar"]
 	path = vim/bundle/plgn-calendar
 	url = git://github.com/mattn/calendar-vim.git
-[submodule "vim/bundle/plgn-vim-organizer"]
-	path = vim/bundle/plgn-vim-organizer
-	url = git://github.com/hsitz/VimOrganizer.git
 [submodule "vim/bundle/plgn-vim-surround"]
 	path = vim/bundle/plgn-vim-surround
 	url = git://github.com/tpope/vim-surround
 [submodule "vim/bundle/plgn-vim-repeat"]
 	path = vim/bundle/plgn-vim-repeat
 	url = git://github.com/tpope/vim-repeat
-[submodule "vim/bundle/plgn-nrrwrgn"]
-	path = vim/bundle/plgn-nrrwrgn
-	url = git://github.com/chrisbra/NrrwRgn.git
 [submodule "vim/bundle/plgn-utl"]
 	path = vim/bundle/plgn-utl
 	url = git://github.com/vim-scripts/utl.vim
