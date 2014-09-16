@@ -1,6 +1,15 @@
 call pathogen#runtime_append_all_bundles()          " pathogen
 call pathogen#helptags()
 filetype plugin indent on       " load file type plugins + indentation
+
+"vim-plug will replace pathogen due to lazy loading
+call plug#begin('~/.vim/plugged')
+
+"call 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar'
+
+call plug#end()
+
 let mapleader = ","
 
 "" General vim options
