@@ -55,9 +55,6 @@
 [submodule "vim/bundle/plgn-pydoc"]
 	path = vim/bundle/plgn-pydoc
 	url = https://github.com/vim-scripts/pydoc.vim
-[submodule "vim/bundle/plgn-nerdtree"]
-	path = vim/bundle/plgn-nerdtree
-	url = https://github.com/scrooloose/nerdtree
 [submodule "zsh/z"]
 	path = zsh/z
 	url = https://github.com/rupa/z
