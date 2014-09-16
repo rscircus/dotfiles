@@ -22,9 +22,6 @@
 [submodule "vim/bundle/plgn-utl"]
 	path = vim/bundle/plgn-utl
 	url = git://github.com/vim-scripts/utl.vim
-[submodule "vim/bundle/plgn-tagbar"]
-	path = vim/bundle/plgn-tagbar
-	url = git://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = git://github.com/ap/vim-css-color
@@ -58,9 +55,6 @@
 [submodule "vim/bundle/plgn-pydoc"]
 	path = vim/bundle/plgn-pydoc
 	url = https://github.com/vim-scripts/pydoc.vim
-[submodule "vim/bundle/color-badwolf"]
-	path = vim/bundle/color-badwolf
-	url = https://github.com/sjl/badwolf.git
 [submodule "vim/bundle/plgn-nerdtree"]
 	path = vim/bundle/plgn-nerdtree
 	url = https://github.com/scrooloose/nerdtree
