@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
 
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
@@ -38,7 +39,9 @@ set noswapfile
 set nobackup
 set nofoldenable
 set foldmethod=indent
-set relativenumber              " show line numbers from current line to calc distances
+if version>=703
+    set relativenumber              " show line numbers from current line to calc distances
+endif
 
 "" Control
 set autoread
@@ -84,7 +87,9 @@ set magic                         " regex
 "" Hande lines
 set formatoptions=qrn1
 
-" set colorcolumn=79
+if version>=703
+    set colorcolumn=79
+endif
 " Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
 call matchadd('ColorColumn', '\%82v', 100)
@@ -333,7 +338,6 @@ map <leader>nf :NERDTreeFind<cr>
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
-au VimEnter * RainbowParenthesesToggle
 
 "" autoreload vimrc - you might want to change that line
 autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
