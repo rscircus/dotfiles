@@ -12,6 +12,7 @@ Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
+Plug 'skammer/vim-css-color', { 'for': 'css' }
 
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
