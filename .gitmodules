@@ -58,9 +58,6 @@
 [submodule "vim/bundle/plgn-easymotion"]
 	path = vim/bundle/plgn-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
-[submodule "vim/bundle/plgn-gitgutter"]
-	path = vim/bundle/plgn-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
 [submodule "vim/bundle/plgn-airline"]
 	path = vim/bundle/plgn-airline
 	url = https://github.com/bling/vim-airline.git

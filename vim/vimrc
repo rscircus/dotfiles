@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 " IDE-ish:
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
@@ -252,8 +253,8 @@ command! OrgCaptureFile :call org#OpenCaptureFile()
 nnoremap <leader>c :OrgCapture<cr>
 
 "" Git Gutter:
-map <leader>g :ToggleGitGutter<cr>
-map <leader>gg :ToggleGitGutterLineHighlights<cr>
+map <leader>g :GitGutterToggle<cr>
+map <leader>gg :GitGutterLineHighlightsToggle<cr>
 
 "" Goyo:
 nnoremap <leader>G :Goyo<cr>
