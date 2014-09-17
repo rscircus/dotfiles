@@ -76,6 +76,3 @@
 [submodule "vim/bundle/vim-colorschemes"]
 	path = vim/bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
-[submodule "vim/bundle/plgn-goyo"]
-	path = vim/bundle/plgn-goyo
-	url = https://github.com/junegunn/goyo.vim

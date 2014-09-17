@@ -5,10 +5,15 @@ filetype plugin indent on       " load file type plugins + indentation
 "vim-plug will replace pathogen due to lazy loading
 call plug#begin('~/.vim/plugged')
 
+" IDE-ish:
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 
+" Color schemes:
 Plug 'junegunn/seoul256.vim'
+
+" Distraction free writing:
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
