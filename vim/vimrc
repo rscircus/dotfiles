@@ -13,7 +13,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/seoul256.vim'
 
 " Distraction free writing:
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 call plug#end()
 
@@ -254,6 +254,9 @@ nnoremap <leader>c :OrgCapture<cr>
 "" Git Gutter:
 map <leader>g :ToggleGitGutter<cr>
 map <leader>gg :ToggleGitGutterLineHighlights<cr>
+
+"" Goyo:
+nnoremap <leader>G :Goyo<cr>
 
 function! OrgustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
