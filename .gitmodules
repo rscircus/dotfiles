@@ -1,69 +1,15 @@
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized
-[submodule "vim/bundle/color-solarized"]
-	path = vim/bundle/color-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/plgn-vim-surround"]
-	path = vim/bundle/plgn-vim-surround
-	url = git://github.com/tpope/vim-surround
-[submodule "vim/bundle/plgn-vim-repeat"]
-	path = vim/bundle/plgn-vim-repeat
-	url = git://github.com/tpope/vim-repeat
-[submodule "vim/bundle/vim-css-color"]
-	path = vim/bundle/vim-css-color
-	url = git://github.com/ap/vim-css-color
-[submodule "vim/bundle/plgn-ctrlp"]
-  path = vim/bundle/plgn-ctrlp
-  url = git://github.com/kien/ctrlp.vim
-[submodule "vim/bundle/plgn-syntastic"]
-	path = vim/bundle/plgn-syntastic
-	url = https://github.com/scrooloose/syntastic
-[submodule "vim/bundle/plgn-delimitMate"]
-	path = vim/bundle/plgn-delimitMate
-	url = https://github.com/Raimondi/delimitMate
-[submodule "vim/bundle/plgn-rainbow-parenthesis"]
-	path = vim/bundle/plgn-rainbow-parenthesis
-	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/plgn-snipmate-g"]
-	path = vim/bundle/plgn-snipmate-g
-	url = https://github.com/garbas/vim-snipmate
-[submodule "vim/bundle/vim-mw-utils"]
-	path = vim/bundle/vim-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils
-[submodule "vim/bundle/plgn-tlib"]
-	path = vim/bundle/plgn-tlib
-	url = https://github.com/tomtom/tlib_vim
-[submodule "vim/bundle/plgn-snippets"]
-	path = vim/bundle/plgn-snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule "vim/bundle/plgn-pydoc"]
-	path = vim/bundle/plgn-pydoc
-	url = https://github.com/vim-scripts/pydoc.vim
 [submodule "zsh/z"]
 	path = zsh/z
 	url = https://github.com/rupa/z
-[submodule "vim/bundle/plgn-tabular"]
-	path = vim/bundle/plgn-tabular
-	url = https://github.com/godlygeek/tabular
 [submodule "utils/todo"]
 	path = utils/todo
 	url = https://github.com/ginatrapani/todo.txt-cli
 [submodule "utils/bitpocket"]
 	path = utils/bitpocket
 	url = https://github.com/sickill/bitpocket
-[submodule "vim/bundle/plgn-easymotion"]
-	path = vim/bundle/plgn-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion
-[submodule "vim/bundle/plgn-airline"]
-	path = vim/bundle/plgn-airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "gittoolsfromwill"]
 	path = gittoolsfromwill
 	url = git://gitorious.org/willgit/mainline.git
-[submodule "vim/bundle/plgn-vimwiki"]
-	path = vim/bundle/plgn-vimwiki
-	url = https://github.com/vimwiki/vimwiki
-[submodule "vim/bundle/vim-colorschemes"]
-	path = vim/bundle/vim-colorschemes
-	url = https://github.com/flazz/vim-colorschemes
