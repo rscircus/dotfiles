@@ -9,12 +9,17 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'junegunn/vim-easy-align'
+Plug 'bling/vim-airline'
 
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -463,5 +468,12 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
+
+" Easy-align:
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
 
 source ~/.vimrc_local
