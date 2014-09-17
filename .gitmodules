@@ -10,9 +10,6 @@
 [submodule "vim/bundle/plgn-vim-repeat"]
 	path = vim/bundle/plgn-vim-repeat
 	url = git://github.com/tpope/vim-repeat
-[submodule "vim/bundle/plgn-utl"]
-	path = vim/bundle/plgn-utl
-	url = git://github.com/vim-scripts/utl.vim
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = git://github.com/ap/vim-css-color
@@ -61,9 +58,6 @@
 [submodule "vim/bundle/plgn-airline"]
 	path = vim/bundle/plgn-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "gittoolsfromwill"]
 	path = gittoolsfromwill
 	url = git://gitorious.org/willgit/mainline.git
