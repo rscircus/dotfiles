@@ -14,6 +14,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
+Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
+Plug 'tpope/vim-surround'
 
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
@@ -477,5 +479,8 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
+
+" TabMan - Toggle:
+map <leader>ttm :TMToggle<cr>
 
 source ~/.vimrc_local
