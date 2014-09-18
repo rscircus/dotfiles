@@ -17,6 +17,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 
+" Automatic indentation settings:
+Plug 'tpope/vim-sleuth'
+
 " Color schemes:
 Plug 'junegunn/seoul256.vim'
 
@@ -96,9 +99,6 @@ set magic                         " regex
 "" Hande lines
 set formatoptions=qrn1
 
-if version>=703
-    set colorcolumn=79
-endif
 " Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
 call matchadd('ColorColumn', '\%82v', 100)
@@ -107,15 +107,15 @@ set lbr
 set nowrap
 
 "" Whitespace
-set tabstop=4                   "Indent 4 spaces with <TAB>
+"set tabstop=4                   "Indent 4 spaces with <TAB>
 "set softtabstop=4
-set shiftwidth=4                 "Indent 4 spaces with >>
-"et smarttab
-set expandtab
+"set shiftwidth=4                 "Indent 4 spaces with >>
+"set smarttab
+"set expandtab
 "set cindent                     " Like smartindent, but more clever
-set shiftround                   " At 3 spaces >> goes to 4
+"set shiftround                   " At 3 spaces >> goes to 4
 set smartindent                  " Helps indenting after/before specific keywords
-set autoindent                   " Keep indent, when indented
+"set autoindent                   " Keep indent, when indented
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
@@ -247,20 +247,6 @@ let g:tagbar_type_mkd = {
     \ ]
 \ }
 
-"" vimorganizer:
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-au BufEnter *.org            call org#SetOrgFileType()
-let g:ft_ignore_pat = '\.org'
-let g:org_command_for_emacsclient = 'emacsclient'
-let g:org_capture_file = '~/org/refile.org'
-let g:org_agenda_files = split(glob("~/org/*.org"),"\n")
-let g:org_agenda_include_clocktable = 1
-let g:org_todo_setup = 'TODO NEXT WAITING | CANCELLED DONE'
-let g:org_tags_alist='{@home(h) @work(w)} {easy(e) hard(d)} {computer(c) phone(p)}'
-command! OrgCapture :call org#CaptureBuffer()
-command! OrgCaptureFile :call org#OpenCaptureFile()
-nnoremap <leader>c :OrgCapture<cr>
-
 "" Git Gutter:
 map <leader>g :GitGutterToggle<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
@@ -281,9 +267,6 @@ function! OrgustomColors()
             \                 'ctermfg':'red' } }
 
 endfunction
-
-"" Utl
-let g:utl_cfg_hdl_scm_http="silent !chromium-browser '%u#%f' &"
 
 "" YankRing
 nnoremap <silent> <F12> :YRShow<cr>
@@ -311,7 +294,7 @@ let g:SuperTabMappingBackward = '<s-nul>'
 set laststatus=2
 let g:airline_enable_syntastic=1
 let g:airline_enable_branch=1
-let g:airline_theme='badwolf'
+let g:airline_theme='powerlineish'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -320,22 +303,24 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " reset airline symbols
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
+"  if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"  endif
+"
+"" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_linecolumn_prefix = '␊ '
+"let g:airline_linecolumn_prefix = '␤ '
+"let g:airline_linecolumn_prefix = '¶ '
+"let g:airline_fugitive_prefix = '⎇ '
+"let g:airline_paste_symbol = 'ρ'
+"let g:airline_paste_symbol = 'Þ'
+"let g:airline_paste_symbol = '∥'
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_fugitive_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
+let g:airline_powerline_fonts = 1
 
 """ vimwiki:
 let g:vimwiki_list = [{'path': '~/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -361,7 +346,7 @@ let fortran_free_source = 1
 hi link fortranTab NONE
 au BufRead,BufNewFile *.F set noexpandtab
 " au BufRead,BufNewFile *.F set softtabstop=0
-au BufRead,BufNewFile *.F set shiftwidth=0
+"au BufRead,BufNewFile *.F set shiftwidth=0
 " https://gist.github.com/1470884
 " https://gist.github.com/1471147
 " https://gist.github.com/2424873
