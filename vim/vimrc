@@ -21,7 +21,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 
 " Color schemes:
-Plug 'junegunn/seoul256.vim'
+Plug 'larssmit/vim-getafe'
+Plug 'morhetz/gruvbox'
+Plug 'twerth/ir_black'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -138,7 +140,7 @@ set t_Co=256                    " Explicitly tell vim terminal features
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
-colorscheme seoul256
+colorscheme ir_black
 
 function! ToggleBackgroundColor()
   if (&background == 'light')
