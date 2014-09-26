@@ -55,6 +55,8 @@ set nofoldenable
 set foldmethod=indent
 if version>=703
     set relativenumber              " show line numbers from current line to calc distances
+else
+    set number
 endif
 
 "" Control
@@ -140,7 +142,7 @@ set t_Co=256                    " Explicitly tell vim terminal features
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
-colorscheme desert
+colorscheme pablo
 
 function! ToggleBackgroundColor()
   if (&background == 'light')
