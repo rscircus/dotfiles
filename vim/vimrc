@@ -16,6 +16,7 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
+Plug 'plasticboy/vim-markdown'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -345,6 +346,9 @@ autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 
 "" XNS
 au BufNewFile,BufRead xns.in set filetype=xns
+
+"" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 "" Fortran
 let fortran_dialect = 'f90'
