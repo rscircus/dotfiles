@@ -16,7 +16,7 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for' : 'mkd' }
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -245,16 +245,6 @@ nnoremap <leader>l :TagbarToggle<CR>
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
 
-"" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
-let g:tagbar_type_mkd = {
-    \ 'ctagstype' : 'mkd',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
 "" Git Gutter:
 map <leader>g :GitGutterToggle<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
@@ -331,7 +321,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 
 """ vimwiki:
-let g:vimwiki_list = [{'path': '~/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+"let g:vimwiki_list = [{'path': '~/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
@@ -348,7 +338,7 @@ autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 au BufNewFile,BufRead xns.in set filetype=xns
 
 "" Markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufRead *.md set ft=mkd
 
 "" Fortran
 let fortran_dialect = 'f90'
@@ -480,3 +470,4 @@ nmap <Leader>a <Plug>(EasyAlign)
 map <leader>ttm :TMToggle<cr>
 
 source ~/.vimrc_local
+
