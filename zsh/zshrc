@@ -41,6 +41,7 @@ unsetopt correct_all
 export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/home/rs169182/bin
+export PATH=$PATH:/home/rs169182/.local/bin
 export PATH=$PATH:/home/rawland/bin
 export PATH=$PATH:/home/siegbert/bin
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
