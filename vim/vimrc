@@ -17,6 +17,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'plasticboy/vim-markdown', { 'for' : 'mkd' }
+Plug 'severin-lemaignan/vim-minimap'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -468,6 +469,9 @@ nmap <Leader>a <Plug>(EasyAlign)
 
 " TabMan - Toggle:
 map <leader>ttm :TMToggle<cr>
+
+" Minimap
+map <leader>m :Minimap<cr>
 
 source ~/.vimrc_local
 
