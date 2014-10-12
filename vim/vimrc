@@ -245,6 +245,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
+let g:syntastic_fortran_fortran_exec = 'ifort'
 
 "" Git Gutter:
 map <leader>g :GitGutterToggle<cr>
@@ -466,6 +467,12 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
+
+let g:easy_align_delimiters = {
+\':': { 'pattern': '::\|:',
+\'left_margin': 1,
+\'right_margin': 1,
+\'stick_to_left': 0 } }
 
 " TabMan - Toggle:
 map <leader>ttm :TMToggle<cr>
