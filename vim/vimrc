@@ -27,9 +27,12 @@ Plug 'larssmit/vim-getafe'
 Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
 Plug 'brendonrapp/smyck-vim'
+Plug 'reedes/vim-colors-pencil'
+Plug 'reedes/vim-wordy'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'reedes/vim-pencil'
 
 Plug 'vimwiki/vimwiki'
 
@@ -295,6 +298,7 @@ set laststatus=2
 let g:airline_enable_syntastic=1
 let g:airline_enable_branch=1
 let g:airline_theme='powerlineish'
+"let g:airline_theme='pencil'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
