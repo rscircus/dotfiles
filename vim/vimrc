@@ -18,6 +18,7 @@ Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'plasticboy/vim-markdown', { 'for' : 'mkd' }
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'esneider/YUNOcommit.vim'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
