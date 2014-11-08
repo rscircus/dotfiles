@@ -132,7 +132,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
 set showbreak=↪
 "set list
-nnoremap <leader>tt :set list!<cr>
+nnoremap <leader>tl :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
 set showmode
@@ -176,9 +176,10 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter`
 
 set gdefault                    " replacing globally is default
-set nohlsearch                  " do not highlight search
 set showmatch                   " show matches
 set incsearch                   " incremental searching
+set hlsearch
+nmap <leader>q :nohlsearch<cr>
 
 "" ESC:
 inoremap jj <ESC>
@@ -278,6 +279,13 @@ nnoremap <silent> <F12> :YRShow<cr>
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_match_window_reversed = 0
+:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+:let g:ctrlp_working_path_mode = 0
+:let g:ctrlp_dotfiles = 0
+:let g:ctrlp_switch_buffer = 0
+nmap ; :CtrlPBuffer<cr>
 
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " let g:ctrlp_custom_ignore = {
@@ -292,6 +300,10 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "let g:SuperTabMappingBackward = '<s-c-space>'
 let g:SuperTabMappingForward = '<nul>'
 let g:SuperTabMappingBackward = '<s-nul>'
+:nmap <leader>tf:set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+:nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
+:nmap <leader>tM :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+:nmap <leader>tm :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 
 """ Airline
@@ -484,6 +496,11 @@ map <leader>ttm :TMToggle<cr>
 
 " Minimap
 map <leader>m :Minimap<cr>
+
+" Fix wandering along wrapped lines:
+nmap j gj
+nmap k gk
+nmap <leader>w :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 source ~/.vimrc_local
 
