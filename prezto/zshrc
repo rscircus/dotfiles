@@ -77,6 +77,12 @@ bindkey -M vicmd "?" history-incremental-search-forward
 bindkey -M vicmd "//" history-beginning-search-backward
 bindkey -M vicmd "??" history-beginning-search-forward
 
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+
 bindkey "\eOP" run-help
 
 # oh wow!  This is killer...  try it!
@@ -84,3 +90,13 @@ bindkey -M vicmd "q" push-line
 
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
+
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+
+export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/home/rs169182/bin
+export PATH=$PATH:/home/rs169182/.local/bin
+export PATH=$PATH:/home/rawland/bin
+export PATH=$PATH:/home/siegbert/bin
