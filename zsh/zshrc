@@ -44,6 +44,7 @@ export PATH=$PATH:/home/rs169182/bin
 export PATH=$PATH:/home/rs169182/.local/bin
 export PATH=$PATH:/home/rawland/bin
 export PATH=$PATH:/home/siegbert/bin
+export PATH=$HOME:/.tmuxifier/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 
 # Terminal 256 colors
