@@ -16,7 +16,7 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'plasticboy/vim-markdown', { 'for' : 'mkd' }
+Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 
@@ -35,7 +35,7 @@ Plug 'reedes/vim-wordy'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -115,7 +115,6 @@ set formatoptions=qrn1
 " call matchadd('ColorColumn', '\%82v', 100)
 
 set lbr
-set nowrap
 
 "" Whitespace
 "set tabstop=4                   "Indent 4 spaces with <TAB>
@@ -354,9 +353,6 @@ autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 
 "" XNS
 au BufNewFile,BufRead xns.in set filetype=xns
-
-"" Markdown
-au BufNewFile,BufRead *.md set ft=mkd
 
 "" Fortran
 let fortran_dialect = 'f90'
