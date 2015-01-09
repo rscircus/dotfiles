@@ -16,7 +16,9 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
+Plug 'jtratner/vim-flavored-markdown', { 'for' : ['mkd','md','markdown'] }
+" Seems to be more promising, but is not ready, yet:
+" Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 
@@ -30,12 +32,11 @@ Plug 'twerth/ir_black'
 Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'reedes/vim-wordy'
+Plug 'endel/vim-github-colorscheme'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
-
-" Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -452,7 +453,7 @@ endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Autoremove white trailing white space:
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 "" Remap vim's autocompletion to Tab-Key:
 "Use TAB to complete when typing words, else inserts TABs as usual.
