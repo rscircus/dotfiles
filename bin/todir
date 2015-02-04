@@ -1,0 +1,76 @@
+#!/bin/sh
+# Simple, directory based, todo list manager.
+# Just create a .todir file in and add tasks!
+# .todir syntax: "+" high, "#" medium, "-" low priority and "//" comment.
+# For syntax highlighting take a look at .vim/syntax/todir.vim
+
+#LOW='\x1b[32m'		#Green
+#MID='\x1b[36m'		#Cyan
+#HIGH='\x1b[33m'	#Yellow
+LOW='\x1b[32m;1m'	#Green
+MID='\x1b[36m;1m'	#Cyan
+HIGH='\x1b[33m;1m'	#Yellow
+
+while getopts "chrs" opt; do
+	case "$opt" in
+		c)
+			grep -cs "^\s*+\|^\s*#\|^\s*-" .todir
+			exit
+			;;
+		h)
+			echo -e "ToDir v0.5"
+			echo -e "Usage: todir [-c] [-h] [-r] [-s] [path]\n"
+			echo -e "A directory based todo list manager. Create a .todir file and add tasks"
+			echo -e ".todir syntax: \"+\" high priority, \"#\" medium and \"-\" low. \"//\" is comment.\n"
+			echo -e "\tpath\tPath of directory which contains .todir, default to current directory"
+			echo -e "\t-c\tReturns number of tasks"
+			echo -e "\t-h\tShows this message"
+			echo -e "\t-r\tShows tasks of all subfolders, recursively"
+			echo -e "\t-s\tSearch source code under path for tasks"
+			exit
+			;;
+		r)
+			recurse=true
+			;;
+		s)
+			surf=true
+			;;
+		*)
+			;;
+	esac
+done
+
+shift $(($OPTIND - 1))
+tpath=$(echo ${1} | sed "s/.todir$//")
+
+if [ -z "$tpath" ]; then
+	tpath="."
+fi
+
+if [ -z $surf ]; then
+	if [ -z $recurse ]; then
+		data="$(grep -v '^//' $tpath/.todir 2>/dev/null)"
+	else
+		find ${tpath} -name .todir -exec echo "$0:" \; -exec $0 {} \; -exec echo "" \;
+		exit
+	fi
+else
+	if [ -z $recurse ]; then
+		sargs=" "
+	else
+		sargs="-r"
+	fi
+
+	data=$(grep ${sargs} "FIXME\|TODO\|XXX" * 2> /dev/null | \
+		awk -F ":" '/FIXME|TODO|XXX/ \
+		{ printf "%s", $2; for(i=3;i<=NF;++i) printf "%s", $i; print ", at: " $1 }' | \
+			sed "s/.*TODO\s*/- /; \
+			s/.*FIXME\s*/# /; \
+			s/.*XXX\s*/+ /; \
+			s/\s*\*\///")
+fi
+
+echo -e "$data" | sed "s/^\s*+.*/a${HIGH}&/; \
+	s/^\s*#.*/b${MID}&/; \
+	s/^\s*-.*/c${LOW}&/" | \
+	sort -s -k 1.1,1.1 | sed "s/^[abc]//"
