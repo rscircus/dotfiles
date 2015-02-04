@@ -4,12 +4,9 @@
 # .todir syntax: "+" high, "#" medium, "-" low priority and "//" comment.
 # For syntax highlighting take a look at .vim/syntax/todir.vim
 
-#LOW='\x1b[32m'		#Green
-#MID='\x1b[36m'		#Cyan
-#HIGH='\x1b[33m'	#Yellow
-LOW='\x1b[32m;1m'	#Green
-MID='\x1b[36m;1m'	#Cyan
-HIGH='\x1b[33m;1m'	#Yellow
+LOW='\x1b[32m'   #Green
+MID='\x1b[36m'   #Cyan
+HIGH='\x1b[33m'  #Yellow
 
 while getopts "chrs" opt; do
 	case "$opt" in
