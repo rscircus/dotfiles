@@ -143,13 +143,14 @@ let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-set background=dark
+set background=light
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
-colorscheme smyck
+"colorscheme smyck
+colorscheme pencil
 
 function! ToggleBackgroundColor()
   if (&background == 'light')
@@ -310,7 +311,7 @@ set laststatus=2
 let g:airline_enable_syntastic=1
 let g:airline_enable_branch=1
 let g:airline_theme='powerlineish'
-"let g:airline_theme='pencil'
+let g:airline_theme='pencil'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1

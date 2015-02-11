@@ -1,16 +1,16 @@
-git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+#git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 
 #TODO: Input such that the user doesn't destroy his/her existing config files
 
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim ~/.vim
+ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 #TODO: copy rawland theme to .oh-my-zsh
 
-ln -s ~/dotfiles/config/bashrc ~/.bashrc
-ln -s ~/dotfiles/config/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/config/ctags ~/.ctags
-ln -s ~/dotfiles/config/screenrc ~/.screenrc
-ln -s ~/dotfiles/config/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/config/Xmodmap ~/.Xmodmap
+#ln -sf ~/dotfiles/config/bashrc ~/.bashrc
+ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/config/ctags ~/.ctags
+ln -sf ~/dotfiles/config/screenrc ~/.screenrc
+ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/config/Xmodmap ~/.Xmodmap
