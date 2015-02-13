@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
@@ -276,6 +277,15 @@ endfunction
 
 "" YankRing
 nnoremap <silent> <F12> :YRShow<cr>
+
+
+"" TextBubbling
+" single line
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+" multi line
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
 
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
