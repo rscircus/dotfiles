@@ -41,8 +41,10 @@ unsetopt correct_all
 export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/home/rs169182/bin
+export PATH=$PATH:/home/rs169182/dotfiles/bin
 export PATH=$PATH:/home/rs169182/.local/bin
 export PATH=$PATH:/home/rawland/bin
+export PATH=$PATH:/home/rawland/dotfiles/bin
 export PATH=$PATH:/home/siegbert/bin
 
 export TMUXIFIER_LAYOUT_PATH=~/dotfiles/tmuxifier
