@@ -111,7 +111,7 @@ set magic                         " regex
 
 "" Hande lines
 set formatoptions=qrn1
-set formatprg=par -q
+set formatprg=par\ -q
 
 " Highlight only the lines that go past 80 characters
 " highlight ColorColumn ctermbg=grey guibg=grey
