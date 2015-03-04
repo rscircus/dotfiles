@@ -13,6 +13,7 @@ Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
