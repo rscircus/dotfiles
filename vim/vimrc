@@ -18,9 +18,8 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'jtratner/vim-flavored-markdown', { 'for' : ['mkd','md','markdown'] }
 " Seems to be more promising, but is not ready, yet:
-" Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
+Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','me','md','markdown'] }
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 
@@ -251,6 +250,18 @@ inoremap jk <Esc>                                   " Hardcore vim
 "" Tagbar plugin
 let g:taskbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+"" Markdown
+autocmd BufNewFile,BufReadPost *.md,*.mkd,*.me set filetype=markdown
+
+""" gabrielana/vim-markdown
+let g:markdown_enable_spell_checking = 0
+
+""" jratner/vim-flavored/markdown
+"augroup markdown
+"    au!
+"    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
+"augroup END
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
