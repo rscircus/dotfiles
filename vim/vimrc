@@ -251,6 +251,15 @@ inoremap jk <Esc>                                   " Hardcore vim
 let g:taskbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
+let g:tagbar_type_markdown = {
+  \ 'ctagstype' : 'markdown',
+  \ 'kinds' : [
+    \ 'h:Heading_L1',
+    \ 'i:Heading_L2',
+    \ 'k:Heading_L3'
+  \ ]
+\ }
+
 "" Markdown
 autocmd BufNewFile,BufReadPost *.md,*.mkd,*.me set filetype=markdown
 
@@ -331,8 +340,8 @@ let g:SuperTabMappingBackward = '<s-nul>'
 
 """ Airline
 set laststatus=2
-let g:airline_enable_syntastic=1
-let g:airline_enable_branch=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_extensions = ['branch']
 let g:airline_theme='powerlineish'
 let g:airline_theme='pencil'
 
