@@ -34,6 +34,7 @@ Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'reedes/vim-wordy'
 Plug 'endel/vim-github-colorscheme'
+Plug 'altercation/vim-colors-solarized'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
