@@ -52,6 +52,7 @@ set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
 set cursorline                  " highlight current line
+set cursorcolumn                " highlight current line
 if has('persistent_undo')
     set undofile                    " creates a <FILENAME>.un~ for eternal editing
     set undodir=~/.vim/undodir
@@ -65,8 +66,10 @@ set nofoldenable
 set foldmethod=indent
 if version>=703
     set relativenumber              " show line numbers from current line to calc distances
+    let &colorcolumn=join(range(81,999),",") " color all columns >=81 
 else
     set number
+    set colorcolumn=81
 endif
 
 "" Control
@@ -111,14 +114,15 @@ endif
 set magic                         " regex
 
 "" Hande lines
+set textwidth=80
 set formatoptions=qrn1
+set lbr
 set formatprg=par\ -q
 
 " Highlight only the lines that go past 80 characters
 " highlight ColorColumn ctermbg=grey guibg=grey
 " call matchadd('ColorColumn', '\%82v', 100)
 
-set lbr
 
 "" Whitespace
 "set tabstop=4                   "Indent 4 spaces with <TAB>
@@ -128,12 +132,12 @@ set lbr
 "set expandtab
 "set cindent                     " Like smartindent, but more clever
 "set shiftround                   " At 3 spaces >> goes to 4
-set smartindent                  " Helps indenting after/before specific keywords
 "set autoindent                   " Keep indent, when indented
+set smartindent                  " Helps indenting after/before specific keywords
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
-set showbreak=↪
+"set showbreak=↪
 "set list
 nnoremap <leader>tl :set list!<cr>
 nnoremap <F2> :set invpaste paste?<cr>
@@ -244,7 +248,7 @@ cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
 "" Change keyboard shortcuts
-nnoremap <leader>e <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F5>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
 
