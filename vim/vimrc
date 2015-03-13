@@ -254,7 +254,9 @@ map <F5>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>                                   " Hardcore vim
 
 "" Tagbar plugin
-let g:taskbar_usearrows = 1
+let g:tagbar_usearrows = 1
+let g:tagbar_sort = 0 " appearance = 0, name = 1
+let g:tagbar_width = 30
 nnoremap <leader>l :TagbarToggle<CR>
 
 let g:tagbar_type_markdown = {
