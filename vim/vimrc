@@ -270,16 +270,13 @@ let g:tagbar_type_markdown = {
   \ ]
 \ }
 
-"" Markdown
-autocmd BufNewFile,BufReadPost *.mkd,*.md,*.me set filetype=markdown
-
 """ gabrielana/vim-markdown
 "let g:markdown_enable_spell_checking = 0
 
 "" jratner/vim-flavored/markdown
 augroup markdown
     au!
-    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=markdown
 augroup END
 
 "" Synatstic plugin:
