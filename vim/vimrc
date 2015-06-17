@@ -24,7 +24,6 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'Shougo/vimproc'
-Plug 'Shougo/vimshell.vim'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -36,8 +35,9 @@ Plug 'twerth/ir_black'
 Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'reedes/vim-wordy'
-Plug 'endel/vim-github-colorscheme'
 Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+Plug 'rscircus/github.vim'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -159,8 +159,7 @@ set t_Co=256                    " Explicitly tell vim terminal features
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
-"colorscheme smyck
-colorscheme pencil
+colorscheme github
 
 function! ToggleBackgroundColor()
   if (&background == 'light')
