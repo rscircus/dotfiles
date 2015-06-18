@@ -53,6 +53,7 @@ call plug#end()
 let mapleader = ","
 
 "" General vim options
+set shell=/bin/bash
 set encoding=utf-8
 set fileformats=unix,mac,dos    " in this order supported file types
 set nocompatible
@@ -292,6 +293,8 @@ let g:syntastic_fortran_flags = '-ffree-form'
 let g:syntastic_fortran_fortran_exec = 'ifort'
 
 "" Git Gutter:
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 map <leader>g :GitGutterToggle<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
 
