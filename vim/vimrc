@@ -24,6 +24,8 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'Shougo/vimproc'
+"Plug 'gorodinskiy/vim-coloresque'
+Plug 'chrisbra/Colorizer'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -61,7 +63,6 @@ set t_Co=256                    " Explicitly tell vim terminal features
 set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
-"set cursorcolumn                " highlight current line
 if has('persistent_undo')
     set undofile                    " creates a <FILENAME>.un~ for eternal editing
     set undodir=~/.vim/undodir
@@ -98,7 +99,7 @@ set linespace=0                                 " no extra space between lines (
 set mat=2                       " Blinks 10ths of seconds"
 set title                       " Set terminal title
 
- Set cursorline in current window and normal mode
+" Set cursorline in current window and normal mode
 augroup cline
     au!
     au WinLeave * set nocursorline
@@ -409,6 +410,7 @@ autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 
 "" XNS
 au BufNewFile,BufRead xns.in set filetype=xns
+au BufNewFile,BufRead *.less set filetype=less
 
 "" Fortran
 let fortran_dialect = 'f90'
@@ -552,6 +554,9 @@ map <leader>m :Minimap<cr>
 nmap j gj
 nmap k gk
 nmap <leader>w :setlocal wrap!<cr>:setlocal wrap?<cr>
+
+" Colorizer:
+let g:colorizer_auto_filetype='css,less,html'
 
 source ~/.vimrc_local
 
