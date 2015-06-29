@@ -30,13 +30,16 @@ Plug 'chrisbra/Colorizer'
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
 
+" Writing:
+Plug 'reedes/vim-wordy'
+"install vim-lexical when you need to, one day...
+
 " Color schemes:
 Plug 'larssmit/vim-getafe'
 Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
 Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
-Plug 'reedes/vim-wordy'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Lokaltog/vim-distinguished'
