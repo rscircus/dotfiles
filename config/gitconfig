@@ -4,12 +4,21 @@
     name = Roland Siegbert
     email = siegbert@cats.rwth-aachen.de
 [alias]
-    st = status
-    ci = commit
+# short ones
     br = branch
+    ci = commit
     cb = checkout -b
     co = checkout
     df = diff
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ds = diff --staged
+    st = status -sb
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%s' --abbrev-commit
+    ls = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
+
+# complex ones
+    amend = commit -amend -C HEAD
+    undo = reset --soft HEAD^
+    standup = log --since '1 day ago' --oneline --author siegbert@cats.rwth-aachen.de
     wipe = reset --hard HEAD
     ready = rebase -i @{u}
+    graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
