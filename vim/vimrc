@@ -35,7 +35,7 @@ Plug 'reedes/vim-wordy'
 "install vim-lexical when you need to, one day...
 
 " org-mode:
-Plug 'jceb/vim-orgmod'
+Plug 'jceb/vim-orgmode', {'for': 'org'}
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
