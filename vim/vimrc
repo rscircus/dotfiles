@@ -176,14 +176,15 @@ set t_Co=256                    " Explicitly tell vim terminal features
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
-" Do not underline CursorLine:
-:hi CursorLine   cterm=NONE
-set cursorline                  " highlight current line
-set background=light
 
 "let g:pencil_terminal_italics = 0
 "let g:pencil_higher_contrast_ui = 1
 color PaperColor
+
+" Do not underline CursorLine:
+set cursorline                  " highlight current line
+set background=light
+:hi CursorLine cterm=NONE
 
 function! ToggleBackgroundColor()
   if (&background == 'light')
