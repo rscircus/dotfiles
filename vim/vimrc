@@ -57,6 +57,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 
+" Dev
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 let mapleader = ","
@@ -67,6 +70,7 @@ set encoding=utf-8
 set fileformats=unix,mac,dos    " in this order supported file types
 set nocompatible
 set t_Co=256                    " Explicitly tell vim terminal features
+set t_ut=                       " This took me quite a while
 set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
 set visualbell                  " I hate the acoustic bell
