@@ -5,6 +5,7 @@
     email = siegbert@cats.rwth-aachen.de
 [alias]
 # short ones
+    wdf = !git diff --color | diff-highlight | less -r
     br = branch
     ci = commit
     cb = checkout -b
