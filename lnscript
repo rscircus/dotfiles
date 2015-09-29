@@ -14,3 +14,7 @@ ln -sf ~/dotfiles/config/ctags ~/.ctags
 ln -sf ~/dotfiles/config/screenrc ~/.screenrc
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/config/Xmodmap ~/.Xmodmap
+
+# Install diff-highlight
+curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight && chmod +x ~/bin/diff-highlight
+
