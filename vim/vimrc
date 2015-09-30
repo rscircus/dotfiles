@@ -39,6 +39,8 @@ Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'davidoc/taskpaper.vim'
+Plug 'vim-voom/VOoM'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -183,10 +185,9 @@ set t_Co=256                    " Explicitly tell vim terminal features
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
-
 "let g:pencil_terminal_italics = 0
 "let g:pencil_higher_contrast_ui = 1
-color PaperColor
+color seoul256-light
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
@@ -541,15 +542,15 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 "Never type the same word twice and maybe learn a new spellings!
 "Use the Linux dictionary when spelling is in doubt.
 "Window users can copy the file to their machine.
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
+" function! Tab_Or_Complete()
+"   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+"     return "\<C-N>"
+"   else
+"     return "\<Tab>"
+"   endif
+" endfunction
+" :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+" :set dictionary="/usr/dict/words"
 
 " Easy-align:
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
