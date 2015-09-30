@@ -37,6 +37,8 @@ Plug 'reedes/vim-wordy'
 " org-mode:
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -321,6 +323,7 @@ map <leader>gg :GitGutterLineHighlightsToggle<cr>
 "" Goyo:
 nnoremap <leader>G :Goyo<cr>
 
+"" Org:
 function! OrgustomColors()
     hi! Org_Drawer guifg=#586e75 ctermfg=magenta
     hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
@@ -332,8 +335,10 @@ function! OrgustomColors()
             \              'ctermfg':'gray', 'ctermbg':'darkgray'},
             \      'WAITING': { 'guifg':'#aa3388',
             \                 'ctermfg':'red' } }
-
 endfunction
+
+:let g:notes_directories = ['~/usr/cld/orga/notes']
+:let g:notes_suffix = '.note'
 
 "" YankRing
 nnoremap <silent> <F12> :YRShow<cr>
