@@ -36,6 +36,7 @@ Plug 'reedes/vim-wordy'
 
 " org-mode:
 Plug 'jceb/vim-orgmode', {'for': 'org'}
+Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -414,7 +415,7 @@ let g:airline_powerline_fonts = 1
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
-let NERDTreeWinSize = 20
+let NERDTreeWinSize = 30
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
