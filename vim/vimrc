@@ -444,10 +444,6 @@ au BufRead,BufNewFile *.F set noexpandtab
 " https://gist.github.com/2424873
 "" last/newest one is used here
 
-"" Everything else:
-":autocmd BufReadPost * :DetectIndent
-autocmd BufNewFile,BufRead *.ino setlocal ft=arduino
-
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
 " Source: https://github.com/scrooloose/nerdtree/issues/21
