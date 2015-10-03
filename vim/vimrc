@@ -37,8 +37,6 @@ Plug 'reedes/vim-wordy'
 " org-mode:
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 Plug 'davidoc/taskpaper.vim'
 Plug 'vim-voom/VOoM'
 
