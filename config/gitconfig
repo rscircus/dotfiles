@@ -13,8 +13,8 @@
     df = diff
     ds = diff --staged
     st = status -sb
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%s' --abbrev-commit
-    ls = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
+    ls = log --color --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s' --abbrev-commit
+    lg = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
 
 # complex ones
     amend = commit -amend -C HEAD
