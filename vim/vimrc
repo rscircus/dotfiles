@@ -27,6 +27,7 @@ Plug 'Shougo/vimproc'
 "Plug 'gorodinskiy/vim-coloresque'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
+Plug 'vim-scripts/EasyMotion'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -38,7 +39,7 @@ Plug 'reedes/vim-wordy'
 " org-mode:
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
-Plug 'davidoc/taskpaper.vim'
+Plug 'davidoc/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
 
 " Color schemes:
@@ -56,6 +57,7 @@ Plug 'rscircus/summerfruit256.vim'
 Plug 'rscircus/vim-tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'sjl/badwolf'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
