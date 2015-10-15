@@ -99,7 +99,6 @@ if version>=703
     "let &colorcolumn=join(range(81,999),",") " color all columns >=81 
 else
     set number
-    set colorcolumn=81
 endif
 
 "" Control
