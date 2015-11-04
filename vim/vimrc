@@ -187,7 +187,7 @@ let g:seoul256_light_background = 256
 
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
-color pencil
+color PaperColor
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
@@ -305,7 +305,7 @@ let g:tagbar_type_markdown = {
 "" jratner/vim-flavored/markdown
 augroup markdown
     au!
-    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=markdown
+    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
 "" Synatstic plugin:
