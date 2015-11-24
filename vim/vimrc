@@ -18,9 +18,9 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'jtratner/vim-flavored-markdown'
+"Plug 'jtratner/vim-flavored-markdown'
 " Seems to be more promising, but is not ready, yet:
-"Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','me','markdown'] }
+Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'Shougo/vimproc'
@@ -304,13 +304,13 @@ let g:tagbar_type_markdown = {
 \ }
 
 """ gabrielana/vim-markdown
-"let g:markdown_enable_spell_checking = 0
+let g:markdown_enable_spell_checking = 0
 
 "" jratner/vim-flavored/markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
-augroup END
+"augroup markdown
+"    au!
+"    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
+"augroup END
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
