@@ -39,7 +39,7 @@ Plug 'reedes/vim-wordy'
 " org-mode:
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
-Plug 'davidoc/taskpaper.vim', {'for': 'taskpaper'}
+Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
 
 " Color schemes:
