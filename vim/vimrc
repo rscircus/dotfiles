@@ -242,7 +242,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 "" Buffers
-map <leader>bd :Bdelete<cr>
+map <leader>bd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
 nmap <leader>wr :w!<cr>
 map <leader>bn :bn<cr>
