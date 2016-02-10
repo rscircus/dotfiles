@@ -73,6 +73,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let mapleader = ","
+let maplocalleader = "."
 
 "" General vim options
 set shell=/bin/bash
@@ -588,8 +589,5 @@ nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving
 nnoremap <leader>cp YGp`` "copy current line to the end of buffer without moving cursor
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-
-" DoToo:
-let g:dotoo#agenda#files = ['~/cld/2do/dotoo_files/*.dotoo']
 
 source ~/.vimrc_local
