@@ -12,7 +12,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'ctrlpvim/ctrlp.vim'
@@ -41,6 +42,7 @@ Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
+Plug 'dhruvasagar/vim-dotoo'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -392,7 +394,7 @@ let g:SuperTabMappingBackward = '<s-nul>'
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_extensions = ['tabline','branch']
-let g:airline_theme='tomorrow'
+let g:airline_theme='sol'
 
 "Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -587,5 +589,7 @@ nnoremap <leader>cp YGp`` "copy current line to the end of buffer without moving
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
+" DoToo:
+let g:dotoo#agenda#files = ['~/cld/2do/dotoo_files/*.dotoo']
 
 source ~/.vimrc_local
