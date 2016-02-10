@@ -103,7 +103,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias t='~/dotfiles/utils/todo/todo.sh'
+alias t='~/dotfiles/utils/todo/todo.sh -d ~/.todo.cfg'
 alias mmv='noglob zmv -W'
 alias l='ls'
 
