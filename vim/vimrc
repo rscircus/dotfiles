@@ -73,7 +73,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let mapleader = ","
-let maplocalleader = "."
+let maplocalleader = "\<Space>"
 
 "" General vim options
 set shell=/bin/bash
@@ -587,7 +587,7 @@ let g:colorizer_auto_filetype='css,less,html'
 " Orgahelp:
 nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor`
 nnoremap <leader>cp YGp`` "copy current line to the end of buffer without moving cursor
-nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
+imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
 source ~/.vimrc_local
