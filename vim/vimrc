@@ -43,6 +43,10 @@ Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
 Plug 'dhruvasagar/vim-dotoo'
+" org-mode required
+Plug 'mattn/calendar-vim'
+Plug 'tpope/vim-speeddating'
+Plug 'chrisbra/NrrwRgn'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
