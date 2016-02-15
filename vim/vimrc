@@ -351,6 +351,9 @@ function! OrgustomColors()
             \                 'ctermfg':'red' } }
 endfunction
 
+:let g:org_todo_keywords=['TODO(t)', 'NEXT(n)', '|', 'DONE(d)', 'DELEGATED(e)']
+
+" TaskPaper:
 :let g:notes_directories = ['~/usr/cld/orga/notes']
 :let g:notes_suffix = '.note'
 
