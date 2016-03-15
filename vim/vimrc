@@ -1,4 +1,6 @@
+set nocompatible
 filetype plugin indent on       " load file type plugins + indentation
+syntax on
 
 "vim-plug will replace pathogen due to lazy loading
 call plug#begin('~/.vim/plugged')
@@ -42,7 +44,6 @@ Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
-Plug 'dhruvasagar/vim-dotoo'
 " org-mode required
 Plug 'mattn/calendar-vim'
 Plug 'tpope/vim-speeddating'
@@ -83,7 +84,6 @@ let maplocalleader = "\<Space>"
 set shell=/bin/bash
 set encoding=utf-8
 set fileformats=unix,mac,dos    " in this order supported file types
-set nocompatible
 set t_Co=256                    " Explicitly tell vim terminal features
 set t_ut=                       " This took me quite a while
 set showcmd                     " display incomplete commands
@@ -107,7 +107,7 @@ au FocusLost * :wall            " Save on lost focus
 
 if version>=703
     set relativenumber              " show line numbers from current line to calc distances
-    "let &colorcolumn=join(range(81,999),",") " color all columns >=81 
+"let &colorcolumn=join(range(81,999),",") " color all columns >=81
 else
     set number
 endif
@@ -256,7 +256,6 @@ nnoremap <c-l> <c-w>l
 "" Buffers
 map <leader>bd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
-nmap <leader>wr :w!<cr>
 map <leader>bn :bn<cr>
 map <leader>bp :bp<cr>
 map <right> :bn<cr>
@@ -430,8 +429,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:airline_powerline_fonts = 1
 
-""" vimwiki:
-"let g:vimwiki_list = [{'path': '~/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
@@ -586,7 +583,7 @@ map <leader>m :Minimap<cr>
 " Fix wandering along wrapped lines:
 nmap j gj
 nmap k gk
-nmap <leader>w :setlocal wrap!<cr>:setlocal wrap?<cr>
+nmap <leader>wrap :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 " Colorizer:
 let g:colorizer_auto_filetype='css,less,html'
