@@ -23,7 +23,7 @@ Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'jtratner/vim-flavored-markdown'
 " Seems to be more promising, but is not ready, yet:
-Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
+"Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'Shougo/vimproc'
@@ -31,6 +31,7 @@ Plug 'Shougo/vimproc'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'vim-scripts/EasyMotion'
+Plug 'mileszs/ack.vim'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -48,6 +49,7 @@ Plug 'vim-voom/VOoM'
 Plug 'mattn/calendar-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
+Plug 'vimwiki/vimwiki'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -199,7 +201,7 @@ let g:seoul256_light_background = 256
 
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
-color github
+color badwolf
 
 " Do not underline CursorLine:
 "set cursorline                  " highlight current line
@@ -593,5 +595,15 @@ nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving
 nnoremap <leader>cp YGp`` "copy current line to the end of buffer without moving cursor
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
+
+" Vimwiki:
+let wiki = {}
+let wiki.path = '~/usr/cld/2do/life.wiki/'
+let wiki.path_html = '~/usr/cld/2do/life.wiki/html'
+let wiki.index ='home'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+let g:vimwiki_list = [wiki]
 
 source ~/.vimrc_local
