@@ -317,7 +317,7 @@ let g:tagbar_type_markdown = {
 \ }
 
 """ gabrielana/vim-markdown
-let g:markdown_enable_spell_checking = 0
+"let g:markdown_enable_spell_checking = 0
 
 "" jratner/vim-flavored/markdown
 "augroup markdown
@@ -430,7 +430,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline_paste_symbol = '∥'
 
 let g:airline_powerline_fonts = 1
-
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
@@ -591,8 +590,8 @@ nmap <leader>wrap :setlocal wrap!<cr>:setlocal wrap?<cr>
 let g:colorizer_auto_filetype='css,less,html'
 
 " Orgahelp:
-nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor`
-nnoremap <leader>cp YGp`` "copy current line to the end of buffer without moving cursor
+nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor
+nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving cursor
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
