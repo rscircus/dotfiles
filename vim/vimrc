@@ -32,6 +32,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'vim-scripts/EasyMotion'
 Plug 'mileszs/ack.vim'
+Plug 'Shougo/neocomplete.vim'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -387,12 +388,6 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
 
-"" SuperTab
-"This doesn't work for console version?:
-"let g:SuperTabMappingForward = '<c-space>'
-"let g:SuperTabMappingBackward = '<s-c-space>'
-let g:SuperTabMappingForward = '<nul>'
-let g:SuperTabMappingBackward = '<s-nul>'
 :nmap <leader>tf: set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 :nmap <leader>tM :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
@@ -542,25 +537,6 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Autoremove white trailing white space:
 " autocmd BufWritePre * :%s/\s\+$//e
-
-"" Remap vim's autocompletion to Tab-Key:
-"Use TAB to complete when typing words, else inserts TABs as usual.
-"Uses dictionary and source files to find matching words to complete.
-
-"See help completion for source,
-"Note: usual completion is on <C-n> but more trouble to press all the time.
-"Never type the same word twice and maybe learn a new spellings!
-"Use the Linux dictionary when spelling is in doubt.
-"Window users can copy the file to their machine.
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
 
 " Easy-align:
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
