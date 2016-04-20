@@ -9,8 +9,10 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 #TODO: copy rawland theme to .oh-my-zsh
 #
-# Install zsh-syntax-highlighting (fish-style)
+# Install various zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 
 #ln -sf ~/dotfiles/config/bashrc ~/.bashrc
 ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
