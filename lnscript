@@ -1,12 +1,16 @@
-#git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-
 #TODO: Input such that the user doesn't destroy his/her existing config files
 
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
+# Install oh-my-zsh:
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
 #TODO: copy rawland theme to .oh-my-zsh
+#
+# Install zsh-syntax-highlighting (fish-style)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 #ln -sf ~/dotfiles/config/bashrc ~/.bashrc
 ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
