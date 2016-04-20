@@ -34,12 +34,14 @@ Plug 'vim-scripts/EasyMotion'
 Plug 'mileszs/ack.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'sjl/gundo.vim'
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
 
 " Writing:
 Plug 'reedes/vim-wordy'
+Plug 'junegunn/limelight.vim'
 "install vim-lexical when you need to, one day...
 
 " org-mode:
@@ -196,14 +198,15 @@ let g:solarized_termcolors=256
 
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
-set background=light
+set background=dark
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
-color badwolf
+"color summerfruit256
+color gruvbox
 
 " Do not underline CursorLine:
 "set cursorline                  " highlight current line
@@ -329,7 +332,7 @@ let g:tagbar_type_markdown = {
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
-let g:syntastic_fortran_fortran_exec = 'ifort'
+let g:syntastic_fortran_fortran_exec = 'gfortran'
 
 "" Git Gutter:
 let g:gitgutter_realtime = 0
@@ -399,7 +402,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_extensions = ['tabline','branch']
-let g:airline_theme='sol'
+let g:airline_theme='badwolf'
 
 "Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
