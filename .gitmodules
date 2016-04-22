@@ -10,6 +10,3 @@
 [submodule "utils/bitpocket"]
 	path = utils/bitpocket
 	url = https://github.com/sickill/bitpocket
-[submodule "gittoolsfromwill"]
-	path = gittoolsfromwill
-	url = git://gitorious.org/willgit/mainline.git
