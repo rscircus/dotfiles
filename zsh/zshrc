@@ -117,7 +117,6 @@ if [ -n $WORK ]; then
     export PATH=$PATH:/home/rs169182/bin
     export PATH=$PATH:/home/rs169182/dotfiles/bin
     export PATH=$PATH:/home/rs169182/.local/bin
-    export PATH="/rwthfs/rz/cluster/home/rs169182/.linuxbrew/bin:$PATH"
 
     module switch intel intel/14.0
     module load GRAPHICS
