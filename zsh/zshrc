@@ -28,7 +28,8 @@ ZSH_THEME="rawland"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colorize colored-man-pages lol command-not-found gnu-utils history-substring-search compleat zsh-syntax-highlighting zsh-autosuggestions)
+#plugins=(git colorize colored-man-pages lol command-not-found gnu-utils history-substring-search compleat zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git colorize colored-man-pages lol command-not-found gnu-utils history-substring-search compleat zsh-syntax-highlighting)
 
 skip_global_compinit=1
 source $ZSH/oh-my-zsh.sh
@@ -42,6 +43,7 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/home/rawland/bin
 export PATH=$PATH:/home/rawland/dotfiles/bin
 export PATH=$PATH:/home/siegbert/bin
+export PATH=$PATH:/home/rawland/.local/bin
 
 # Enhance system by local
 export PATH=$HOME/local/bin:$PATH
@@ -123,5 +125,7 @@ if [ -n $WORK ]; then
     module load paraview/4.4.0
   fi
 fi
+
+alias ls='ls --color -h --group-directories-first'
 
 source ~/.zshrc_local
