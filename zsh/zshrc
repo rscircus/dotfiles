@@ -107,4 +107,7 @@ fi
 
 alias ls='ls --color -h --group-directories-first'
 
+# because I prefer gitgoodies:
+unalias gg
+
 source ~/.zshrc_local
