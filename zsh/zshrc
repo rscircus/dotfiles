@@ -96,20 +96,6 @@ bindkey '^ ' autosuggest-accept
 alias mmv='noglob zmv -W'
 alias l='ls'
 
-
-# Ctrl-Z instead of fg
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 # RZ Cluster specific:
 if [ -n $WORK ]; then
   if [[ $WORK == "/work/rs169182" ]]; then
