@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 " IDE-ish:
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
-Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
@@ -21,9 +21,13 @@ Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
+Plug 'rscircus/vim-fortress'
 "Plug 'jtratner/vim-flavored-markdown'
 " Seems to be more promising, but is not ready, yet:
 "Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
+"
+" Both really mess up vimwiki
+
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'Shougo/vimproc'
@@ -105,18 +109,21 @@ endif
 set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
-"set nofoldenable
+"set nofoldenable               " Folding
 set foldmarker=#--,--#
 set foldmethod=marker
 set foldlevel=0
+set clipboard=unnamed           " yank and paste with the system clipboard
 set splitright                  " split windows always vertically
 au FocusLost * :wall            " Save on lost focus
 
 if version>=703
     set relativenumber              " show line numbers from current line to calc distances
+nnoremap <leader>rn :set relativenumber!<cr>
 "let &colorcolumn=join(range(81,999),",") " color all columns >=81
 else
     set number
+    set numberwidth=5
 endif
 
 "" Control
@@ -148,7 +155,7 @@ set ttimeoutlen=10              " Speed/Responsiveness
 "" wildmenu - Ignore files you never want to edit (hopefully)
 if has("wildmenu")
   set wildmenu                    " autocompletion
-  set wildmode=list:longest       " show all
+  set wildmode=list:longest,list:full       " show all
   set wildignore+=*.a,*.o
   set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
   set wildignore+=.DS_Store
@@ -161,9 +168,16 @@ set magic                         " regex
 
 "" Hande lines
 set textwidth=80
+set colorcolumn=+1
 set formatoptions=qrn1
 set lbr
 set formatprg=par\ -q
+
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+ endif
 
 " Highlight only the lines that go past 80 characters
 " highlight ColorColumn ctermbg=grey guibg=grey
@@ -178,10 +192,10 @@ set formatprg=par\ -q
 "set expandtab
 "set cindent                     " Like smartindent, but more clever
 "set shiftround                   " At 3 spaces >> goes to 4
-"set autoindent                   " Keep indent, when indented
+"set autoindent                   " Keep indent, when indented  
 set smartindent                  " Helps indenting after/before specific keywords
 set backspace=indent,eol,start   " backspace through everything in insert mode
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
 set fillchars=diff:⣿,vert:│
 "set showbreak=↪
 "set list
@@ -252,8 +266,6 @@ set incsearch                   " incremental searching
 set hlsearch
 nmap <leader>q :nohlsearch<cr>
 
-"" ESC:
-inoremap jj <ESC>
 
 " Toggle spell checking on and off with `,s`
 let mapleader = ","
@@ -312,7 +324,8 @@ cnoremap <C-N> <Down>
 "" Change keyboard shortcuts
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F6>  :call ToggleBackgroundColor()<CR>
-inoremap jk <Esc>                                   " Hardcore vim
+inoremap jk <Esc>
+inoremap jj <ESC>
 
 "" Tagbar plugin
 let g:tagbar_usearrows = 1
@@ -343,8 +356,7 @@ let g:syntastic_fortran_flags = '-ffree-form'
 let g:syntastic_fortran_fortran_exec = 'gfortran'
 
 "" Git Gutter:
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+let g:gitgutter_enabled = 0
 map <leader>g :GitGutterToggle<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
 
@@ -370,10 +382,6 @@ endfunction
 " TaskPaper:
 :let g:notes_directories = ['~/usr/cld/orga/notes']
 :let g:notes_suffix = '.note'
-
-"" YankRing
-nnoremap <silent> <F12> :YRShow<cr>
-
 
 "" TextBubbling
 " single line
@@ -440,8 +448,9 @@ let g:airline_powerline_fonts = 1
 
 "" NERDTree
 map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark
+map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
+let NERDTreeIgnore=['\~$', '\.pyc']
 let NERDTreeWinSize = 30
 
 "" Rainbow parentheses
@@ -585,12 +594,64 @@ imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
 " Vimwiki:
 let wiki = {}
-let wiki.path = '~/usr/cld/2do/life.wiki/'
-let wiki.path_html = '~/usr/cld/2do/life.wiki/html'
+let wiki.path = '~/src/life.wiki/'
+let wiki.path_html = '~/src/life.wiki/html'
 let wiki.index ='home'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let wiki.syntax = 'markdown'
 let wiki.ext = '.md'
 let g:vimwiki_list = [wiki]
 
-source ~/.vimrc_local
+" From Thoughtbot:
+" Run commands that require an interactive shell
+nnoremap <Leader>r :RunInInteractiveShell<space>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Tab wrapper
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+augroup END
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+" Local adaptations:
+if filereadable($HOME . "/.vimrc_local")
+  source ~/.vimrc_local
+endif
+
+" FORTRESS:
+map <leader>ff :call fortress#format()<cr>
+imap <leader>ff :call fortress#format()<cr>
