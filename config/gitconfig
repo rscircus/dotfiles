@@ -1,10 +1,18 @@
+[core]
+    editor = 'vim'
+
 [color]
+    diff = auto
+    status = auto
+    branch = auto
     ui = true
+
 [user]
     name = Roland Siegbert
     email = siegbert@cats.rwth-aachen.de
+
 [alias]
-# short ones
+# Short ones
     wdf = !git diff --color | diff-highlight | less -r
     br = branch
     ci = commit
@@ -16,7 +24,7 @@
     ls = log --color --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s' --abbrev-commit
     lg = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
 
-# complex ones
+# Complex ones
     amend = commit -amend -C HEAD
     undo = reset --soft HEAD^
     standup = log --since '1 day ago' --oneline --author siegbert@cats.rwth-aachen.de
