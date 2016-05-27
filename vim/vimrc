@@ -592,16 +592,6 @@ nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
-" Vimwiki:
-let wiki = {}
-let wiki.path = '~/src/life.wiki/'
-let wiki.path_html = '~/src/life.wiki/html'
-let wiki.index ='home'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-let wiki.syntax = 'markdown'
-let wiki.ext = '.md'
-let g:vimwiki_list = [wiki]
-
 " From Thoughtbot:
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
