@@ -49,7 +49,10 @@ Plug 'reedes/vim-wordy'
 Plug 'junegunn/limelight.vim'
 "install vim-lexical when you need to, one day...
 
-" org-mode:
+" orga:
+Plug 'vim-scripts/todo-txt.vim'
+"Plug 'davidoc/todo.txt-vim'
+Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
@@ -58,7 +61,6 @@ Plug 'vim-voom/VOoM'
 Plug 'mattn/calendar-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
-Plug 'vimwiki/vimwiki'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -641,6 +643,14 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc_local")
   source ~/.vimrc_local
 endif
+
+" " todo.txt:
+" " Use todo#complete as the omni complete function for todo files
+" au filetype todo setlocal omnifunc=todo#complete
+" " Auto complete projects
+" au filetype todo imap <buffer> + +<C-X><C-O>
+" " Auto complete contexts
+" au filetype todo imap <buffer> @ @<C-X><C-O>
 
 " FORTRESS:
 map <leader>ff :call fortress#format()<cr>
