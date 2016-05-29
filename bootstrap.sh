@@ -40,3 +40,8 @@ curl http://beyondgrep.com/ack-2.14-single-file > ~/bin/ack && chmod 0755 !#:3
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+
+# Autojump:
+git clone git://github.com/joelthelion/autojump.git ~/dotfiles/utils/autojump
+cd ~/dotfiles/utils/autojump
+./install.py

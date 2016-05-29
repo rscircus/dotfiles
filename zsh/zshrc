@@ -110,4 +110,9 @@ alias ls='ls --color -h --group-directories-first'
 # because I prefer gitgoodies:
 unalias gg
 
+# autojump:
+[[ -s /home/rawland/.autojump/etc/profile.d/autojump.sh ]] && source /home/rawland/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+
+# location specific:
 source ~/.zshrc_local
