@@ -1,3 +1,6 @@
+# location specific:
+source ~/.zshrc_local
+
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -114,5 +117,3 @@ unalias gg
 [[ -s /home/rawland/.autojump/etc/profile.d/autojump.sh ]] && source /home/rawland/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
-# location specific:
-source ~/.zshrc_local
