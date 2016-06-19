@@ -5,14 +5,19 @@
     diff = auto
     status = auto
     branch = auto
-    ui = true
+    ui = auto
+    interactive = auto
 
 [user]
-    name = Roland Siegbert
-    email = siegbert@cats.rwth-aachen.de
+    name = ʇɹǝqƃǝᴉs puɐloɹ
+    email = roland@siegbert.info
 
 [alias]
-# Short ones
+
+# Overview:
+    alias = "!git config -l | grep alias | cut -c 7-"
+
+# Abbrev:
     wdf = !git diff --color | diff-highlight | less -r
     br = branch
     ci = commit
@@ -21,13 +26,35 @@
     df = diff
     ds = diff --staged
     st = status -sb
-    ls = log --color --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s' --abbrev-commit
-    lg = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
-
-# Complex ones
     amend = commit -amend -C HEAD
     undo = reset --soft HEAD^
-    standup = log --since '1 day ago' --oneline --author siegbert@cats.rwth-aachen.de
     wipe = reset --hard HEAD
     ready = rebase -i @{u}
-    graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    fix  = commit -m "Fixup"
+
+# Finding things:
+    f = "!git ls-files | grep -i"
+    grep = grep -Ii
+    groot = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+
+# History:
+    lg = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lgn = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %C(green)%cn%C(reset) %C(red)%d%C(reset) %s' --decorate --date=short
+    graph = log --all --graph --pretty=format':%C(red)%h%C(blue)%d%C(reset) %s %C(white) %an, %ar%C(reset)'
+
+# Orientation:
+    changes = !sh -c 'git diff --stat $1 | tail -1' -
+    conflicts = !vim $(git status | fgrep modified | cut -d: -f2)
+    last = log -1 -p
+    sub = !cd $(git rev-parse --show-toplevel) && git submodule update --init | fgrep -v registered
+    v = rev-parse HEAD
+    standup = log --since '1 day ago' --oneline --author siegbert@cats.rwth-aachen.de
+
+# Don't get fired:
+    assume   = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+    ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
