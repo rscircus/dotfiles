@@ -73,6 +73,7 @@ export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 export LC_CTYPE=en_US.utf-8
 export IGNOREEOF=1
 export LESS=FRSX
+export FIGNORE=$FIGNORE:.hi:.pyc:.o
 
 bindkey -v
 
