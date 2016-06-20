@@ -410,7 +410,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
 
-:nmap <leader>tf: set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+:nmap <leader>tf :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 :nmap <leader>tM :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 :nmap <leader>tm :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
