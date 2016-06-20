@@ -9,7 +9,7 @@
     interactive = auto
 
 [user]
-    name = ʇɹǝqƃǝᴉs puɐloɹ
+    name = Roland Siegbert
     email = roland@siegbert.info
 
 [alias]
@@ -26,7 +26,7 @@
     df = diff
     ds = diff --staged
     st = status -sb
-    amend = commit -amend -C HEAD
+    amend = commit --amend -C HEAD
     undo = reset --soft HEAD^
     wipe = reset --hard HEAD
     ready = rebase -i @{u}
