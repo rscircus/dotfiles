@@ -50,8 +50,6 @@ Plug 'junegunn/limelight.vim'
 
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
-"Plug 'davidoc/todo.txt-vim'
-"Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
