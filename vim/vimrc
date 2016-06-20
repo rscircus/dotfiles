@@ -22,7 +22,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
-"Plug 'jtratner/vim-flavored-markdown'
+Plug 'jtratner/vim-flavored-markdown'
 " Seems to be more promising, but is not ready, yet:
 "Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 "
@@ -52,7 +52,7 @@ Plug 'junegunn/limelight.vim'
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
 "Plug 'davidoc/todo.txt-vim'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
@@ -348,11 +348,11 @@ let g:tagbar_type_markdown = {
 """ gabrielana/vim-markdown
 "let g:markdown_enable_spell_checking = 0
 
-"" jratner/vim-flavored/markdown
-"augroup markdown
-"    au!
-"    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
-"augroup END
+" jratner/vim-flavored/markdown
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
