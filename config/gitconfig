@@ -1,5 +1,5 @@
 [core]
-    editor = 'vim'
+    editor = /usr/bin/vim
 
 [color]
     diff = auto
@@ -12,8 +12,11 @@
     name = Roland Siegbert
     email = roland@siegbert.info
 
-[alias]
+# Default push behavior
+[push]
+    default = current
 
+[alias]
 # Overview:
     alias = "!git config -l | grep alias | cut -c 7-"
 
@@ -37,6 +40,15 @@
     grep = grep -Ii
     groot = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
 
+# File Tools
+    op = "!f() { $(git editor) $(git ls-files | grep -i \"$@\"); }; f"
+    # open edited
+    eop = "! $(git editor) $(git ls-files --modified)"
+    # grep and open
+    gop = "!f(){ $(git editor) $(git grep --name-only \"$@\"); }; f"
+    giop = "!f(){ $(git editor) $(git grep -i --name-only \"$@\"); }; f"
+    tree = ls-tree --full-tree -r HEAD
+
 # History:
     lg = log --pretty=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %s%C(green) %cn%C(red)%d%C(reset)' --decorate --date=short
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -58,3 +70,6 @@
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
     ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+# Configurational
+    editor = config --get core.editor
