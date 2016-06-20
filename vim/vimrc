@@ -22,10 +22,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
-Plug 'jtratner/vim-flavored-markdown'
-" Seems to be more promising, but is not ready, yet:
+Plug 'plasticboy/vim-markdown'
+"Plug 'jtratner/vim-flavored-markdown'
 "Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
-"
 " Both really mess up vimwiki
 
 Plug 'severin-lemaignan/vim-minimap'
@@ -336,23 +335,39 @@ let g:tagbar_sort = 0 " appearance = 0, name = 1
 let g:tagbar_width = 30
 nnoremap <leader>l :TagbarToggle<CR>
 
-let g:tagbar_type_markdown = {
-  \ 'ctagstype' : 'markdown',
-  \ 'kinds' : [
-    \ 'h:Heading_L1',
-    \ 'i:Heading_L2',
-    \ 'k:Heading_L3'
-  \ ]
-\ }
+" Redfine markdown tags
+if executable('marktag')
+    let g:tagbar_type_markdown = {
+        \ 'ctagstype' : 'markdown',
+        \ 'ctagsbin' : 'marktag',
+        \ 'kinds' : [
+            \ 'h:header'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+            \ 'h' : 'header'
+        \  },
+        \ 'scope2kind' : {
+            \ 'header' : 'h'
+        \ }
+    \ }
+" Default tagbar behavior, if now marktag present
+else
+    let g:tagbar_type_markdown = {
+      \ 'ctagstype' : 'markdown',
+      \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+      \ ]
+    \ }
+end
 
-""" gabrielana/vim-markdown
-"let g:markdown_enable_spell_checking = 0
+"" Markdown:
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_toc_autofit = 1
 
-" jratner/vim-flavored/markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.mkd,*.me,*.markdown setlocal filetype=ghmarkdown
-augroup END
 
 "" Synatstic plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
