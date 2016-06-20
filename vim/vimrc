@@ -223,8 +223,8 @@ let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 "" Bright Environment:
 "color summerfruit256
 "color seoul256-light
-color PaperColor
-"
+color pencil
+
 "" Dark Environment:
 "color jellybeans
 "color gruvbox
