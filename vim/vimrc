@@ -184,6 +184,7 @@ if exists('$TMUX')  " Support resizing in tmux
 
 
 "" Whitespace
+set nowrap                       "No wrapping of lines per default
 "set tabstop=4                   "Indent 4 spaces with <TAB>
 "set softtabstop=4
 "set shiftwidth=4                 "Indent 4 spaces with >>
