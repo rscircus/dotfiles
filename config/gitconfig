@@ -21,7 +21,6 @@
     alias = "!git config -l | grep alias | cut -c 7-"
 
 # Abbrev:
-    wdf = !git diff --color | diff-highlight | less -r
     br = branch
     ci = commit
     cb = checkout -b
@@ -73,3 +72,8 @@
 
 # Configurational
     editor = config --get core.editor
+
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
