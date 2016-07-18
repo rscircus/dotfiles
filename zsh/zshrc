@@ -104,8 +104,13 @@ if [ -n $WORK ]; then
     export PATH=$PATH:/home/rs169182/.local/bin
 
     module switch intel intel/14.0
+
+    # Visualization:
     module load GRAPHICS
     module load paraview/4.4.0
+
+    # Engineering:
+    module load TECHNICS
   fi
 fi
 
