@@ -45,3 +45,6 @@ git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 git clone git://github.com/joelthelion/autojump.git ~/dotfiles/utils/autojump
 cd ~/dotfiles/utils/autojump
 ./install.py
+
+# Marktag (markdown support for tagbar)
+gem install --user marktag
