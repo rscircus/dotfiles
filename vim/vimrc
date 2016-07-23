@@ -264,8 +264,8 @@ set smartcase                   " ... unless they contain at least one capital l
 set gdefault                    " replacing globally is default
 set showmatch                   " show matches
 set incsearch                   " incremental searching
-set hlsearch
-nmap <leader>q :nohlsearch<cr>
+set nohlsearch
+nmap <leader>h :set hlsearch!<cr>
 
 
 " Toggle spell checking on and off with `,s`
