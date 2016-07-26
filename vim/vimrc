@@ -153,16 +153,16 @@ set ttimeout                    " Keys but not mappings (sanity!)
 set ttimeoutlen=10              " Speed/Responsiveness
 
 "" wildmenu - Ignore files you never want to edit (hopefully)
-if has("wildmenu")
-  set wildmenu                    " autocompletion
-  set wildmode=list:longest,list:full       " show all
-  set wildignore+=*.a,*.o
-  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-  set wildignore+=.DS_Store
-  set wildignore+=*~,*.swp,*.tmp
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
-  "set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
-endif
+"if has("wildmenu")
+set wildmenu                    " autocompletion
+set wildmode=list:longest,list:full       " show all
+set wildignore+=*.a,*.o
+set wildignore+=*.mod "Fortran
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=.DS_Store
+set wildignore+=*~,*.swp,*.tmp
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+"endif
 
 set magic                         " regex
 
