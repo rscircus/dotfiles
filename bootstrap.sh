@@ -32,7 +32,7 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 echo "Installing diff-highlight, ack and tpm for tmux..."
 
 # Install diff-highlight
-curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight && chmod +x ~/bin/diff-highlight
+curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/dotfiles/bin/diff-highlight && chmod +x ~/dotfiles/bin/diff-highlight
 
 # Install ack:
 curl http://beyondgrep.com/ack-2.14-single-file > ~/bin/ack && chmod 0755 !#:3
