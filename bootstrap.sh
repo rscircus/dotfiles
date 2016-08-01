@@ -48,3 +48,11 @@ cd ~/dotfiles/utils/autojump
 
 # Marktag (markdown support for tagbar)
 gem install --user marktag
+
+# Tig:
+git clone https://github.com/jonas/tig ~/dotfiles/utils/tig
+cd ~/dotfiles/utils/tig
+make configure
+make
+cd ~/src
+cp tig ~/dotfiles/bin
