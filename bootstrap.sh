@@ -15,7 +15,7 @@ ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 # Executables:
 ##############
-ln -sf ~/dotfiles/utils/bitpocket/bin/bitpicket ~/dotfiles/bin/bitpocket 
+ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/dotfiles/bin/bitpocket 
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/dotfiles/bin/t 
 
 echo "Installing oh-my-zsh..."
