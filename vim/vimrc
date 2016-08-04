@@ -433,14 +433,17 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 :nmap <leader>tm :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 
-""" Airline
+"" Airline:
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_extensions = ['tabline','branch']
+let g:airline_extensions = ['branch']
 let g:airline_theme='jellybeans'
 
-"Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+""" Buffergator:
+let g:buffergator_sort_regime = 'basename'
+let g:buffergator_autoupdate = 1
+let g:buffergator_show_full_directory_path = 0
+let g:buffergator_vsplit_size = 35
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
