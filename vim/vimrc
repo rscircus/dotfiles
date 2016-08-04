@@ -600,6 +600,7 @@ map <leader>ttm :TMToggle<cr>
 
 " Minimap
 map <leader>m :Minimap<cr>
+let g:minimap_highlight='Visual'
 
 " Fix wandering along wrapped lines:
 nmap j gj
