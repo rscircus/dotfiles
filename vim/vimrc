@@ -332,7 +332,7 @@ inoremap jj <ESC>
 "" Tagbar plugin
 let g:tagbar_usearrows = 1
 let g:tagbar_sort = 0 " appearance = 0, name = 1
-let g:tagbar_width = 30
+let g:tagbar_width = 40
 nnoremap <leader>l :TagbarToggle<CR>
 
 " Redfine markdown tags
