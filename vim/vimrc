@@ -59,6 +59,8 @@ Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
+" Get rid of orgmode and markdown:
+Plug 'Rykka/riv.vim'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -226,14 +228,15 @@ let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 "color summerfruit256
 "color seoul256-light
 color pencil
+"color one-light
 
 "" Dark Environment:
 "color jellybeans
 "color gruvbox
 
 " Do not underline CursorLine:
-"set cursorline                  " highlight current line
-":hi CursorLine cterm=NONE
+set cursorline                  " highlight current line
+:hi CursorLine cterm=NONE
 :nnoremap <leader>H :set cursorline!<CR>
 
 function! ToggleBackgroundColor()
@@ -247,7 +250,8 @@ function! ToggleBackgroundColor()
 endfunction
 
 if has("gui_running")
-    colorscheme seoul256-light
+    "colorscheme seoul256-light
+    color PaperColor
     set relativenumber              " show line numbers from current line to calc distances
     if has("gui_gtk2")
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 9
