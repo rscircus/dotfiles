@@ -1,5 +1,10 @@
 #TODO: Input such that the user doesn't destroy his/her existing config files
 
+# Create local *nix-ish filesystem:
+mkdir -p ~/local/bin
+mkdir -p ~/local/share
+mkdir -p ~/local/include
+
 echo "Linking rc files..."
 # Configuration files:
 ######################
@@ -15,7 +20,7 @@ ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 # Executables:
 ##############
-ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/dotfiles/bin/bitpocket 
+ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket 
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/dotfiles/bin/t 
 
 echo "Installing oh-my-zsh..."
@@ -33,10 +38,10 @@ git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-c
 echo "Installing diff-highlight, ack and tpm for tmux..."
 
 # Install diff-highlight
-curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/dotfiles/bin/diff-highlight && chmod +x ~/dotfiles/bin/diff-highlight
+curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
 
 # Install ack:
-curl http://beyondgrep.com/ack-2.14-single-file > ~/bin/ack && chmod 0755 !#:3
+curl http://beyondgrep.com/ack-2.14-single-file > ~/local/bin/ack && chmod 0755 !#:3
 
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -56,4 +61,7 @@ cd ~/dotfiles/utils/tig
 make configure
 make
 cd ~/src
-cp tig ~/dotfiles/bin
+cp tig ~/local/bin
+
+# Copy ~/dotfiles/bin to ~/local/bin
+cp ~/dotfiles/bin/* ~/local/bin
