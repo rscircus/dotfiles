@@ -46,10 +46,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:
 export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/home/rawland/bin
-export PATH=$PATH:/home/rawland/dotfiles/bin
-export PATH=$PATH:/home/siegbert/bin
-export PATH=$PATH:/home/rawland/.local/bin
+export PATH=$PATH:$HOME/dotfiles/bin
+# Python
+export PATH=$PATH:$HOME/.local/bin
 
 # Enhance system by local
 export PATH=$HOME/local/bin:$PATH
@@ -102,10 +101,8 @@ if [ -n $WORK ]; then
 
     export HOSTTYPE="rzbull"
     export PATH=$PATH:/home/sw_cats/bin
-    export PATH=$PATH:/home/rs169182/bin
-    export PATH=$PATH:/home/rs169182/dotfiles/bin
-    export PATH=$PATH:/home/rs169182/.local/bin
 
+    # Coding:
     module switch intel intel/14.0
 
     # Visualization:
@@ -127,4 +124,4 @@ autoload -Uz compinit
 compinit 
 
 # location specific:
-#source ~/.zshrc_local
+source ~/.zshrc_local
