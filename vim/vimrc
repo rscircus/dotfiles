@@ -23,7 +23,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 "Plug 'jtratner/vim-flavored-markdown'
 "Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 " Both really mess up vimwiki
@@ -112,9 +112,9 @@ set nowb                        " use git/svn/hg/eg...
 set noswapfile
 set nobackup
 "set nofoldenable               " Folding
-set foldmarker=#--,--#
-set foldmethod=marker
-set foldlevel=0
+"set foldmarker=#--,--#
+"set foldmethod=marker
+"set foldlevel=0
 set clipboard=unnamed           " yank and paste with the system clipboard
 set splitright                  " split windows always vertically
 au FocusLost * :wall            " Save on lost focus
@@ -227,7 +227,7 @@ let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 "" Bright Environment:
 "color summerfruit256
 "color seoul256-light
-color pencil
+color PaperColor
 "color one-light
 
 "" Dark Environment:
@@ -320,18 +320,21 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-" Bash like keys for the command line
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-K> <C-U>
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-
 "" Change keyboard shortcuts
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 map <F6>  :call ToggleBackgroundColor()<CR>
 inoremap jk <Esc>
 inoremap jj <ESC>
+
+" Bash like keys for the command line
+cnoremap <C-A> <Home>
+"cnoremap <C-E> <End> - collides with Riv (ReSt)
+cnoremap <C-K> <C-U>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+
+"" Riv (ReST):
+
 
 "" Tagbar plugin
 let g:tagbar_usearrows = 1
