@@ -27,6 +27,7 @@ Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 "Plug 'jtratner/vim-flavored-markdown'
 "Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 " Both really mess up vimwiki
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
