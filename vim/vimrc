@@ -232,6 +232,7 @@ color PaperColor
 
 "" Dark Environment:
 "color jellybeans
+"color gruvbox
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
