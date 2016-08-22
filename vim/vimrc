@@ -47,6 +47,7 @@ Plug 'tpope/vim-sleuth'
 " Writing:
 Plug 'reedes/vim-wordy'
 Plug 'junegunn/limelight.vim'
+Plug 'lervag/vimtex', {'for': 'tex'}
 "install vim-lexical when you need to, one day...
 
 " orga:
@@ -216,7 +217,6 @@ let g:solarized_termcolors=256
 
 set splitright                  " split windows always vertically
 set t_Co=256                    " Explicitly tell vim terminal features
-set background=light
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
@@ -224,15 +224,20 @@ let g:seoul256_light_background = 256
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 
+"" Environment:
+set background=dark
+
 "" Bright Environment:
 "color summerfruit256
 "color seoul256-light
 color PaperColor
 "color one-light
+"color pencil
 
 "" Dark Environment:
 "color jellybeans
 "color gruvbox
+"color badwolf
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
@@ -254,9 +259,9 @@ if has("gui_running")
     color PaperColor
     set relativenumber              " show line numbers from current line to calc distances
     if has("gui_gtk2")
-      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 9
+      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
     else
-      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h09
+      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
     endif
 endif
 
@@ -409,7 +414,7 @@ endfunction
 :let g:notes_directories = ['~/usr/cld/orga/notes']
 :let g:notes_suffix = '.note'
 
-"" TextBubbling
+"" TextBubbling:
 " single line
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
@@ -417,7 +422,7 @@ nmap <C-Down> ddp
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 
-"" CtrlP
+"" CtrlP:
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 :let g:ctrlp_match_window_bottom = 0
