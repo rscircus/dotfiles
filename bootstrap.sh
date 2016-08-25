@@ -53,9 +53,14 @@ cd ~/dotfiles/utils/autojump
 ./install.py
 
 # Marktag (markdown support for tagbar)
-gem install --user marktag
+gem install --user-install marktag
+
+# Doing: https://github.com/ttscoff/doing
+gem install --user-install doing
 
 # Tig:
+
+echo "Installing tig..."
 git clone https://github.com/jonas/tig ~/dotfiles/utils/tig
 cd ~/dotfiles/utils/tig
 make configure
@@ -65,3 +70,14 @@ cp tig ~/local/bin
 
 # Copy ~/dotfiles/bin to ~/local/bin
 cp ~/dotfiles/bin/* ~/local/bin
+
+# ag? https://github.com/ggreer/the_silver_searcher
+while true; do
+  read -p "Are you on Debian and do you want to install ag? [y/n]" yn
+  case $yn in
+    [Yy]* ) sudo apt-get install silversearcher-ag; break;;
+    [Nn]* ) exit;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+
