@@ -197,7 +197,7 @@ set nowrap                       "No wrapping of lines per default
 "set expandtab
 "set cindent                     " Like smartindent, but more clever
 "set shiftround                   " At 3 spaces >> goes to 4
-"set autoindent                   " Keep indent, when indented  
+"set autoindent                   " Keep indent, when indented
 set smartindent                  " Helps indenting after/before specific keywords
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
@@ -344,7 +344,7 @@ cnoremap <C-N> <Down>
 
 "" Tagbar plugin
 let g:tagbar_usearrows = 1
-let g:tagbar_indent = 1              " spaces  
+let g:tagbar_indent = 1              " spaces
 let g:tagbar_sort = 0                " appearance = 0, name = 1
 let g:tagbar_autopreview = 1
 let g:tagbar_width = 40
@@ -693,6 +693,9 @@ endif
 " Calendar
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" If silver searcher present:
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " FORTRESS:
 map <leader>ff :call fortress#format()<cr>
