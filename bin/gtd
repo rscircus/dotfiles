@@ -9,7 +9,7 @@ NOTIFY_CMD="${NOTIFY_CMD:-"notify-send"}"               # notify-send - a progra
 SPEAK_CMD="${SPEAK_CMD:-"&>/dev/null espeak"}"          # eSpeak - speech synthesizer for Linux, Windows, and other platform
 
 # Setting configuration
-DEFAULT_WORK_LENGTH="${DEFAULT_WORK_LENGTH:-15}"
+DEFAULT_WORK_LENGTH="${DEFAULT_WORK_LENGTH:-25}"
 DEFAULT_BREAK_LENGTH="${DEFAULT_BREAK_LENGTH}"
 NOTIFY_WORK="${NOTIFY_WORK:-"\"Get things done.\""}"
 NOTIFY_BREAK="${NOTIFY_BREAK:-"\"Take a break.\""}"
@@ -123,10 +123,10 @@ vsleep() {
       if [[ -n "$DO_TMUX" ]]; then
          if [[ -n "$in_break" ]]; then
             #break
-            (echo -ne "#[fg=colour39,bg=colour234,bold] ps $hms" > /tmp/gtd)
+            (echo -ne "#[fg=colour39,bg=colour234,bold]  $hms" > /tmp/gtd)
          else
             #work
-            (echo -ne "#[fg=colour235,bg=colour252,bold] wrk $hms" > /tmp/gtd)
+            (echo -ne "#[fg=colour235,bg=colour252,bold]  $hms" > /tmp/gtd)
          fi
          (tmux refresh -S)
       fi
@@ -162,6 +162,14 @@ do_options() {
          eval "$SPEAK_CMD $SPEAK_BREAK"
       else
          eval "$SPEAK_CMD $SPEAK_WORK"
+      fi
+   fi
+
+   if [[ -n "$DO_TMUX" ]]; then
+      if [[ -n "$in_break" ]]; then
+         eval "tmux display-message 'DONE!'"
+      else
+         eval "tmux display-message 'GO!'"
       fi
    fi
 
