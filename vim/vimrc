@@ -1,6 +1,7 @@
 set nocompatible
 filetype plugin indent on       " load file type plugins + indentation
 syntax on
+set t_Co=256                    " Explicitly tell vim terminal features
 
 "vim-plug will replace pathogen due to lazy loading
 call plug#begin('~/.vim/plugged')
@@ -82,6 +83,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sjl/badwolf'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'lloeki/vim-one-colorschemes'
+Plug 'w0ng/vim-hybrid'
+Plug 'therubymug/vim-pyte'
+Plug 'vim-scripts/ironman.vim'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -99,7 +103,6 @@ let maplocalleader = "\<Space>"
 set shell=/bin/bash
 set encoding=utf-8
 set fileformats=unix,mac,dos    " in this order supported file types
-set t_Co=256                    " Explicitly tell vim terminal features
 set t_ut=                       " This took me quite a while
 set showcmd                     " display incomplete commands
 set scrolloff=3                 " min lines above or below cursor
@@ -172,7 +175,6 @@ set magic                         " regex
 
 "" Hande lines
 set textwidth=80
-set colorcolumn=+1
 set formatoptions=qrn1
 set lbr
 set formatprg=par\ -q
@@ -182,10 +184,6 @@ set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
  endif
-
-" Highlight only the lines that go past 80 characters
-" highlight ColorColumn ctermbg=grey guibg=grey
-" call matchadd('ColorColumn', '\%82v', 100)
 
 
 "" Whitespace
@@ -216,14 +214,15 @@ let g:solarized_visibilty="high"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 
-set splitright                  " split windows always vertically
-set t_Co=256                    " Explicitly tell vim terminal features
-
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
+
+"let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
+let g:PaperColor_Light_Override = { 'background' : '#fdfdfd'} " Brighten up
+
 
 "" Environment:
 set background=dark
@@ -231,9 +230,8 @@ set background=dark
 "" Bright Environment:
 "color summerfruit256
 "color seoul256-light
-color PaperColor
 "color one-light
-"color pencil
+color PaperColor
 
 "" Dark Environment:
 "color jellybeans
@@ -453,7 +451,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_extensions = ['branch']
-let g:airline_theme='jellybeans'
+let g:airline_theme='papercolor'
 
 """ Buffergator:
 let g:buffergator_sort_regime = 'basename'
