@@ -25,9 +25,6 @@ Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
 Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
-"Plug 'jtratner/vim-flavored-markdown'
-"Plug 'gabrielelana/vim-markdown', { 'for' : ['mkd','md','markdown'] }
-" Both really mess up vimwiki
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'severin-lemaignan/vim-minimap'
@@ -59,7 +56,6 @@ Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
-" TODO: Get rid of orgmode and markdown:
 Plug 'Rykka/riv.vim'
 
 " Color schemes:
@@ -397,25 +393,6 @@ let g:syntastic_fortran_fortran_exec = 'gfortran'
 let g:gitgutter_enabled = 1
 map <leader>g :GitGutterToggle<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
-
-"" Goyo:
-nnoremap <leader>G :Goyo<cr>
-
-"" Org:
-function! OrgustomColors()
-    hi! Org_Drawer guifg=#586e75 ctermfg=magenta
-    hi! Org_Drawer_Folded guifg=#586e75 ctermfg=magenta gui=bold cterm=bold
-    hi! Org_Property_Value guifg=#657b83 ctermfg=magenta
-    hi! Org_Block guifg=#586375 ctermfg=magenta
-    hi! Org_Date guifg=#657b83 ctermfg=magenta gui=underline cterm=underline
-    let g:org_todo_custom_highlights =
-            \     { 'NEXT': { 'guifg':'#888888', 'guibg':'#222222',
-            \              'ctermfg':'gray', 'ctermbg':'darkgray'},
-            \      'WAITING': { 'guifg':'#aa3388',
-            \                 'ctermfg':'red' } }
-endfunction
-
-:let g:org_todo_keywords=['TODO(t)', 'NEXT(n)', '|', 'DONE(d)', 'DELEGATED(e)']
 
 " TaskPaper:
 :let g:notes_directories = ['~/usr/cld/orga/notes']

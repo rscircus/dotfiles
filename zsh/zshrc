@@ -119,9 +119,5 @@ alias ls='ls --color -h --group-directories-first'
 # because I prefer gitgoodies:
 unalias gg
 
-# completion
-autoload -Uz compinit 
-compinit 
-
 # location specific:
 source ~/.zshrc_local
