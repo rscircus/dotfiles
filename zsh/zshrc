@@ -39,7 +39,7 @@ ENABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 #plugins=(git colorize colored-man-pages lol command-not-found gnu-utils history-substring-search compleat zsh-syntax-highlighting zsh-autosuggestions)
-plugins=(git colorize colored-man-pages command-not-found gnu-utils history-substring-search)
+plugins=(git colorize autojump colored-man-pages command-not-found gnu-utils history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 

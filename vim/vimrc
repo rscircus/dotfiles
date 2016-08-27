@@ -3,12 +3,12 @@ filetype plugin indent on       " load file type plugins + indentation
 syntax on
 set t_Co=256                    " Explicitly tell vim terminal features
 
-"vim-plug will replace pathogen due to lazy loading
+" Plugins:
 call plug#begin('~/.vim/plugged')
 
-" IDE-ish:
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" IDEish:
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " Filemanagement
+Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -32,16 +32,15 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
-Plug 'Shougo/vimproc'
 "Plug 'gorodinskiy/vim-coloresque'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'vim-scripts/EasyMotion'
-Plug 'mileszs/ack.vim'
-Plug 'Shougo/neocomplete.vim'
+Plug 'mileszs/ack.vim'                                     " Ack
+Plug 'Shougo/neocomplete.vim'                              " note: needs if_lua
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-obsession'
+Plug 'sjl/gundo.vim'                                       " GundoToggle
+Plug 'tpope/vim-obsession'                                 " Obession
 
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
@@ -54,15 +53,13 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
-Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'vim-voom/VOoM'
-" org-mode required
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
-" Get rid of orgmode and markdown:
+" TODO: Get rid of orgmode and markdown:
 Plug 'Rykka/riv.vim'
 
 " Color schemes:
@@ -102,30 +99,31 @@ let maplocalleader = "\<Space>"
 "" General vim options
 set shell=/bin/bash
 set encoding=utf-8
-set fileformats=unix,mac,dos    " in this order supported file types
-set t_ut=                       " This took me quite a while
-set showcmd                     " display incomplete commands
-set scrolloff=3                 " min lines above or below cursor
-set visualbell                  " I hate the acoustic bell
+set fileformats=unix,mac,dos " in this order supported file types
+set t_ut=                    " This took me quite a while
+set showcmd                  " display incomplete commands
+set scrolloff=3              " min lines above or below cursor
+set visualbell               " I hate the acoustic bell
 if has('persistent_undo')
-    set undofile                    " creates a <FILENAME>.un~ for eternal editing
+    set undofile             " creates a <FILENAME>.un~ for eternal editing
     set undodir=~/.vim/undodir
     set undolevels=1000
     set undoreload=10000
 endif
-set nowb                        " use git/svn/hg/eg...
+set nowb                     " use git/svn/hg/eg...
 set noswapfile
 set nobackup
-"set nofoldenable               " Folding
-"set foldmarker=#--,--#
-"set foldmethod=marker
-"set foldlevel=0
-set clipboard=unnamed           " yank and paste with the system clipboard
-set splitright                  " split windows always vertically
-au FocusLost * :wall            " Save on lost focus
+" set nofoldenable           " Folding
+" set foldmarker=#--,--#
+" set foldmethod=marker
+" set foldlevel=0
+set clipboard=unnamed        " yank and paste with the system clipboard
+set splitright               " split windows always vertically
+au FocusLost * :wall         " Save on lost focus
+set lazyredraw               " performance (wait till macro finishes)
 
 if version>=703
-    set relativenumber              " show line numbers from current line to calc distances
+    set relativenumber       " show line numbers from current line to calc distances
 nnoremap <leader>rn :set relativenumber!<cr>
 "let &colorcolumn=join(range(81,999),",") " color all columns >=81
 else
@@ -137,15 +135,15 @@ endif
 set autoread
 
 " GUI
-set guioptions-=T               " don't show toolbar
-set guioptions-=m               " don't show menubar
-set guioptions-=l               " remove scrollbars
+set guioptions-=T            " don't show toolbar
+set guioptions-=m            " don't show menubar
+set guioptions-=l            " remove scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=L
-set linespace=0                                 " no extra space between lines (!)
-set mat=2                       " Blinks 10ths of seconds"
-set title                       " Set terminal title
+set linespace=0              " no extra space between lines (!)
+set mat=2                    " Blinks 10ths of seconds"
+set title                    " Set terminal title
 
 " Set cursorline in current window and normal mode
 augroup cline
@@ -156,12 +154,12 @@ augroup cline
     au InsertLeave * set cursorline
 augroup END
 
-set ttimeout                    " Keys but not mappings (sanity!)
-set ttimeoutlen=10              " Speed/Responsiveness
+set ttimeout                  " Keys but not mappings (sanity!)
+set ttimeoutlen=10            " Speed/Responsiveness
 
 "" wildmenu - Ignore files you never want to edit (hopefully)
 "if has("wildmenu")
-set wildmenu                    " autocompletion
+set wildmenu                   " autocompletion
 set wildmode=list:longest,list:full       " show all
 set wildignore+=*.a,*.o
 set wildignore+=*.mod "Fortran
@@ -171,31 +169,38 @@ set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 "endif
 
-set magic                         " regex
+set magic                      " regex
 
-"" Hande lines
+" Handle lines:
 set textwidth=80
+"set colorcolumn=+1
 set formatoptions=qrn1
 set lbr
 set formatprg=par\ -q
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
-if exists('$TMUX')  " Support resizing in tmux
+if exists('$TMUX')              " Support resizing in tmux
   set ttymouse=xterm2
- endif
+endif
 
+" Highlight only the lines that go past 80 characters
+augroup vimrc_autocmds
+    autocmd BufEnter * highlight OverLength ctermbg=255 guibg=#592929
+    autocmd BufEnter * match OverLength /\%79v.*/
+augroup END
 
 "" Whitespace
 set nowrap                       "No wrapping of lines per default
 "set tabstop=4                   "Indent 4 spaces with <TAB>
 "set softtabstop=4
-"set shiftwidth=4                 "Indent 4 spaces with >>
+"set shiftwidth=4                "Indent 4 spaces with >>
 "set smarttab
 "set expandtab
 "set cindent                     " Like smartindent, but more clever
-"set shiftround                   " At 3 spaces >> goes to 4
-"set autoindent                   " Keep indent, when indented
+"set shiftround                  " At 3 spaces >> goes to 4
+set autoindent                   " Keep indent, when indented
+set copyindent
 set smartindent                  " Helps indenting after/before specific keywords
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
@@ -230,8 +235,9 @@ set background=dark
 "" Bright Environment:
 "color summerfruit256
 "color seoul256-light
-"color one-light
 color PaperColor
+"color one-light
+"color pencil
 
 "" Dark Environment:
 "color jellybeans
@@ -243,6 +249,7 @@ set cursorline                  " highlight current line
 :hi CursorLine cterm=NONE
 :nnoremap <leader>H :set cursorline!<CR>
 
+" Change background with F6
 function! ToggleBackgroundColor()
   if (&background == 'light')
     set background=dark
@@ -252,11 +259,13 @@ function! ToggleBackgroundColor()
     echo "background -> light"
   endif
 endfunction
+map <F6>  :call ToggleBackgroundColor()<CR>
 
+" GUI:
 if has("gui_running")
     "colorscheme seoul256-light
     color PaperColor
-    set relativenumber              " show line numbers from current line to calc distances
+    set relativenumber          " show line numbers from current line to calc distances
     if has("gui_gtk2")
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
     else
@@ -264,18 +273,15 @@ if has("gui_running")
     endif
 endif
 
-"" Searching
+" Searching:
 noremap / /\v
 vnoremap / /\v
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter`
-
-set gdefault                    " replacing globally is default
 set showmatch                   " show matches
 set incsearch                   " incremental searching
 set nohlsearch
 nmap <leader>h :set hlsearch!<cr>
-
 
 " Toggle spell checking on and off with `,s`
 let mapleader = ","
@@ -304,6 +310,7 @@ map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
+" Reasonable Buffer closure
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
    let l:currentBufNum = bufnr("%")
@@ -324,9 +331,10 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-"" Change keyboard shortcuts
+" Edit this file:
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
-map <F6>  :call ToggleBackgroundColor()<CR>
+
+" Exit input mode:
 inoremap jk <Esc>
 inoremap jj <ESC>
 
@@ -337,10 +345,7 @@ cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-"" Riv (ReST):
-
-
-"" Tagbar plugin
+" Tagbar plugin:
 let g:tagbar_usearrows = 1
 let g:tagbar_indent = 1              " spaces
 let g:tagbar_sort = 0                " appearance = 0, name = 1
@@ -377,14 +382,14 @@ else
     \ }
 end
 
-"" Markdown:
+" Markdown:
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 set conceallevel=2
 
-"" Synatstic plugin:
+" Syntastic Plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
 let g:syntastic_fortran_fortran_exec = 'gfortran'
 
@@ -529,8 +534,8 @@ endfunction
 " Close NERDTree if it is the last buffer open
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
-"" Map Goyo toggle to <Leader> + spacebar
-nnoremap <Leader><Space> :Goyo<CR>
+"" Goyo:
+nnoremap <leader>G :Goyo<cr>
 
 " Remove trailing whitespace
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
@@ -544,7 +549,6 @@ function! StripTrailingWhitespace()
         retab
     endif
 endfunction
-
 nmap <leader>tw :call StripTrailingWhitespace()<CR>
 
 " Function to hide all the text except for the text selected in visual mode.
@@ -630,10 +634,6 @@ nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving
 nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
-" From Thoughtbot:
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -652,6 +652,9 @@ inoremap <S-Tab> <c-n>
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
+" When editing a file, always jump to the last known cursor position.
+" Don't do it for commit messages, when the position is invalid, or when
+" inside an event handler (happens when dropping a file on gvim).
 augroup vimrcEx
   autocmd!
 
@@ -662,7 +665,11 @@ augroup vimrcEx
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+augroup END
 
+augroup WrapLineInMarkdownFile
+    autocmd!
+    autocmd FileType markdown setlocal wrap
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
