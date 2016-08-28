@@ -328,24 +328,24 @@ map <leader>tm :tabmove
 
 " Reasonable Buffer closure
 command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+  function! <SID>BufcloseCloseIt()
+     let l:currentBufNum = bufnr("%")
+     let l:alternateBufNum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
+     if buflisted(l:alternateBufNum)
+       buffer #
+     else
+       bnext
+     endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
+     if bufnr("%") == l:currentBufNum
+       new
+     endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
+     if buflisted(l:currentBufNum)
+       execute("bdelete! ".l:currentBufNum)
+     endif
+  endfunction
 
 " Edit this file:
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -518,15 +518,15 @@ au BufRead,BufNewFile *.F set noexpandtab
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
 " Source: https://github.com/scrooloose/nerdtree/issues/21
-function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
+  function! s:CloseIfOnlyNerdTreeLeft()
+    if exists("t:NERDTreeBufName")
+      if bufwinnr(t:NERDTreeBufName) != -1
+	if winnr("$") == 1
+	  q
+	endif
       endif
     endif
-  endif
-endfunction
+  endfunction
 
 " Close NERDTree if it is the last buffer open
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
@@ -536,61 +536,61 @@ nnoremap <leader>G :Goyo<cr>
 
 " Remove trailing whitespace
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-function! StripTrailingWhitespace()
-    if !&binary && &filetype != 'diff'
-        normal mz
-        normal Hmy
-        %s/\s\+$//e
-        normal 'yz<CR>
-        normal `z
-        retab
-    endif
-endfunction
+  function! StripTrailingWhitespace()
+      if !&binary && &filetype != 'diff'
+	  normal mz
+	  normal Hmy
+	  %s/\s\+$//e
+	  normal 'yz<CR>
+	  normal `z
+	  retab
+      endif
+  endfunction
 nmap <leader>tw :call StripTrailingWhitespace()<CR>
 
 " Function to hide all the text except for the text selected in visual mode.
 " This is great for highlighting parts of the code. Just call the function
 " again to deselect everything.
-function! ToggleSelected(visual) range
-    highlight HideSelected ctermfg=bg ctermbg=bg
-                         \ guifg=bg guibg=bg gui=none term=none cterm=none
+  function! ToggleSelected(visual) range
+      highlight HideSelected ctermfg=bg ctermbg=bg
+			   \ guifg=bg guibg=bg gui=none term=none cterm=none
 
-    if exists("g:toggle_selected_hide")
-        call matchdelete(g:toggle_selected_hide)
+      if exists("g:toggle_selected_hide")
+	  call matchdelete(g:toggle_selected_hide)
 
-        unlet g:toggle_selected_hide
-        redraw
+	  unlet g:toggle_selected_hide
+	  redraw
 
-        if !a:visual
-            return
-        endif
-    endif
+	  if !a:visual
+	      return
+	  endif
+      endif
 
-    let [lnum1, col1] = getpos("'<")[1:2]
-    let [lnum2, col2] = getpos("'>")[1:2]
+      let [lnum1, col1] = getpos("'<")[1:2]
+      let [lnum2, col2] = getpos("'>")[1:2]
 
-    let pattern = '\%^\|\%<'.lnum1.'l\|\%<'.col1.'v\|\%>'.lnum2.'l\|\%>'.col2.'v'
-    let g:toggle_selected_hide = matchadd('HideSelected', pattern, 1000)
+      let pattern = '\%^\|\%<'.lnum1.'l\|\%<'.col1.'v\|\%>'.lnum2.'l\|\%>'.col2.'v'
+      let g:toggle_selected_hide = matchadd('HideSelected', pattern, 1000)
 
-    redraw
-endfunction
+      redraw
+  endfunction
 
 " Show only selected in Visual Mode
 nmap <silent> <leader>th :cal ToggleSelected(0)<CR>
 vmap <silent> <leader>th :cal ToggleSelected(1)<CR>
 
 """ Switch case from UPPER, lower, Title Case
-function! TwiddleCase(str)
-  if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
-  elseif a:str ==# tolower(a:str)
-"    let result = substitute(a:str,'\C\<\([A\-ZÀ\-Ý]\){1,3}\([A\-ZÀ\-Ý]\+\)\>', '\u\1\L\2', 'g')
-    let result = substitute(a:str,'\(\<\w\{4,60}\>\)', '\u\1', 'g')
- else
-    let result = toupper(a:str)
-  endif
-  return result
-endfunction
+  function! TwiddleCase(str)
+    if a:str ==# toupper(a:str)
+      let result = tolower(a:str)
+    elseif a:str ==# tolower(a:str)
+  "    let result = substitute(a:str,'\C\<\([A\-ZÀ\-Ý]\){1,3}\([A\-ZÀ\-Ý]\+\)\>', '\u\1\L\2', 'g')
+      let result = substitute(a:str,'\(\<\w\{4,60}\>\)', '\u\1', 'g')
+   else
+      let result = toupper(a:str)
+    endif
+    return result
+  endfunction
 
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
@@ -635,14 +635,14 @@ imap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 nnoremap <leader><leader> <c-^>
 
 " Tab wrapper
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
+  function! InsertTabWrapper()
+      let col = col('.') - 1
+      if !col || getline('.')[col - 1] !~ '\k'
+	  return "\<tab>"
+      else
+	  return "\<c-p>"
+      endif
+  endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
