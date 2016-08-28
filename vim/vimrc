@@ -1,3 +1,8 @@
+" 
+" An aspiring engineer invests time in crafting his tools.
+"
+" Author: Roland Siegbert
+"
 set nocompatible
 filetype plugin indent on       " load file type plugins + indentation
 syntax on
@@ -682,3 +687,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " FORTRESS:
 map <leader>ff :call fortress#format()<cr>
 imap <leader>ff :call fortress#format()<cr>
+
+" Sources:
+" https://amix.dk/vim/vimrc.html ~Amir Salihefendic
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/ ~Steve Losh
+" https://github.com/greg0ire/more-instantly-better-vim ~Dammian Conway
