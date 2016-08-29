@@ -32,6 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
 Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'mtth/scratch.vim'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
@@ -382,6 +383,10 @@ let g:tagbar_autopreview = 1
 let g:tagbar_width = 40
 let g:tagbar_compact = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+" Scratch:
+let g:scratch_filetype = 'markdown'
+let g:scratch_persistence_file = 'scratch.vim'
 
 " Redfine markdown tags
 if executable('marktag')
