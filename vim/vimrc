@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'rscircus/vim-fortress'
@@ -445,6 +446,9 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 "   \ 'file': '\.exe$\|\.so$\|\.dll$',
 "   \ 'link': 'some_bad_symbolic_links',
 "   \ }
+if has("python")
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
 
 :nmap <leader>tf :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
