@@ -310,6 +310,12 @@ nmap <silent> <leader>s :set spell!<CR>
 " Set region to British English
 set spelllang=en_gb
 
+"" Copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
 "" Window movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -773,3 +779,4 @@ endif
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/ ~Steve Losh
 " https://github.com/greg0ire/more-instantly-better-vim ~Dammian Conway
+
