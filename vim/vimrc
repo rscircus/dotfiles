@@ -48,6 +48,9 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
 
+" File Manager:
+Plug 'lpenz/vimcommander'
+
 " Automatic indentation settings:
 Plug 'tpope/vim-sleuth'
 
@@ -774,6 +777,9 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" VimCommander:
+noremap <silent> <F12> :cal VimCommanderToggle()<CR>
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
