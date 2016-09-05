@@ -18,7 +18,7 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'kien/rainbow_parentheses.vim', { 'on': 'RainbowParenthesesToggle' }
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
@@ -515,6 +515,12 @@ let NERDTreeWinSize = 30
 
 "" Rainbow parentheses
 map <leader>r :RainbowParenthesesToggle<cr>
+
+" Load per default:
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 "" autoreload vimrc - you might want to change that line
 autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
