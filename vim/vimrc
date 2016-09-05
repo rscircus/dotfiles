@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " Filemanagement
 Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
 Plug 'majutsushi/tagbar'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterEnable' }  " See what changed
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
@@ -69,7 +69,7 @@ Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
-Plug 'Rykka/riv.vim'
+" Plug 'Rykka/riv.vim' "Doubled loading time
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
@@ -371,7 +371,8 @@ inoremap jj <ESC>
 
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
-"cnoremap <C-E> <End> - collides with Riv (ReSt)
+"- collides with Riv (ReSt)
+cnoremap <C-E> <End> 
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
@@ -431,8 +432,9 @@ let g:syntastic_fortran_flags = '-ffree-form'
 let g:syntastic_fortran_fortran_exec = 'gfortran'
 
 "" Git Gutter:
-let g:gitgutter_enabled = 1
+"let g:gitgutter_enabled = 1
 map <leader>g :GitGutterToggle<cr>
+map <leader>g :GitGutterEnable<cr>
 map <leader>gg :GitGutterLineHighlightsToggle<cr>
 
 " TaskPaper:
