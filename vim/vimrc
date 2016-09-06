@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
 " IDEish:
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " Filemanagement
 Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterEnable' }  " See what changed
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -29,7 +29,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'rscircus/vim-fortress'
+"Plug 'rscircus/vim-fortress'
 Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mtth/scratch.vim'
@@ -74,13 +74,10 @@ Plug 'chrisbra/NrrwRgn'
 " Color schemes:
 Plug 'larssmit/vim-getafe'
 Plug 'morhetz/gruvbox'
-Plug 'twerth/ir_black'
 Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
-Plug 'altercation/vim-colors-solarized'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Lokaltog/vim-distinguished'
-Plug 'rscircus/vim-github-colorscheme'
 Plug 'rscircus/vim-lucius'
 Plug 'rscircus/summerfruit256.vim'
 Plug 'rscircus/vim-tomorrow-theme'
@@ -90,8 +87,6 @@ Plug 'sjl/badwolf'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'lloeki/vim-one-colorschemes'
 Plug 'w0ng/vim-hybrid'
-Plug 'therubymug/vim-pyte'
-Plug 'vim-scripts/ironman.vim'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
