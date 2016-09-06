@@ -535,7 +535,6 @@ au Syntax * RainbowParenthesesLoadBraces
 autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
 
 "" XNS
-au BufNewFile,BufRead xns.in set filetype=xns
 au BufNewFile,BufRead *.less set filetype=less
 
 "" Fortran
@@ -543,13 +542,7 @@ let fortran_dialect = 'f90'
 let fortran_fixed_source = 0
 let fortran_free_source = 1
 hi link fortranTab NONE
-au BufRead,BufNewFile *.F set noexpandtab
-" au BufRead,BufNewFile *.F set softtabstop=0
-"au BufRead,BufNewFile *.F set shiftwidth=0
-" https://gist.github.com/1470884
-" https://gist.github.com/1471147
-" https://gist.github.com/2424873
-"" last/newest one is used here
+au BufRead,BufNewFile *.F,*.F90 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -805,4 +798,6 @@ noremap <silent> <F12> :cal VimCommanderToggle()<CR>
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/ ~Steve Losh
 " https://github.com/greg0ire/more-instantly-better-vim ~Dammian Conway
-
+" https://gist.github.com/1470884
+" https://gist.github.com/1471147
+" https://gist.github.com/2424873
