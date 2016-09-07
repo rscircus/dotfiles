@@ -4,6 +4,7 @@
 " Author: Roland Siegbert
 "
 set nocompatible
+set hidden
 filetype plugin indent on       " load file type plugins + indentation
 syntax on
 set t_Co=256                    " Explicitly tell vim terminal features
@@ -33,6 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mtth/scratch.vim'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
@@ -452,6 +454,21 @@ nmap <C-Down> ddp
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 
+"" CtrlSpace:
+let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+let g:CtrlSpaceSearchTiming = 500
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+if executable("ag")
+  let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+hi link CtrlSpaceNormal   PMenu
+hi link CtrlSpaceSelected PMenuSel
+hi link CtrlSpaceSearch   Search
+hi link CtrlSpaceStatus   StatusLine
+let g:airline_exclude_preview = 1         "via :help ctrlspace
+
 "" CtrlP:
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -472,13 +489,15 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 if has("python")
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ -g ""'
+if executable("ag")
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore .svn
+        \ --ignore .hg
+        \ --ignore .DS_Store
+        \ --ignore "**/*.pyc"
+        \ -g ""'
+endif
 
 " CtrlP auto cache clearing.
 " ----------------------------------------------------------------------------
