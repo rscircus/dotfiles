@@ -101,7 +101,7 @@ call plug#end()
 let mapleader = ","
 let maplocalleader = "\<Space>"
 
-"" General vim options
+"" General vim options:
 set shell=/bin/bash
 set encoding=utf-8
 set fileformats=unix,mac,dos " in this order supported file types
@@ -115,9 +115,6 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-set nowb                     " use git/svn/hg/eg...
-set noswapfile
-set nobackup
 " set nofoldenable           " Folding
 " set foldmarker=#--,--#
 " set foldmethod=marker
@@ -126,6 +123,36 @@ set clipboard=unnamed        " yank and paste with the system clipboard
 set splitright               " split windows always vertically
 au FocusLost * :wall         " Save on lost focus
 set lazyredraw               " performance (wait till macro finishes)
+
+" Command history movement:
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
+
+" Macro editing
+nnoremap <leader>ma  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+
+" Don't lose selection on in/dedent:
+xnoremap <  <gv
+xnoremap >  >gv
+
+" Handling Undo/Backup/Swap:
+" Create ~/.vim/files if not existing
+if exists('*mkdir') && !isdirectory($HOME.'/.vim/files')
+  call mkdir($HOME.'/.vim/files')
+  call mkdir($HOME.'/.vim/files/backup')
+  call mkdir($HOME.'/.vim/files/swap')
+  call mkdir($HOME.'/.vim/files/undo')
+  call mkdir($HOME.'/.vim/files/info')
+endif
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap/
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 
 if version>=703
     set relativenumber       " show line numbers from current line to calc distances
@@ -197,16 +224,11 @@ endif
 
 "" Whitespace
 set nowrap                       "No wrapping of lines per default
-"set tabstop=4                   "Indent 4 spaces with <TAB>
-"set softtabstop=4
-"set shiftwidth=4                "Indent 4 spaces with >>
-"set smarttab
-"set expandtab
-"set shiftround                  " At 3 spaces >> goes to 4
 set autoindent                   " Keep indent, when indented
 set cindent                      " Like smartindent, but more clever
 set copyindent
 set smartindent                  " Helps indenting after/before specific keywords
+set virtualedit=all              " Editing past line end
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
 set fillchars=diff:⣿,vert:│
@@ -533,7 +555,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 "" autoreload vimrc - you might want to change that line
-autocmd! bufwritepost vimrc source ~/dotfiles/vim/vimrc
+autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 "" XNS
 au BufNewFile,BufRead *.less set filetype=less
@@ -644,7 +666,7 @@ let g:easy_align_delimiters = {
 map <leader>ttm :TMToggle<cr>
 
 " Minimap
-map <leader>m :Minimap<cr>
+map <leader>mm :Minimap<cr>
 let g:minimap_highlight='Visual'
 
 " Fix wandering along wrapped lines:
