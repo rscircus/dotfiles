@@ -5,7 +5,10 @@ mkdir -p ~/local/bin
 mkdir -p ~/local/share
 mkdir -p ~/local/include
 
+####
 echo "Linking rc files..."
+####
+
 # Configuration files:
 ######################
 #ln -sf ~/dotfiles/config/bashrc ~/.bashrc
@@ -18,12 +21,21 @@ ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
+####
+echo "Executables..."
+####
+
+# Copy ~/dotfiles/bin to ~/local/bin
+cp ~/dotfiles/bin/* ~/local/bin
+
 # Executables:
 ##############
 ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket 
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/dotfiles/bin/t 
 
+####
 echo "Installing oh-my-zsh..."
+####
 
 # Install oh-my-zsh:
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -35,7 +47,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
 
+####
 echo "Installing diff-highlight, ack and tpm for tmux..."
+####
 
 # Install diff-highlight
 curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
@@ -52,32 +66,45 @@ git clone git://github.com/joelthelion/autojump.git ~/dotfiles/utils/autojump
 cd ~/dotfiles/utils/autojump
 ./install.py
 
+####
+echo "Installing marktag & doing..."
+####
+
 # Marktag (markdown support for tagbar)
 gem install --user-install marktag
 
 # Doing: https://github.com/ttscoff/doing
 gem install --user-install doing
 
-# Tig:
-
+####
 echo "Installing tig..."
+####
+
 git clone https://github.com/jonas/tig ~/dotfiles/utils/tig
 cd ~/dotfiles/utils/tig
 make configure
 make
-cd ~/src
+cd ./src
 cp tig ~/local/bin
 
-# Copy ~/dotfiles/bin to ~/local/bin
-cp ~/dotfiles/bin/* ~/local/bin
+####
+echo "Installing ag..."
+####
 
 # ag? https://github.com/ggreer/the_silver_searcher
 while true; do
   read -p "Are you on Debian and do you want to install ag? [y/n]" yn
   case $yn in
     [Yy]* ) sudo apt-get install silversearcher-ag; break;;
-    [Nn]* ) exit;;
+    [Nn]* ) break;;
     * ) echo "Please answer yes or no.";;
   esac
 done
 
+####
+echo "Installing desk..."
+####
+curl https://raw.githubusercontent.com/jamesob/desk/master/desk > ~/local/bin/desk
+# oh-my-zsh
+cd ~/.oh-my-zsh/custom/plugins
+git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plugins/zsh desk
