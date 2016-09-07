@@ -119,4 +119,4 @@ echo "Installing fasd..."
 ####
 git clone https://github.com/clvv/fasd ~/local/share/fasd
 cp ~/local/share/fasd/fasd ~/local/bin/fasd
-eval "$(fasd --init auto)"
+eval "$(fasd --init auto)"s
