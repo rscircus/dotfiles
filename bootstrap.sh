@@ -108,3 +108,15 @@ curl https://raw.githubusercontent.com/jamesob/desk/master/desk > ~/local/bin/de
 # oh-my-zsh
 cd ~/.oh-my-zsh/custom/plugins
 git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plugins/zsh desk
+
+####
+echo "Installing thefuck..."
+####
+pip install --user thefuck
+
+####
+echo "Installing fasd..."
+####
+git clone https://github.com/clvv/fasd ~/local/share/fasd
+cp ~/local/share/fasd/fasd ~/local/bin/fasd
+eval "$(fasd --init auto)"
