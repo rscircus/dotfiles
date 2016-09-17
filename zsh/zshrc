@@ -124,7 +124,17 @@ alias ls='ls --color -h --group-directories-first'
 # because I prefer gitgoodies:
 unalias gg
 
-# fasder!
+# fasd-er!
+# function to execute built-in cd
+fasd_cd() {
+  if [ $# -le 1 ]; then
+    fasd "$@"
+  else
+    local _fasd_ret="$(fasd -e echo "$@")"
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
+  fi
+}
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
 alias d='fasd -d'        # directory
