@@ -33,6 +33,7 @@ Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
 Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mtth/scratch.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
