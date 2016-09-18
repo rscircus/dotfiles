@@ -323,10 +323,10 @@ nmap <silent> <leader>s :set spell!<CR>
 set spelllang=en_gb
 
 "" Copy and paste
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <C-r><C-o>+
+"vmap <C-c> "+yi
+"vmap <C-x> "+c
+"vmap <C-v> c<ESC>"+p
+"imap <C-v> <C-r><C-o>+
 
 "" Window movement
 nnoremap <c-j> <c-w>j
