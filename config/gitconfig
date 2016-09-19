@@ -39,6 +39,9 @@
     grep = grep -Ii
     groot = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
 
+# Whitespace removal in staged files:
+    wsf = "!git commit -mTemp && git stash && git rebase HEAD~ --whitespace=fix && git reset --soft HEAD~ && git stash pop"
+
 # File Tools
     op = "!f() { $(git editor) $(git ls-files | grep -i \"$@\"); }; f"
     # open edited
