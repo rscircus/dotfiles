@@ -145,7 +145,6 @@ xnoremap >  >gv
 if exists('*mkdir') && !isdirectory($HOME.'/.vim/files')
   call mkdir($HOME.'/.vim/files')
   call mkdir($HOME.'/.vim/files/backup')
-  call mkdir($HOME.'/.vim/files/swap')
   call mkdir($HOME.'/.vim/files/undo')
   call mkdir($HOME.'/.vim/files/info')
 endif
@@ -153,8 +152,7 @@ set backup
 set backupdir   =$HOME/.vim/files/backup/
 set backupext   =-vimbackup
 set backupskip  =
-set directory   =$HOME/.vim/files/swap/
-set updatecount =100
+set noswapfile "because there is git
 set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
@@ -209,7 +207,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 set magic                      " regex
 
 " Handle lines:
-set textwidth=80
+set textwidth=0
 "set colorcolumn=+1
 set formatoptions=qrn1
 set lbr
@@ -375,6 +373,7 @@ command! Bclose call <SID>BufcloseCloseIt()
 
 " Edit this file:
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>lrc <C-w><C-v><C-l>:e ~/.vimrc_local<cr>
 
 " Exit input mode:
 inoremap jk <Esc>
@@ -608,8 +607,10 @@ au BufNewFile,BufRead *.less set filetype=less
 let fortran_dialect = 'f90'
 let fortran_fixed_source = 0
 let fortran_free_source = 1
+let fortran_more_precise = 1
+let b:fortran_dialect="f.90"
 hi link fortranTab NONE
-au BufRead,BufNewFile *.F,*.F90 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+au BufRead,BufNewFile *.F,*.F90 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -698,7 +699,7 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
-nmap <Leader>a <Plug>(EasyAlign)
+"nmap <Leader>a <Plug>(EasyAlign)
 
 let g:easy_align_delimiters = {
 \':': { 'pattern': '::\|:',
