@@ -798,6 +798,10 @@ let g:calendar_google_task = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ack_autoclose = 1
 let g:ackpreview = 1
+"cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack -i<Space>
+
+
 
 " FORTRESS:
 map <leader>ff :call fortress#format()<cr>
