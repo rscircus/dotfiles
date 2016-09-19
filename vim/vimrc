@@ -36,6 +36,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mtth/scratch.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'lukaszkorecki/workflowish'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
