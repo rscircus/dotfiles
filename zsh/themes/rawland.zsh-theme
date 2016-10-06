@@ -19,5 +19,5 @@ function mgit_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
 }
 
-PROMPT='%{$fg[green]%}>%{$reset_color%} '
+PROMPT='%{$fg[green]%}%j>%{$reset_color%} '
 RPROMPT='$(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
