@@ -46,10 +46,12 @@ Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'vim-scripts/EasyMotion'
 Plug 'mileszs/ack.vim'                                     " Ack
-"NeoVim
+"  NVIM:
+if has('lua')
 Plug 'Shougo/neocomplete.vim'                              " note: needs if_lua
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+endif
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
@@ -109,7 +111,7 @@ let maplocalleader = "\<Space>"
 
 "" General vim options:
 set shell=/bin/bash
-set encoding=utf-8
+"set encoding=utf-8
 set fileformats=unix,mac,dos " in this order supported file types
 set t_ut=                    " This took me quite a while
 set showcmd                  " display incomplete commands
@@ -156,7 +158,12 @@ set backupskip  =
 set noswapfile "because there is git
 set undofile
 set undodir     =$HOME/.vim/files/undo/
-set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+" Remember things between sessions:
+if has('nvim')
+  set shada='100,<50,:20,%,n~/.nvim/_nviminfo
+else
+  set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+endif
 
 if version>=703
     set relativenumber       " show line numbers from current line to calc distances
@@ -862,6 +869,8 @@ nnoremap <Leader>a :Ack -i<Space>
 map <leader>ff :call fortress#format()<cr>
 imap <leader>ff :call fortress#format()<cr>
 
+" NVIM:
+if has('lua')
 " NeoComplete:
 "
 " Disable AutoComplPop.
@@ -920,6 +929,9 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" NVIM:
+endif "has('lua')
 
 " VimCommander:
 noremap <silent> <F12> :cal VimCommanderToggle()<CR>
