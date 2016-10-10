@@ -31,7 +31,8 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
-Plug 'plasticboy/vim-markdown', { 'for' : ['mkd','md','markdown'] }
+"Plug 'plasticboy/vim-markdown' ", { 'for' : ['mkd','md','markdown'] }
+Plug 'gabrielelana/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mtth/scratch.vim'
@@ -473,10 +474,14 @@ else
 end
 
 " Markdown:
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_frontmatter = 1
+"" Plasticboy:
+"let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_math = 1
+"let g:vim_markdown_toc_autofit = 0
+"let g:vim_markdown_frontmatter = 0
+"" Gabrielelana:
+let g:markdown_enable_conceal = 1
+let g:markdown_enable_spell_checking = 1
 set conceallevel=2
 
 " Emojis in markdown:
