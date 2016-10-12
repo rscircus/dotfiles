@@ -236,7 +236,9 @@ endif
 "" Whitespace
 set nowrap                       "No wrapping of lines per default
 set autoindent                   " Keep indent, when indented
+if has('breakindent')
 set breakindent                  " Keep indentation, when indented & wrapped.
+endif
 set cindent                      " Like smartindent, but more clever
 set copyindent
 set smartindent                  " Helps indenting after/before specific keywords
