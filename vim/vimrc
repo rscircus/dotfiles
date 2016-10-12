@@ -499,20 +499,6 @@ augroup emoji_complete
     autocmd!
     autocmd FileType markdown setlocal completefunc=emoji#complete
 augroup END
-" completefunc:
-function! EmojiComplete(findstart, base)
-  if a:findstart
-    return match(getline('.')[0:col('.') - 1], ':[^: \t]*$')
-  elseif empty(a:base)
-    return []
-  else
-    if !exists('s:emoji_list')
-      let s:emoji_list = map(sort(emoji#list()),
-            \ "{ 'word': ':'.v:val.':', 'kind': emoji#for(v:val) }")
-    endif
-    return filter(copy(s:emoji_list), 'stridx(v:val.word, a:base) >= 0')
-  endif
-endfunction
 
 " Syntastic Plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
