@@ -1,4 +1,4 @@
-" 
+"
 " An aspiring engineer invests time in crafting his tools.
 "
 " Author: Roland Siegbert
@@ -333,10 +333,10 @@ nmap <silent> <leader>s :set spell!<CR>
 set spelllang=en_gb
 
 "" Copy and paste
-"vmap <C-c> "+yi
-"vmap <C-x> "+c
-"vmap <C-v> c<ESC>"+p
-"imap <C-v> <C-r><C-o>+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -434,7 +434,7 @@ inoremap jj <ESC>
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
 "- collides with Riv (ReSt)
-cnoremap <C-E> <End> 
+cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
@@ -557,22 +557,22 @@ if has("python")
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
-if executable('rg')
-  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  set grepprg=rg\ --color=never
-  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-  " and .agignore. Ignores hidden files by default.
-  let g:ctrlp_user_command = 'rg %s --files -g ""'
-elseif executable('ag')
-  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-  " and .agignore. Ignores hidden files by default.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
-else
-  "ctrl+p ignore files in .gitignore
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-endif
+    if executable('rg')
+      " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+      set grepprg=rg\ --color=never
+      " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+      " and .agignore. Ignores hidden files by default.
+      let g:ctrlp_user_command = 'rg %s --files -g ""'
+    elseif executable('ag')
+      " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+      set grepprg=ag\ --nogroup\ --nocolor
+      " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+      " and .agignore. Ignores hidden files by default.
+      let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+    else
+      "ctrl+p ignore files in .gitignore
+      let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+    endif
 
 " CtrlP auto cache clearing.
 " ----------------------------------------------------------------------------
@@ -669,9 +669,9 @@ au BufRead,BufNewFile *.F,*.F90 set expandtab tabstop=4 shiftwidth=4 softtabstop
   function! s:CloseIfOnlyNerdTreeLeft()
     if exists("t:NERDTreeBufName")
       if bufwinnr(t:NERDTreeBufName) != -1
-	if winnr("$") == 1
-	  q
-	endif
+        if winnr("$") == 1
+          q
+        endif
       endif
     endif
   endfunction
@@ -686,12 +686,12 @@ nnoremap <leader>G :Goyo<cr>
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
   function! StripTrailingWhitespace()
       if !&binary && &filetype != 'diff'
-	  normal mz
-	  normal Hmy
-	  %s/\s\+$//e
-	  normal 'yz<CR>
-	  normal `z
-	  retab
+          normal mz
+          normal Hmy
+          %s/\s\+$//e
+          normal 'yz<CR>
+          normal `z
+          retab
       endif
   endfunction
 nmap <leader>tw :call StripTrailingWhitespace()<CR>
@@ -701,17 +701,17 @@ nmap <leader>tw :call StripTrailingWhitespace()<CR>
 " again to deselect everything.
   function! ToggleSelected(visual) range
       highlight HideSelected ctermfg=bg ctermbg=bg
-			   \ guifg=bg guibg=bg gui=none term=none cterm=none
+                           \ guifg=bg guibg=bg gui=none term=none cterm=none
 
       if exists("g:toggle_selected_hide")
-	  call matchdelete(g:toggle_selected_hide)
+          call matchdelete(g:toggle_selected_hide)
 
-	  unlet g:toggle_selected_hide
-	  redraw
+          unlet g:toggle_selected_hide
+          redraw
 
-	  if !a:visual
-	      return
-	  endif
+          if !a:visual
+              return
+          endif
       endif
 
       let [lnum1, col1] = getpos("'<")[1:2]
@@ -786,9 +786,9 @@ nnoremap <leader><leader> <c-^>
 "  function! InsertTabWrapper()
 "      let col = col('.') - 1
 "      if !col || getline('.')[col - 1] !~ '\k'
-"	  return "\<tab>"
+"         return "\<tab>"
 "      else
-"	  return "\<c-p>"
+"         return "\<c-p>"
 "      endif
 "  endfunction
 "inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
@@ -914,9 +914,9 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 
 " NVIM:
 endif "has('lua')
