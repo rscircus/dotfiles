@@ -106,16 +106,7 @@ if [ -n $WORK ]; then
 
     export HOSTTYPE="rzbull"
     export PATH=$PATH:/home/sw_cats/bin
-
-    # Coding:
-    module switch intel intel/14.0
-
-    # Visualization:
-    module load GRAPHICS
-    module load paraview/4.4.0
-
-    # Engineering:
-    module load TECHNICS
+    export OMPI_MCA_hwloc_base_report_bindings=0
   fi
 fi
 
