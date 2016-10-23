@@ -4,6 +4,7 @@
 mkdir -p ~/local/bin
 mkdir -p ~/local/share
 mkdir -p ~/local/include
+mkdir -p ~/local/src
 
 ####
 echo "Linking rc files..."
@@ -125,3 +126,23 @@ echo "Installing fasd..."
 git clone https://github.com/clvv/fasd ~/local/share/fasd
 cp ~/local/share/fasd/fasd ~/local/bin/fasd
 eval "$(fasd --init auto)"s
+
+####
+echo "Installing hosts-gen..."
+####
+cd ~/local/src
+git clone http://git.r-36.net/hosts-gen
+cd hosts-gen
+sudo make install
+sudo hosts-gen
+
+# Now that gets you a few blockable domains:
+sudo cp examples/gethostszero /bin
+sudo chmod 775 /bin/gethostszero
+sudo /bin/gethostszero
+sudo hosts-gen
+
+# Update it from time to time:
+echo "Add this to root's crontab -e:"
+echo "@weekly gethostszero"
+echo "@weekly hosts-gen"
