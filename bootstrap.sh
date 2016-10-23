@@ -102,6 +102,11 @@ while true; do
 done
 
 ####
+echo "Installing ripgre (requires cargo)..."
+####
+cargo install ripgrep
+
+####
 echo "Installing desk..."
 ####
 curl https://raw.githubusercontent.com/jamesob/desk/master/desk > ~/local/bin/desk
