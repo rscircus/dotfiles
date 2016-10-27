@@ -158,3 +158,5 @@ bindkey '^o' ranger-cd
 
 # location specific:
 source ~/.zshrc_local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
