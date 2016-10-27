@@ -562,22 +562,25 @@ if has("python")
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
-    if executable('rg')
-      " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-      set grepprg=rg\ --color=never
-      " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-      " and .agignore. Ignores hidden files by default.
-      let g:ctrlp_user_command = 'rg %s --files -g ""'
-    elseif executable('ag')
-      " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-      set grepprg=ag\ --nogroup\ --nocolor
-      " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-      " and .agignore. Ignores hidden files by default.
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
-    else
-      "ctrl+p ignore files in .gitignore
-      let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-    endif
+" FASTER!
+if executable('rg')
+" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.5skvm9ypm
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+  set grepprg=rg\ --color=never
+  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+  " and .agignore. Ignores hidden files by default.
+  let g:ctrlp_user_command = 'rg %s --files -g ""'
+elseif executable('ag')
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+  " and .agignore. Ignores hidden files by default.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+else
+  "ctrl+p ignore files in .gitignore
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+endif
 
 " CtrlP auto cache clearing.
 " ----------------------------------------------------------------------------
