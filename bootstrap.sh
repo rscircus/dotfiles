@@ -31,8 +31,14 @@ cp ~/dotfiles/bin/* ~/local/bin
 
 # Executables:
 ##############
-ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket 
-ln -sf ~/dotfiles/utils/todo/todo.sh ~/dotfiles/bin/t 
+ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket
+ln -sf ~/dotfiles/utils/todo/todo.sh ~/local/bin/t
+
+####
+echo "Installing fzf..."
+####
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 ####
 echo "Installing oh-my-zsh..."
@@ -41,7 +47,8 @@ echo "Installing oh-my-zsh..."
 # Install oh-my-zsh:
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-#TODO: copy rawland theme to .oh-my-zsh
+# Copy my theme into theme dir
+cp ~/dotfiles/zsh/themes/rawland.zsh-theme ~/.oh-my-zsh/themes
 
 # Install various zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -54,9 +61,6 @@ echo "Installing diff-highlight, ack and tpm for tmux..."
 
 # Install diff-highlight
 curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
-
-# Install ack:
-curl http://beyondgrep.com/ack-2.14-single-file > ~/local/bin/ack && chmod 0755 !#:3
 
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

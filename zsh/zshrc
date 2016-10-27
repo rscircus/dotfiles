@@ -156,6 +156,9 @@ function ranger-cd {
 zle -N ranger-cd
 bindkey '^o' ranger-cd
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # location specific:
 source ~/.zshrc_local
 
