@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'scrooloose/syntastic'
+Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -442,6 +443,15 @@ cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
+
+" Indent Guides:
+" UTF8? ¦, ┆, or │
+let g:indentLine_char = '┆'
+let g:indentLine_setColors = 1
+"let g:indentLine_color_term = 252"
+nnoremap <leader>ig :IndentLinesToggle<cr>
+"GVim
+"let g:indentLine_color_gui = '#A4E57E'
 
 " Tagbar plugin:
 let g:tagbar_usearrows = 1
