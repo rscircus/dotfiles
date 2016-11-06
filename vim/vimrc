@@ -43,6 +43,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mtth/scratch.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'lukaszkorecki/workflowish'
+Plug 'paradigm/vim-multicursor'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
