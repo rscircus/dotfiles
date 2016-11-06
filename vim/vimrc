@@ -102,6 +102,7 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'lloeki/vim-one-colorschemes'
 Plug 'w0ng/vim-hybrid'
 Plug 'marcopaganini/termschool-vim-theme'
+Plug 'jacoborus/tender.vim'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -195,13 +196,13 @@ set mat=2                    " Blinks 10ths of seconds"
 set title                    " Set terminal title
 
 " Set cursorline in current window and normal mode
-augroup cline
-    au!
-    au WinLeave * set nocursorline
-    au WinEnter * set cursorline
-    au InsertEnter * set nocursorline
-    au InsertLeave * set cursorline
-augroup END
+"augroup cline
+"    au!
+"    au WinLeave * set nocursorline
+"    au WinEnter * set cursorline
+"    au InsertEnter * set nocursorline
+"    au InsertLeave * set cursorline
+"augroup END
 
 set ttimeout                  " Keys but not mappings (sanity!)
 set ttimeoutlen=10            " Speed/Responsiveness
@@ -279,12 +280,12 @@ let g:PaperColor_Light_Override = { 'background' : '#fdfdfd'} " Brighten up
 "" Environment:
 set background=dark
 
+"let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
+let g:PaperColor_Light_Override = { 'background' : '#fefefe'} " Brighten up
+
 "" Bright Environment:
-"color summerfruit256
-"color seoul256-light
-color PaperColor
-"color one-light
-"color pencil
+"color PaperColor
+color tender
 
 "" Dark Environment:
 "color jellybeans
@@ -293,7 +294,8 @@ color PaperColor
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
-:hi CursorLine cterm=NONE
+":hi CursorLine cterm=NONE
+":hi CursorLine ctermbg=237 guibg=#3a3a3a cterm=none gui=none
 :nnoremap <leader>H :set cursorline!<CR>
 
 " Change background with F6
@@ -447,9 +449,10 @@ cnoremap <C-N> <Down>
 
 " Indent Guides:
 " UTF8? ¦, ┆, or │
-let g:indentLine_char = '┆'
-let g:indentLine_setColors = 1
-"let g:indentLine_color_term = 252"
+let g:indentLine_char = '|'
+"let g:indentLine_setColors = 1
+let g:indentLine_enabled = 0
+"let g:indentLine_color_term =  4
 nnoremap <leader>ig :IndentLinesToggle<cr>
 "GVim
 "let g:indentLine_color_gui = '#A4E57E'
@@ -619,7 +622,7 @@ endif
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_extensions = ['branch']
-let g:airline_theme='papercolor'
+let g:airline_theme='tender'
 
 """ Buffergator:
 let g:buffergator_sort_regime = 'basename'
