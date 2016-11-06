@@ -951,7 +951,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " Relative line numbers in a Dirvish buffer
-autocmd! FileType dirvish setlocal relativenumber
+"autocmd! FileType dirvish setlocal relativenumber
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
