@@ -79,6 +79,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'vim-scripts/todo-txt.vim'
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
+Plug 'dhruvasagar/vim-dotoo'
 Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
