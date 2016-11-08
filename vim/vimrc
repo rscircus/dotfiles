@@ -174,7 +174,7 @@ else
 endif
 
 if version>=703
-"    set relativenumber       " show line numbers from current line to calc distances
+    set relativenumber       " show line numbers from current line to calc distances
 nnoremap <leader>rn :set relativenumber!<cr>
 "let &colorcolumn=join(range(81,999),",") " color all columns >=81
 else
