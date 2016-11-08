@@ -658,6 +658,8 @@ let g:airline_powerline_fonts = 1
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeIgnore=['\~$', '\.pyc']
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize = 30
@@ -873,7 +875,6 @@ let g:ack_autoclose = 1
 let g:ackpreview = 1
 "cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack -i<Space>
-
 
 
 " FORTRESS:
