@@ -1,5 +1,4 @@
-"
-" An aspiring engineer invests time in crafting his tools.
+" A good engineer invests time in crafting his tools.
 "
 " Author: Roland Siegbert
 "
@@ -19,7 +18,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'                               " See what changed
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -36,8 +35,8 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
-"Plug 'plasticboy/vim-markdown' ", { 'for' : ['mkd','md','markdown'] }
-Plug 'gabrielelana/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
+Plug 'rscircus/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mtth/scratch.vim'
@@ -72,7 +71,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'reedes/vim-wordy'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
-Plug 'junegunn/vim-emoji'
+"Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
 "install vim-lexical when you need to, one day...
 
 " orga:
@@ -295,7 +294,6 @@ color tender
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
-":hi CursorLine cterm=NONE
 ":hi CursorLine ctermbg=237 guibg=#3a3a3a cterm=none gui=none
 :nnoremap <leader>H :set cursorline!<CR>
 
