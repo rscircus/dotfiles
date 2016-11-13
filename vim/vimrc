@@ -555,7 +555,6 @@ hi link CtrlSpaceNormal   PMenu
 hi link CtrlSpaceSelected PMenuSel
 hi link CtrlSpaceSearch   Search
 hi link CtrlSpaceStatus   StatusLine
-let g:airline_exclude_preview = 1         "via :help ctrlspace
 
 "" CtrlP:
 let g:ctrlp_map = '<c-p>'
@@ -620,18 +619,11 @@ endif
 "" Airline:
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_extensions = ['branch']
-let g:airline_theme='tender'
-
-""" Buffergator:
-let g:buffergator_sort_regime = 'basename'
-let g:buffergator_autoupdate = 1
-let g:buffergator_show_full_directory_path = 0
-let g:buffergator_vsplit_size = 35
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
+let g:airline_extensions = ['branch','tabline']
+let g:airline_theme='sol'
+let g:airline_exclude_preview = 1                " via :help ctrlspace
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+let g:airline_powerline_fonts = 1
 " reset airline symbols
 "  if !exists('g:airline_symbols')
 "    let g:airline_symbols = {}
@@ -650,9 +642,15 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline_paste_symbol = 'Þ'
 "let g:airline_paste_symbol = '∥'
 
-let g:airline_powerline_fonts = 1
 
-"" NERDTree
+""" Buffergator:
+let g:buffergator_sort_regime = 'basename'
+let g:buffergator_autoupdate = 1
+let g:buffergator_show_full_directory_path = 0
+let g:buffergator_vsplit_size = 25
+
+
+"" NERDTree:
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
@@ -662,10 +660,8 @@ let NERDTreeIgnore=['\~$', '\.pyc']
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize = 25
 
-"" Rainbow parentheses
+"" Rainbow Parentheses:
 map <leader>r :RainbowParenthesesToggle<cr>
-
-" Load per default:
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -835,10 +831,12 @@ augroup vimrcEx
     \ endif
 augroup END
 
-augroup WrapLineInMarkdownFile
-    autocmd!
-    autocmd FileType markdown setlocal wrap
-augroup END
+" Markdown:
+" augroup WrapLineInMarkdownFile
+"     autocmd!
+"     autocmd FileType markdown setlocal wrap
+" augroup END
+"autocmd BufEnter *.md set updatetime=500
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
