@@ -35,12 +35,6 @@ ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/local/bin/t
 
 ####
-echo "Installing fzf..."
-####
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-####
 echo "Installing oh-my-zsh..."
 ####
 
@@ -54,6 +48,12 @@ cp ~/dotfiles/zsh/themes/rawland.zsh-theme ~/.oh-my-zsh/themes
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions $HOME/.oh-my-zsh/custom/plugins/zsh-completions
+
+####
+echo "Installing fzf..."
+####
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 ####
 echo "Installing diff-highlight, ack and tpm for tmux..."
