@@ -7,22 +7,6 @@ mkdir -p ~/local/include
 mkdir -p ~/local/src
 
 ####
-echo "Linking rc files..."
-####
-
-# Configuration files:
-######################
-#ln -sf ~/dotfiles/config/bashrc ~/.bashrc
-ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/config/ctags ~/.ctags
-ln -sf ~/dotfiles/config/screenrc ~/.screenrc
-ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/config/Xmodmap ~/.Xmodmap
-ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
-ln -sf ~/dotfiles/vim ~/.vim
-ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
-
-####
 echo "Executables..."
 ####
 
@@ -130,6 +114,22 @@ echo "Installing fasd..."
 git clone https://github.com/clvv/fasd ~/local/share/fasd
 cp ~/local/share/fasd/fasd ~/local/bin/fasd
 eval "$(fasd --init auto)"s
+
+####
+echo "Linking rc files..."
+####
+
+# Configuration files:
+######################
+#ln -sf ~/dotfiles/config/bashrc ~/.bashrc
+ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/config/ctags ~/.ctags
+ln -sf ~/dotfiles/config/screenrc ~/.screenrc
+ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/config/Xmodmap ~/.Xmodmap
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim ~/.vim
+ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 ####
 echo "Installing hosts-gen..."
