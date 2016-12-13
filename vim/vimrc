@@ -130,10 +130,13 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-set nofoldenable           " Folding
-set foldmarker=#--,--#
-set foldmethod=marker
+" Folding:
+"set foldmarker=#--,--#
+set foldmethod=syntax
 set foldlevel=0
+set foldenable
+set foldminlines=0
+set foldnestmax=5
 set clipboard=unnamed        " yank and paste with the system clipboard
 set splitright               " split windows always vertically
 au FocusLost * :wall         " Save on lost focus
@@ -252,13 +255,26 @@ set smartindent                  " Helps indenting after/before specific keyword
 set virtualedit=all              " Editing past line end
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
-set fillchars=diff:⣿,vert:│
+set fillchars=diff:⣿,vert:│,fold:-
 "set showbreak=↪
 "set list
 nnoremap <leader>tl :set list!<cr>
-nnoremap <F8> :set invpaste paste?<cr>
-set pastetoggle=<F2>
+map <leader>p :set invpaste paste?<cr>
+set pastetoggle=<leader>p
 set showmode
+
+" Abbreviations:
+" Hard to type things {{{
+iabbrev >> →
+iabbrev << ←
+iabbrev ^^ ↑
+iabbrev VV ↓
+iabbrev aa λ
+" }}}
+
+" Toggle folds (<Space>) {{{
+nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
+" }}}
 
 "" Look and feel
 syntax enable
@@ -389,11 +405,39 @@ endfunction
 " Start the find and replace command across the entire file
 vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
 
+" FastEscape {{{
+" Speed up transition from modes
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
+" }}}
+
+" Join lines and restore cursor location (J) {{{
+nnoremap J mjJ`j
+ " }}}
+
+" Speed up viewport scrolling {{{
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+" }}}
+
 "" Window movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Faster split resizing (+,-) {{{
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+endif
+" }}}
 
 "" Buffers
 map <leader>bd :Bclose<cr>
@@ -446,6 +490,67 @@ cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
+" Jumping to tags {{{
+" Basically, <c-]> jumps to tags (like normal) and <c-\> opens the tag in a new
+" split instead.
+"
+" Both of them will align the destination line to the upper middle part of the
+" screen.  Both will pulse the cursor line so you can see where the hell you
+" are.  <c-\> will also fold everything in the buffer and then unfold just
+" enough for you to see the destination line.
+nnoremap <c-]> <c-]>mzzvzz15<c-e>`z:Pulse<cr>
+nnoremap <c-\> <c-w>v<c-]>mzzMzvzz15<c-e>`z:Pulse<cr>
+
+" Pulse Line (thanks Steve Losh)
+function! s:Pulse() " {{{
+  redir => old_hi
+  silent execute 'hi CursorLine'
+  redir END
+  let old_hi = split(old_hi, '\n')[0]
+  let old_hi = substitute(old_hi, 'xxx', '', '')
+
+  let steps = 8
+  let width = 1
+  let start = width
+  let end = steps * width
+  let color = 233
+
+  for i in range(start, end, width)
+    execute "hi CursorLine ctermbg=" . (color + i)
+    redraw
+    sleep 6m
+  endfor
+  for i in range(end, start, -1 * width)
+    execute "hi CursorLine ctermbg=" . (color + i)
+    redraw
+    sleep 6m
+  endfor
+
+  execute 'hi ' . old_hi
+endfunction " }}}
+
+command! -nargs=0 Pulse call s:Pulse()
+" }}}
+
+" Word Processor Mode {{{
+augroup word_processor_mode
+  autocmd!
+
+  function! WordProcessorMode() " {{{
+    setlocal formatoptions=t1
+    map j gj
+    map k gk
+    setlocal smartindent
+    setlocal spell spelllang=en_gb
+    setlocal noexpandtab
+    setlocal wrap
+    setlocal linebreak
+    Goyo 100
+  endfunction " }}}
+  com! WP call WordProcessorMode()
+augroup END
+" }}}"
+
 " Indent Guides:
 " UTF8? ¦, ┆, or │
 let g:indentLine_char = '|'
@@ -456,7 +561,7 @@ nnoremap <leader>ig :IndentLinesToggle<cr>
 "GVim
 "let g:indentLine_color_gui = '#A4E57E'
 
-" Tagbar plugin:
+" Tagbar:
 let g:tagbar_usearrows = 1
 let g:tagbar_indent = 1              " spaces
 let g:tagbar_sort = 0                " appearance = 0, name = 1
@@ -557,6 +662,7 @@ hi link CtrlSpaceSearch   Search
 hi link CtrlSpaceStatus   StatusLine
 
 "" CtrlP:
+nnoremap <leader>bs :CtrlPBuffer<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window_bottom = 0
