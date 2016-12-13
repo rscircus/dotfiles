@@ -53,9 +53,9 @@ Plug 'vim-scripts/EasyMotion'
 Plug 'mileszs/ack.vim'                                     " Ack
 "  NVIM:
 if has('lua')
-Plug 'Shougo/neocomplete.vim'                              " note: needs if_lua
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+  Plug 'Shougo/neocomplete.vim'                              " note: needs if_lua
+  Plug 'Shougo/neosnippet.vim'
+  Plug 'Shougo/neosnippet-snippets'
 endif
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
@@ -76,6 +76,9 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
+" vimwikibundle: tasklib, Taskwarrior, vimwiki: - https://github.com/tbabej/taskwiki
+Plug 'tbabej/taskwiki'
+Plug 'vimwiki/vimwiki', {'branch':'dev'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'dhruvasagar/vim-dotoo'
@@ -254,7 +257,8 @@ set copyindent
 set smartindent                  " Helps indenting after/before specific keywords
 set virtualedit=all              " Editing past line end
 set backspace=indent,eol,start   " backspace through everything in insert mode
-set listchars=tab:»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
+set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
+"set listchars=tab:›»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
 set fillchars=diff:⣿,vert:│,fold:-
 "set showbreak=↪
 "set list
@@ -898,6 +902,12 @@ nmap <leader>wrap :setlocal wrap!<cr>:setlocal wrap?<cr>
 " Colorizer:
 let g:colorizer_auto_filetype='css,less,html'
 
+
+" Vimwiki:
+let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
+          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
+          \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
+          \ 'template_ext': '.tpl'}]
 " Orgahelp:
 nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor
 nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving cursor

@@ -68,7 +68,6 @@ gem install --user-install doing
 ####
 echo "Installing tig..."
 ####
-
 git clone https://github.com/jonas/tig ~/dotfiles/utils/tig
 cd ~/dotfiles/utils/tig
 make configure
@@ -107,6 +106,21 @@ git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plu
 echo "Installing thefuck..."
 ####
 pip install --user thefuck
+
+####
+echo "Installing TaskWarrior..."
+####
+git clone https://git.tasktools.org/scm/tm/task.git ~/dotfiles/utils/taskwarrior
+cd ~/dotfiles/utils/taskwarrior
+cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=~/.local .
+make
+make install
+
+
+####
+echo "Installing tasklib (Python Taskwarrior)..."
+####
+pip install --user --upgrade git+git://github.com/tbabej/tasklib@develop
 
 ####
 echo "Installing fasd..."
