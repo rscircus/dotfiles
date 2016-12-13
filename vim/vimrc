@@ -421,6 +421,10 @@ if ! has('gui_running')
 endif
 " }}}
 
+" Close Quickfix window (,qq) {{{
+map <leader>qq :cclose<CR>
+" }}}
+
 " Join lines and restore cursor location (J) {{{
 nnoremap J mjJ`j
  " }}}
