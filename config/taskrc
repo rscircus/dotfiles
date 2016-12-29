@@ -14,13 +14,13 @@
 data.location=~/.task
 
 # Mac specific
-pomodoro.taskwarrior_path=/Users/siegbert/local/bin/task
+pomodoro.taskwarrior_path=~/local/bin/task
 pomodoro.durationSeconds=2700
 
 # Inthe.AM
-taskd.certificate=/Users/siegbert/Downloads/private.certificate.pem
-taskd.key=/Users/siegbert/Downloads/private.key.pem
-taskd.ca=/Users/siegbert/Downloads/ca.cert.pem
+taskd.certificate=~/Downloads/private.certificate.pem
+taskd.key=~/Downloads/private.key.pem
+taskd.ca=~/Downloads/ca.cert.pem
 taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/roland.siegbert/4839e2ad-50d9-4e6f-bab6-9e7afeb5dfa3
 taskd.trust=ignore hostname
@@ -51,3 +51,5 @@ report.in.labels            = ID,Description
 #
 #uda.estimate.type=numeric
 #uda.estimate.label=Estimate
+
+include ~/dotfiles/utils/task-light-256.theme
