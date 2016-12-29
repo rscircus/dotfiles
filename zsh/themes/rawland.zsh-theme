@@ -20,4 +20,4 @@ function mgit_prompt_info() {
 }
 
 PROMPT='%{$fg[green]%}%j>%{$reset_color%} '
-RPROMPT='$(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
+RPROMPT='$(task +in +PENDING count) $(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
