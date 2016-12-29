@@ -28,7 +28,7 @@ taskd.trust=ignore hostname
 # Random
 color=on
 journal.time=on
-dateformat.annotation=Y.m.d H:M
+dateformat.annotation=Y.m.d H:N
 
 # GTD
 urgency.user.tag.in.coefficient=15.0
