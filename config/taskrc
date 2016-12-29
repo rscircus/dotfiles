@@ -1,0 +1,53 @@
+# [Created by task 2.5.1 12/27/2016 10:41:19]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Mac specific
+pomodoro.taskwarrior_path=/Users/siegbert/local/bin/task
+pomodoro.durationSeconds=2700
+
+# Inthe.AM
+taskd.certificate=/Users/siegbert/Downloads/private.certificate.pem
+taskd.key=/Users/siegbert/Downloads/private.key.pem
+taskd.ca=/Users/siegbert/Downloads/ca.cert.pem
+taskd.server=taskwarrior.inthe.am:53589
+taskd.credentials=inthe_am/roland.siegbert/4839e2ad-50d9-4e6f-bab6-9e7afeb5dfa3
+taskd.trust=ignore hostname
+
+# Random
+color=on
+journal.time=on
+dateformat.annotation=Y.m.d H:M
+
+# GTD
+urgency.user.tag.in.coefficient=15.0
+report.in.columns           = id,description
+report.in.description       = Inbox
+report.in.filter            = status:pending limit:page (+in)
+report.in.labels            = ID,Description
+
+## Uncomment as soon as comfortable User Defined Attributes:
+#uda.brainpower.type=string
+#uda.brainpower.label=Brainpower
+#uda.brainpower.values=H,M,L
+#uda.brainpower.default=M
+#
+#report.next.description     = Most urgent tasks
+#report.next.columns         = id, start.age, entry.age, urgency, depends, priority, project,tags, recur, scheduled.countdown, due.remaining, until.remaining, description, brainpower
+#report.next.filter          = status:pending and +next
+#report.next.labels          = ID,Active,Age,Urgency,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Brainpower
+#report.next.sort            = brainpower-,priority-,urgency-
+#
+#uda.estimate.type=numeric
+#uda.estimate.label=Estimate
