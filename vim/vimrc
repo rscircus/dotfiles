@@ -36,7 +36,7 @@ Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
 "Plug 'plasticboy/vim-markdown'
-Plug 'rscircus/vim-markdown'
+"Plug 'rscircus/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mtth/scratch.vim'
@@ -78,8 +78,8 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'vim-scripts/todo-txt.vim'
 " vimwikibundle: tasklib, Taskwarrior, vimwiki: - https://github.com/tbabej/taskwiki
 Plug 'blindFS/vim-taskwarrior'
-Plug 'tbabej/taskwiki'
-Plug 'vimwiki/vimwiki', {'branch':'dev'}
+"Plug 'tbabej/taskwiki'
+"Plug 'vimwiki/vimwiki', {'branch':'dev'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'dhruvasagar/vim-dotoo'
@@ -909,6 +909,7 @@ let g:colorizer_auto_filetype='css,less,html'
 
 
 " Vimwiki:
+nmap <Leader>wf <Plug>VimwikiFollowLink
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
@@ -1078,6 +1079,10 @@ let g:nrrw_rgn_wdth = 50
 
 " Taskwarrior:
 let g:task_rc_override = 'rc.defaultwidth=0'
+
+" Markdown:
+" TODO: Take care of vimwiki
+au! BufRead,BufNewFile *.md       set filetype=markdown
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
