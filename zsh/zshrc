@@ -184,7 +184,7 @@ note_ () {
   local file="$dir/$id.md"
 
   mkdir -p $dir
-  e "$file"
+  vim "$file"
 }
 
 alias n=note_
