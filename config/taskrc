@@ -61,3 +61,4 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-1week ) and ( +PENDING or +WAITING )
 context.work=+@work
 context.today=+today
+context.thesis=project:thesis or +thesis
