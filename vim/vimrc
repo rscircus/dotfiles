@@ -180,6 +180,7 @@ else
 endif
 
 if version>=703
+    set number
     set relativenumber       " show line numbers from current line to calc distances
 nnoremap <leader>rn :set relativenumber!<cr>
 "let &colorcolumn=join(range(81,999),",") " color all columns >=81
@@ -577,7 +578,7 @@ let g:tagbar_sort = 0                " appearance = 0, name = 1
 let g:tagbar_autopreview = 0
 let g:tagbar_autofocus = 0
 let g:tagbar_autoclose = 0
-let g:tagbar_width = 40
+let g:tagbar_width = 30
 let g:tagbar_compact = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
@@ -1009,7 +1010,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#auto_complete_delay = 200
+let g:neocomplete#auto_complete_delay = 300
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
