@@ -1,22 +1,27 @@
 #! /bin/bash exec 2>&-
-while true; do
-  # Get stamps
-  time=$(date +%k%M)
 
-  # task
-  if [[ -e task ]]; then
+# Start to loop forever (breaks handled via `sleep`)
+while true; do
+
+  datetime=$(date +%Y%m%d_%T)
+
+  # Sync: task
+  if [ -e task ]; then
+    echo "$datetime: syncing task now..."
     task sync
-    echo "$(date +%Y-%m-%d %T): syncing task now..."
   fi
 
   sleep 60 #seconds
 
-  echo $time
-
-  # Except it's night time:
-  if [[ "$time" -ge 1830 ]] && [[ "$time" -le 2220 ]];then
-        su -c "gsettings set org.gnome.desktop.lockdown disable-log-out true" $user
-      else
-            su -c "gsettings set org.gnome.desktop.lockdown disable-log-out false" $user
-          fi
+  #
+  # TODO: Except it's night time:
+  #
+  # Get time stamps
+  # time=$(date +%k%M)
+  #
+  # if [[ "$time" -ge 2030 ]] && [[ "$time" -le 600 ]];then
+  #   do_sync
+  # else
+  #   echo "$datetime: Zz..."
+  # fi
 done
