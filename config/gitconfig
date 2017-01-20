@@ -87,7 +87,7 @@
     editor = config --get core.editor
 
 # Work fast
-    update = "!git pull --rebase && git add . && git commit -m 'Update' && git push"
+    update = "!git add -A && git commit -m 'Update' && git pull --rebase && git push"
 
 [pager]
     log = diff-highlight | less
