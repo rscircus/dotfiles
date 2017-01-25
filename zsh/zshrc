@@ -90,6 +90,9 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
+# Ignore duplicates
+export HISTCONTROL=ignoreboth:erasedups
+
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
