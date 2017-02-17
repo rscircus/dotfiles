@@ -15,3 +15,26 @@
 --regex-todo=/\/\*\s*TODO\s*(.*)/todo \1/t,todo/
 --regex-todo=/\/\/\s*XXX\s*(.*)/xxx \1/x,xxx/
 --regex-todo=/\/\*\s*XXX\s*(.*)/xxx \1/x,xxx/
+
+--langdef=latex
+--langmap=latex:.tex
+--regex-latex=/^\s*\\tableofcontents/TABLE OF CONTENTS/s,toc/
+--regex-latex=/^\s*\\frontmatter/FRONTMATTER/s,frontmatter/
+--regex-latex=/^\s*\\mainmatter/MAINMATTER/s,mainmatter/
+--regex-latex=/^\s*\\backmatter/BACKMATTER/s,backmatter/
+--regex-latex=/^\s*\\bibliography\{/BIBLIOGRAPHY/s,bibliography/
+--regex-latex=/^\s*\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/sart/
+--regex-latex=/^\s*\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/sart/
+--regex-latex=/^\s*\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+--regex-latex=/^\s*\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+--regex-latex=/^\s*\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+--regex-latex=/^\s*\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+--regex-latex=/^\s*\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+--regex-latex=/^\s*\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+--regex-latex=/^\s*\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+--regex-latex=/^\s*\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+--regex-latex=/^\s*\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/^\s*\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/\\s*\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+--regex-latex=/\\s*\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+--regex-latex=/\\s*\pageref[[:space:]]*\{([^}]+)\}/\1/pageref/

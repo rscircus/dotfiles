@@ -614,6 +614,28 @@ else
     \ }
 end
 
+let g:tagbar_type_tex = {
+    \ 'ctagstype' : 'latex',
+    \ 'kinds'     : [
+        \ 's:sections',
+        \ 'g:graphics:1:0',
+        \ 'p:pagerefs:1:0'
+    \ ],
+    \ 'sort'    : 0,
+    \ }
+
+" let g:tagbar_type_tex = {
+"     \ 'ctagstype' : 'latex',
+"     \ 'kinds'     : [
+"         \ 's:sections',
+"         \ 'g:graphics:1:0',
+"         \ 'l:labels:1:0',
+"         \ 'r:refs:1:0',
+"         \ 'p:pagerefs:1:0'
+"     \ ],
+"     \ 'sort'    : 0,
+"     \ }
+
 " Markdown:
 "" Plasticboy:
 "let g:vim_markdown_folding_disabled = 1
@@ -1085,6 +1107,16 @@ let g:task_report_name = 'list'
 " Markdown:
 " TODO: Take care of vimwiki
 au! BufRead,BufNewFile *.md       set filetype=markdown
+
+" LaTeX:
+let g:tex_flavor = 'latex'
+au! FocusGained,BufRead,BufEnter,BufNewFile *.tex       set syntax=context
+let g:vimtex_latexmk_options = '-verbose -pdf -file-line-error -synctex=1 -interaction=batchmode'
+
+" Autoread/Autowrite:
+au FocusGained,BufEnter * :silent! !
+au FocusLost,WinLeave * :silent! w
+
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
