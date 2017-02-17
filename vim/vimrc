@@ -60,6 +60,7 @@ endif
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
+Plug 'flebel/vim-scroll-position'
 
 " File Manager:
 Plug 'lpenz/vimcommander'
@@ -107,6 +108,9 @@ Plug 'lloeki/vim-one-colorschemes'
 Plug 'w0ng/vim-hybrid'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'jacoborus/tender.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-scripts/mayansmoke'
+Plug 'therubymug/vim-pyte'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -283,6 +287,20 @@ nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' :
 " }}}
 
 "" Look and feel
+"let base16colorspace=256  " Access colors present in 256 colorspace
+
+"" Environment:
+set background=light
+
+"" Bright Environment:
+"color base16-tomorrow
+"color tender
+
+"" Dark Environment:
+"color jellybeans
+"color gruvbox
+"color badwolf
+
 syntax enable
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibilty="high"
@@ -295,24 +313,7 @@ let g:seoul256_light_background = 256
 let g:pencil_terminal_italics = 0
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 
-"let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
-let g:PaperColor_Light_Override = { 'background' : '#fdfdfd'} " Brighten up
-
-
-"" Environment:
-set background=dark
-
-"let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
-let g:PaperColor_Light_Override = { 'background' : '#fefefe'} " Brighten up
-
-"" Bright Environment:
-"color PaperColor
-color tender
-
-"" Dark Environment:
-"color jellybeans
-"color gruvbox
-"color badwolf
+"let g:PaperColor_Light_Override = { 'background' : '#ffffff', 'cursorline' : '#00000ff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
@@ -757,10 +758,15 @@ endif
 "" Airline:
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_extensions = ['branch','tabline']
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#wordcount#enabled = 1
+
+let g:airline#extensions#wordcount#format = '%d ~' " simplify display
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:airline_theme='sol'
 let g:airline_exclude_preview = 1                " via :help ctrlspace
-let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:airline_powerline_fonts = 1
 " reset airline symbols
 "  if !exists('g:airline_symbols')
@@ -1032,7 +1038,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#auto_complete_delay = 300
+let g:neocomplete#auto_complete_delay = 500
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
