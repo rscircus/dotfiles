@@ -17,7 +17,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'                               " See what changed
 Plug 'tpope/vim-fugitive'
