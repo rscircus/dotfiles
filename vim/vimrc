@@ -8,6 +8,10 @@ filetype plugin indent on       " load file type plugins + indentation
 syntax on
 set t_Co=256                    " Explicitly tell vim terminal features
 
+"if $COLORTERM == 'gnome-terminal'
+"    set term=xterm-256color
+"endif
+
 " Plugins:
 call plug#begin('~/.vim/plugged')
 
