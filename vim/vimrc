@@ -63,6 +63,7 @@ endif
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
+"Plug 'lornix/vim-scrollbar'
 Plug 'flebel/vim-scroll-position'
 
 " File Manager:
