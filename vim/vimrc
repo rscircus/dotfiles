@@ -112,7 +112,6 @@ Plug 'lloeki/vim-one-colorschemes'
 Plug 'w0ng/vim-hybrid'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'jacoborus/tender.vim'
-Plug 'chriskempson/base16-vim'
 Plug 'vim-scripts/mayansmoke'
 Plug 'therubymug/vim-pyte'
 
