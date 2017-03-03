@@ -1,4 +1,4 @@
-#! /bin/bash exec 2>&-
+#!/bin/bash
 
 # Start to loop forever (breaks handled via `sleep`)
 while true; do
@@ -11,7 +11,7 @@ while true; do
     task sync
   fi
 
-  sleep 60 #seconds
+  sleep 300 #seconds
 
   #
   # TODO: Except it's night time:
