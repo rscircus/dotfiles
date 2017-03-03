@@ -131,6 +131,7 @@ unalias gg
 
 # fasd-er!
 # function to execute built-in cd
+eval "$(fasd --init auto)"
 fasd_cd() {
   if [ $# -le 1 ]; then
     fasd "$@"
