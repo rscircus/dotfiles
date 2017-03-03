@@ -56,7 +56,7 @@ export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export MANPATH=$HOME/local/share/man:$MANPATH
 
 # Python
-export PYTHONPATH=$HOME/local/lib/site-python
+export PYTHONPATH=$HOME/.local/lib/site-python
 export PATH=$PATH:$HOME/.local/bin
 # Go
 export GOPATH=$HOME/local/src/go
