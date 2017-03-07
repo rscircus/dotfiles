@@ -908,6 +908,15 @@ vmap <silent> <leader>th :cal ToggleSelected(1)<CR>
 
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
+" Using tig:
+function! s:tig_status()
+  cd `driller --scm-root %`
+  !tig status
+endfunction
+
+map <C-G> :TigStatus<CR><CR>
+command! TigStatus call s:tig_status()
+
 " Autoremove white trailing white space:
 " autocmd BufWritePre * :%s/\s\+$//e
 
