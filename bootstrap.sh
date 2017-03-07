@@ -56,6 +56,12 @@ cd ~/dotfiles/utils/autojump
 ./install.py
 
 ####
+echo "Installing driller..."
+####
+
+wget https://raw.githubusercontent.com/jonhiggs/driller/latest/driller -O ~/local/bin/driller
+chmod +x ~/local/bin/driller
+####
 echo "Installing marktag & doing..."
 ####
 
