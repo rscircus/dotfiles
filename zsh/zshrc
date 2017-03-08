@@ -132,12 +132,12 @@ unalias gg
 
 # fasd-er!
 alias c='fasd_cd -d'
+
 # Copy and paste
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 # ranger
-
 function ranger-cd {
     tempfile="$(mktemp)"
     ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
@@ -166,8 +166,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 # location specific:
 source ~/.zshrc_local
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # taskwarrior GTD style:
 alias in='task add +in'
