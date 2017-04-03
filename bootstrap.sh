@@ -134,6 +134,11 @@ echo "Installing fasd..."
 git clone https://github.com/clvv/fasd ~/local/share/fasd
 cp ~/local/share/fasd/fasd ~/local/bin/fasd
 eval "$(fasd --init auto)"s
+####
+echo "Installing oh-my-git..."
+####
+git clone https://github.com/arialdomartini/oh-my-git.git ~/.oh-my-git && echo source ~/.oh-my-git/prompt.sh → ~/.zshrc
+
 
 ####
 echo "Linking rc files..."
