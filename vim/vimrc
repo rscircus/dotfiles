@@ -597,7 +597,7 @@ augroup END
 " UTF8? ¦, ┆, or │
 let g:indentLine_char = '|'
 let g:indentLine_setColors = 1
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 "let g:indentLine_color_term =  4
 nnoremap <leader>ig :IndentLinesToggle<cr>
 "GVim
@@ -693,7 +693,7 @@ let g:syntastic_fortran_fortran_exec = 'gfortran'
 "" Git Gutter:
 map <leader>ggt :GitGutterToggle<cr>
 map <leader>gglht :GitGutterLineHighlightsToggle<cr>
-let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_grep_command = 'rg --color=never -e'
 
