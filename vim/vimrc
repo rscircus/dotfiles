@@ -57,7 +57,7 @@ Plug 'esneider/YUNOcommit.vim'
 "Plug 'gorodinskiy/vim-coloresque'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
-Plug 'vim-scripts/EasyMotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'mileszs/ack.vim'                                     " Ack
 "  NVIM:
 if has('lua')
