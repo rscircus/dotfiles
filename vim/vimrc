@@ -999,6 +999,7 @@ nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving
 nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving cursor
 nmap <F7> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
 imap <F7> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+smap <F7> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
