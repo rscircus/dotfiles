@@ -38,7 +38,9 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
-"Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 "Plug 'rscircus/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -642,13 +644,13 @@ let g:tagbar_type_tex = {
 
 " Markdown:
 "" Plasticboy:
-"let g:vim_markdown_folding_disabled = 1
-"let g:vim_markdown_math = 1
-"let g:vim_markdown_toc_autofit = 0
-"let g:vim_markdown_frontmatter = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_toc_autofit = 0
+let g:vim_markdown_frontmatter = 0
 "" Gabrielelana:
-let g:markdown_enable_conceal = 1
-let g:markdown_enable_spell_checking = 0
+"let g:markdown_enable_conceal = 1
+"let g:markdown_enable_spell_checking = 0
 set conceallevel=2
 
 " Emojis in markdown:
@@ -994,13 +996,6 @@ augroup vimrcEx
     \ endif
 augroup END
 
-" Markdown:
-" augroup WrapLineInMarkdownFile
-"     autocmd!
-"     autocmd FileType markdown setlocal wrap
-" augroup END
-"autocmd BufEnter *.md set updatetime=500
-
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
@@ -1123,8 +1118,8 @@ let g:task_rc_override = 'rc.defaultwidth=0'
 let g:task_report_name = 'list'
 
 " Markdown:
+au! BufRead,BufNewFile *.md set filetype=markdown wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " TODO: Take care of vimwiki
-au! BufRead,BufNewFile *.md       set filetype=markdown
 
 " LaTeX:
 let g:tex_flavor = 'latex'
