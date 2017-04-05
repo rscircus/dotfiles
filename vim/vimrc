@@ -106,7 +106,8 @@ Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Lokaltog/vim-distinguished'
-Plug 'rscircus/vim-lucius'
+"Plug 'rscircus/vim-lucius'
+Plug 'jonathanfilip/vim-lucius'
 Plug 'rscircus/summerfruit256.vim'
 Plug 'rscircus/vim-tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
@@ -118,6 +119,8 @@ Plug 'marcopaganini/termschool-vim-theme'
 Plug 'jacoborus/tender.vim'
 Plug 'vim-scripts/mayansmoke'
 Plug 'therubymug/vim-pyte'
+Plug 'ptrr/proton-vim'
+Plug 'altercation/vim-colors-solarized'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -293,34 +296,55 @@ iabbrev aa λ
 nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
 " }}}
 
-"" Look and feel
-"let base16colorspace=256  " Access colors present in 256 colorspace
-
 "" Environment:
 set background=light
 
-"" Bright Environment:
-"color base16-tomorrow
-"color tender
+" Light Environment:
+"color PaperColor
+color summerfruit256
 
-"" Dark Environment:
-"color jellybeans
-"color gruvbox
+" Dark Environment:
 "color badwolf
 
 syntax enable
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibilty="high"
-let g:solarized_termtrans=1
+"let g:solarized_contrast="high"    "default value is normal
+"let g:solarized_visibilty="high"
+"let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
-let g:pencil_terminal_italics = 0
-let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
+let g:pencil_terminal_italics = 1
+let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
 
-"let g:PaperColor_Light_Override = { 'background' : '#ffffff', 'cursorline' : '#00000ff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
+let g:lucius_contrast="high"
+
+let g:gruvbox_contrast_light="hard"
+let g:gruvbox_vert_split="bg2"
+let g:gruvbox_italic=1
+
+" Systematic User-Config Options: 
+" let g:PaperColor_Theme_Options = {
+"       \   'theme': {
+"       \     'default': {
+"       \       'allow_bold': 1,
+"       \       'allow_italic': 1,
+"       \       'transparent_background': 0
+"       \     }
+"       \   },
+"       \   'language': {
+"       \     'python': {
+"       \       'highlight_builtins' : 1
+"       \     },
+"       \     'c': {
+"       \       'highlight_builtins' : 1
+"       \     },
+"       \     'cpp': {
+"       \       'highlight_standard_library': 1
+"       \     }
+"       \   }
+"       \ }
 
 " Do not underline CursorLine:
 set cursorline                  " highlight current line
