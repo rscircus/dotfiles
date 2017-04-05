@@ -49,6 +49,7 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'lukaszkorecki/workflowish'
 Plug 'paradigm/vim-multicursor'
 Plug 'mhinz/vim-startify'
+Plug 'junegunn/gv.vim'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
