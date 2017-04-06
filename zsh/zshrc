@@ -1,5 +1,18 @@
 export ZSH=$HOME/.oh-my-zsh
 
+# PATH, because else, zsh plugins fail...
+# Customize to your needs...
+export PATH=$PATH:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:$HOME/dotfiles/bin
+
+# Enhance system by local
+export PATH=$HOME/local/bin:$PATH
+export INCLUDE=$HOME/local/include:$INCLUDE
+export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export MANPATH=$HOME/local/share/man:$MANPATH
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -39,7 +52,7 @@ ENABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 #plugins=(git colorize colored-man-pages lol command-not-found gnu-utils history-substring-search compleat zsh-syntax-highlighting zsh-autosuggestions)
-plugins=(cp git colorize autojump colored-man-pages command-not-found gnu-utils history-substring-search desk fasd)
+plugins=(cp git colorize autojump colored-man-pages command-not-found gnu-utils history-substring-search desk)
 
 source $ZSH/oh-my-zsh.sh
 
