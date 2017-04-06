@@ -266,18 +266,16 @@ endif
 set nowrap                       "No wrapping of lines per default
 set autoindent                   " Keep indent, when indented
 if has('breakindent')
-set breakindent                  " Keep indentation, when indented & wrapped.
+  set breakindent                " Keep indentation, when indented & wrapped.
 endif
 set cindent                      " Like smartindent, but more clever
 set copyindent
 set smartindent                  " Helps indenting after/before specific keywords
-set virtualedit=all              " Editing past line end
+"set virtualedit=all              " Editing past line end
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
-"set listchars=tab:›»\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
 set fillchars=diff:⣿,vert:│,fold:-
 "set showbreak=↪
-"set list
 nnoremap <leader>tl :set list!<cr>
 map <leader>p :set invpaste paste?<cr>
 set pastetoggle=<leader>p
