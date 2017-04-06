@@ -154,7 +154,7 @@ set foldmethod=syntax
 set foldlevel=0
 set foldenable
 set foldminlines=0
-set foldnestmax=5
+set foldnestmax=3
 set clipboard=unnamed        " yank and paste with the system clipboard
 set splitright               " split windows always vertically
 au FocusLost * :wall         " Save on lost focus
