@@ -127,6 +127,7 @@ bindkey '^ ' autosuggest-accept
 
 alias mmv='noglob zmv -W'
 alias l='ls'
+alias ls='ls --color -h --group-directories-first'
 
 # RZ Cluster specific:
 if [ -n $WORK ]; then
@@ -137,8 +138,6 @@ if [ -n $WORK ]; then
     export OMPI_MCA_hwloc_base_report_bindings=0
   fi
 fi
-
-alias ls='ls --color -h --group-directories-first'
 
 # because I prefer gitgoodies:
 unalias gg
