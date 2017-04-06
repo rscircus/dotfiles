@@ -12,8 +12,11 @@ set t_Co=256                    " Explicitly tell vim terminal features
 "    set term=xterm-256color
 "endif
 
-" Plugins:
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Plugins: {{{
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 call plug#begin('~/.vim/plugged')
+
 
 " IDEish:
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " Filemanagement
@@ -131,12 +134,17 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Basics: }}}
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 let mapleader = ","
 let maplocalleader = "\<Space>"
 
 "" General vim options:
 set shell=/bin/bash
-"set encoding=utf-8
+set encoding=utf-8
+set modelines=1              " Allows the usage of '" vim:foldmethod=marker:foldlevel=0' in individual files
 set fileformats=unix,mac,dos " in this order supported file types
 set t_ut=                    " This took me quite a while - Disable Background Color Erase
 set showcmd                  " display incomplete commands
@@ -148,17 +156,15 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
+set clipboard=unnamed         " yank and paste with the system clipboard
+set splitright                " split windows always vertically
+au FocusLost * :wall          " Save on lost focus
+set lazyredraw                " performance (wait till macro finishes)
 " Folding:
-"set foldmarker=#--,--#
-set foldmethod=syntax
-set foldlevel=0
 set foldenable
-set foldminlines=0
-set foldnestmax=3
-set clipboard=unnamed        " yank and paste with the system clipboard
-set splitright               " split windows always vertically
-au FocusLost * :wall         " Save on lost focus
-set lazyredraw               " performance (wait till macro finishes)
+set foldlevelstart=10         " Open all folds by default
+set foldnestmax=5             " Maximum nesting
+set foldmethod=marker
 
 " Command history movement:
 cnoremap <c-n>  <down>
@@ -193,15 +199,17 @@ else
   set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 endif
 
-if version>=703
-    set number
-    set relativenumber       " show line numbers from current line to calc distances
-nnoremap <leader>rn :set relativenumber!<cr>
-"let &colorcolumn=join(range(81,999),",") " color all columns >=81
-else
-    set number
-    set numberwidth=5
-endif
+" Toggle between number and relativenumber
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set nonumber
+    else
+        set relativenumber
+        set number
+    endif
+endfunc
+nnoremap <leader>rn :call ToggleNumber()<cr>
 
 "" Control
 set autoread
@@ -216,21 +224,10 @@ set guioptions-=L
 set linespace=0              " no extra space between lines (!)
 set mat=2                    " Blinks 10ths of seconds"
 set title                    " Set terminal title
-
-" Set cursorline in current window and normal mode
-"augroup cline
-"    au!
-"    au WinLeave * set nocursorline
-"    au WinEnter * set cursorline
-"    au InsertEnter * set nocursorline
-"    au InsertLeave * set cursorline
-"augroup END
-
 set ttimeout                  " Keys but not mappings (sanity!)
 set ttimeoutlen=10            " Speed/Responsiveness
 
 "" wildmenu - Ignore files you never want to edit (hopefully)
-"if has("wildmenu")
 set wildmenu                   " autocompletion
 set wildmode=list:longest,list:full       " show all
 set wildignore+=*.a,*.o
@@ -239,7 +236,6 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.DS_Store
 set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
-"endif
 
 set magic                      " regex
 
@@ -247,7 +243,7 @@ set magic                      " regex
 set textwidth=0
 "set colorcolumn=+1
 set formatoptions=qrn1
-set lbr
+set lbr                        " Do not break lines in the middle of words
 set formatprg=par\ -q
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -305,9 +301,6 @@ color summerfruit256
 "color badwolf
 
 syntax enable
-"let g:solarized_contrast="high"    "default value is normal
-"let g:solarized_visibilty="high"
-"let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 
 let g:seoul256_background = 233
@@ -322,7 +315,7 @@ let g:gruvbox_contrast_light="hard"
 let g:gruvbox_vert_split="bg2"
 let g:gruvbox_italic=1
 
-" Systematic User-Config Options: 
+" Systematic User-Config Options:
 " let g:PaperColor_Theme_Options = {
 "       \   'theme': {
 "       \     'default': {
@@ -591,6 +584,10 @@ augroup word_processor_mode
 augroup END
 " }}}"
 
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Plugins:
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " Indent Guides:
 " UTF8? ¦, ┆, or │
 let g:indentLine_char = '|'
@@ -818,6 +815,10 @@ let g:airline_symbols.linenr = '␤'
 "let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
@@ -996,14 +997,14 @@ smap <F7> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 nnoremap <leader><leader> <c-^>
 
 " Tab wrapper
-"  function! InsertTabWrapper()
-"      let col = col('.') - 1
-"      if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<tab>"
-"      else
-"         return "\<c-p>"
-"      endif
-"  endfunction
+"function! InsertTabWrapper()
+"    let col = col('.') - 1
+"    if !col || getline('.')[col - 1] !~ '\k'
+"       return "\<tab>"
+"    else
+"       return "\<c-p>"
+"    endif
+"endfunction
 "inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 "inoremap <S-Tab> <c-n>
 
@@ -1068,13 +1069,13 @@ imap <leader>ff :call fortress#format()<cr>
 if has('lua')
 " NeoComplete:
 "
-" Disable AutoComplPop.
+" Neocomplete:
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#auto_complete_delay = 500
+let g:neocomplete#auto_complete_delay = 400
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -1089,7 +1090,7 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
+" Neocomplete key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
@@ -1142,6 +1143,9 @@ let g:nrrw_rgn_wdth = 50
 " Relative line numbers in a Dirvish buffer
 "autocmd! FileType dirvish setlocal relativenumber
 
+" Gundo:
+nnoremap <leader>u :GundoToggle<CR>
+
 " Taskwarrior:
 let g:task_rc_override="rc.defaultwidth=0"
 let g:task_rc_override="rc.defaultheight=0"
@@ -1170,3 +1174,4 @@ au FocusLost,WinLeave * :silent! w
 " https://gist.github.com/1470884
 " https://gist.github.com/1471147
 " https://gist.github.com/2424873
+" vim:foldmethod=marker:foldlevel=0
