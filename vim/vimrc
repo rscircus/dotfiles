@@ -1143,8 +1143,10 @@ let g:nrrw_rgn_wdth = 50
 "autocmd! FileType dirvish setlocal relativenumber
 
 " Taskwarrior:
-let g:task_rc_override = 'rc.defaultwidth=0'
-let g:task_report_name = 'list'
+let g:task_rc_override="rc.defaultwidth=0"
+let g:task_rc_override="rc.defaultheight=0"
+let g:task_report_name="list"
+let g:task_default_prompt = ['description', 'wait', 'due', 'project', 'tag']
 
 " Markdown:
 au! BufRead,BufNewFile *.md set filetype=markdown wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2
