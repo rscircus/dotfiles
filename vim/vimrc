@@ -24,6 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'                               " See what changed
 Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'scrooloose/syntastic'
