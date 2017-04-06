@@ -65,7 +65,6 @@ if has('lua')
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
 endif
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
 "Plug 'lornix/vim-scrollbar'
@@ -827,13 +826,6 @@ let g:airline_symbols.linenr = '␤'
 "let g:airline_symbols.branch = ''
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
-
-
-""" Buffergator:
-let g:buffergator_sort_regime = 'basename'
-let g:buffergator_autoupdate = 1
-let g:buffergator_show_full_directory_path = 0
-let g:buffergator_vsplit_size = 25
 
 
 "" NERDTree:
