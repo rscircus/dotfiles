@@ -168,8 +168,8 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 source ~/.zshrc_local
 
 # taskwarrior GTD style:
-alias in='task add +in'
-alias rnd='task add +rnd +next +@computer +@online'
+alias in='task add +in pro:life'
+alias rnd='task add +rnd +next +@computer +@online pro:life'
 alias tta='task project:thesis add'
 
 # my notes / seperate from (taskwarrior) actions:
