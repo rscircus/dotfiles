@@ -138,7 +138,7 @@ let maplocalleader = "\<Space>"
 set shell=/bin/bash
 "set encoding=utf-8
 set fileformats=unix,mac,dos " in this order supported file types
-set t_ut=                    " This took me quite a while
+set t_ut=                    " This took me quite a while - Disable Background Color Erase
 set showcmd                  " display incomplete commands
 set scrolloff=3              " min lines above or below cursor
 set visualbell               " I hate the acoustic bell
