@@ -165,6 +165,8 @@ set foldenable
 set foldlevelstart=10         " Open all folds by default
 set foldnestmax=5             " Maximum nesting
 set foldmethod=marker
+set relativenumber
+set number
 
 " Command history movement:
 cnoremap <c-n>  <down>
