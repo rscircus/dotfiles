@@ -83,6 +83,7 @@ export EDITOR="vim"
 
 vman() { man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
 alias vman='vman'
+alias vim='vim --servername vim'
 alias zmv='noglob zmv -W'
 
 # Common exports:
