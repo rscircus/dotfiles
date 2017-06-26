@@ -71,6 +71,9 @@ gem install --user-install marktag
 # Doing: https://github.com/ttscoff/doing
 gem install --user-install doing
 
+# Automatic housekeeping: https://github.com/benjaminoakes/maid
+gem install --user-install maid
+
 ####
 echo "Installing tig..."
 ####
