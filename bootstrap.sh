@@ -141,6 +141,11 @@ eval "$(fasd --init auto)"s
 echo "Installing oh-my-git..."
 ####
 git clone https://github.com/arialdomartini/oh-my-git.git ~/.oh-my-git && echo source ~/.oh-my-git/prompt.sh → ~/.zshrc
+####
+echo "git-time-metric is nice, but doesn't install well..."
+echo "Check: https://github.com/git-time-metric/gtm ..."
+####
+
 
 
 ####
