@@ -57,6 +57,7 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
 
+Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 "Plug 'gorodinskiy/vim-coloresque'
@@ -826,6 +827,18 @@ let g:airline_right_alt_sep = ''
 "let g:airline_symbols.branch = ''
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
+
+"" Git Time Metrics Airline:
+function! AirlineInit()
+  if exists('*GTMStatusline')
+    call airline#parts#define_function('gtmstatus', 'GTMStatusline')
+    let g:airline_section_b = airline#section#create([g:airline_section_b, ' ', '[', 'gtmstatus', ']'])
+  endif
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+" Enable the status Plugin
+let g:gtm_plugin_status_enabled = 1
 
 
 "" NERDTree:
