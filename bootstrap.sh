@@ -12,6 +12,7 @@ echo "Executables..."
 
 # Copy ~/dotfiles/bin to ~/local/bin
 cp ~/dotfiles/bin/* ~/local/bin
+cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
 
 # Executables:
 ##############
