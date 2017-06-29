@@ -6,6 +6,7 @@ mkdir -p ~/local/share
 mkdir -p ~/local/include
 mkdir -p ~/local/src
 
+
 ####
 echo "Executables..."
 ####
@@ -14,10 +15,9 @@ echo "Executables..."
 cp ~/dotfiles/bin/* ~/local/bin
 cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
 
-# Executables:
-##############
 ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/local/bin/t
+
 
 ####
 echo "Installing oh-my-zsh..."
@@ -34,15 +34,17 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-
 git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions $HOME/.oh-my-zsh/custom/plugins/zsh-completions
 
+
 ####
 echo "Installing fzf..."
 ####
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+
 ####
 echo "Installing diff-highlight, ack and tpm for tmux..."
-####
+####
 
 # Install diff-highlight
 curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
@@ -56,6 +58,7 @@ git clone git://github.com/joelthelion/autojump.git ~/dotfiles/utils/autojump
 cd ~/dotfiles/utils/autojump
 ./install.py
 
+
 ####
 echo "Installing driller..."
 ####
@@ -63,7 +66,7 @@ echo "Installing driller..."
 wget https://raw.githubusercontent.com/jonhiggs/driller/latest/driller -O ~/local/bin/driller
 chmod +x ~/local/bin/driller
 ####
-echo "Installing marktag & doing..."
+echo "Installing marktag, doing & maid..."
 ####
 
 # Marktag (markdown support for tagbar)
@@ -75,6 +78,7 @@ gem install --user-install doing
 # Automatic housekeeping: https://github.com/benjaminoakes/maid
 gem install --user-install maid
 
+
 ####
 echo "Installing tig..."
 ####
@@ -84,6 +88,7 @@ make configure
 make
 cd ./src
 cp tig ~/local/bin
+
 
 ####
 echo "Installing ag..."
@@ -99,10 +104,12 @@ while true; do
   esac
 done
 
+
 ####
 echo "Installing ripgre (requires cargo)..."
 ####
 cargo install ripgrep
+
 
 ####
 echo "Installing desk..."
@@ -112,10 +119,12 @@ curl https://raw.githubusercontent.com/jamesob/desk/master/desk > ~/local/bin/de
 cd ~/.oh-my-zsh/custom/plugins
 git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plugins/zsh desk
 
+
 ####
 echo "Installing thefuck..."
 ####
 pip install --user thefuck
+
 
 ####
 echo "Installing TaskWarrior..."
@@ -132,12 +141,15 @@ echo "Installing tasklib (Python Taskwarrior)..."
 ####
 pip install --user --upgrade git+git://github.com/tbabej/tasklib@develop
 
+
 ####
 echo "Installing fasd..."
 ####
 git clone https://github.com/clvv/fasd ~/local/share/fasd
 cp ~/local/share/fasd/fasd ~/local/bin/fasd
 eval "$(fasd --init auto)"s
+
+
 ####
 echo "Installing oh-my-git..."
 ####
@@ -146,7 +158,6 @@ git clone https://github.com/arialdomartini/oh-my-git.git ~/.oh-my-git && echo s
 echo "git-time-metric is nice, but doesn't install well..."
 echo "Check: https://github.com/git-time-metric/gtm ..."
 ####
-
 
 
 ####
@@ -165,8 +176,9 @@ ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
+
 ####
-echo "Installing hosts-gen..."
+echo "Installing hosts-gen...(sudo required)"
 ####
 cd ~/local/src
 git clone http://git.r-36.net/hosts-gen
