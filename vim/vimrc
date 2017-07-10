@@ -608,39 +608,57 @@ let g:tagbar_autofocus = 0
 let g:tagbar_autoclose = 0
 let g:tagbar_width = 30
 let g:tagbar_compact = 1
+let g:tagbar_show_visibility = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
 " Scratch:
 let g:scratch_filetype = 'markdown'
 let g:scratch_persistence_file = 'scratch.vim'
 
+" markdown2ctags: Add support for markdown files in tagbar.
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '$HOME/dotfiles/utils/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
 " Redfine markdown tags
-if executable('marktag')
-    let g:tagbar_type_markdown = {
-        \ 'ctagstype' : 'markdown',
-        \ 'ctagsbin' : 'marktag',
-        \ 'kinds' : [
-            \ 'h:header'
-        \ ],
-        \ 'sro' : '.',
-        \ 'kind2scope' : {
-            \ 'h' : 'header'
-        \  },
-        \ 'scope2kind' : {
-            \ 'header' : 'h'
-        \ }
-    \ }
-" Default tagbar behavior, if now marktag present
-else
-    let g:tagbar_type_markdown = {
-      \ 'ctagstype' : 'markdown',
-      \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-      \ ]
-    \ }
-end
+"if executable('marktag')
+"    let g:tagbar_type_markdown = {
+"        \ 'ctagstype' : 'markdown',
+"        \ 'ctagsbin' : 'marktag',
+"        \ 'kinds' : [
+"            \ 'h:header'
+"        \ ],
+"        \ 'sro' : '.',
+"        \ 'kind2scope' : {
+"            \ 'h' : 'header'
+"        \  },
+"        \ 'scope2kind' : {
+"            \ 'header' : 'h'
+"        \ }
+"    \ }
+"
+"" Default tagbar behavior, if now marktag present
+"else
+"    let g:tagbar_type_markdown = {
+"      \ 'ctagstype' : 'markdown',
+"      \ 'kinds' : [
+"        \ 'h:Heading_L1',
+"        \ 'i:Heading_L2',
+"        \ 'k:Heading_L3'
+"      \ ]
+"    \ }
+"end
 
 let g:tagbar_type_tex = {
     \ 'ctagstype' : 'latex',
