@@ -1207,9 +1207,17 @@ au! BufRead,BufNewFile *.md set filetype=markdown wrap expandtab tabstop=2 shift
 
 " LaTeX:
 let g:tex_flavor = 'latex'
-au! FocusGained,BufRead,BufEnter,BufNewFile *.tex       set syntax=context
-let g:vimtex_latexmk_options = '-verbose -pdf -file-line-error -synctex=1 -interaction=batchmode'
+au! FocusGained,BufRead,BufEnter,BufNewFile *.tex       set syntax=context wrap
+let g:vimtex_latexmk_options = '-verbose -pdf -synctex=1 -interaction=batchmode'
+"let g:vimtex_view_general_viewer = 'okular'
+"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+"let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = 'zathura'
+
+" Disable all warnings
+"let g:vimtex_quickfix_latexlog = {'default' : 0}
+let g:vimtex_quickfix_mode=0
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
