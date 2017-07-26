@@ -78,6 +78,7 @@ Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'tpope/vim-obsession'                                 " Obession
 "Plug 'lornix/vim-scrollbar'
 Plug 'flebel/vim-scroll-position'
+Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel 
 
 " File Manager:
 Plug 'lpenz/vimcommander'
@@ -130,6 +131,9 @@ Plug 'vim-scripts/mayansmoke'
 Plug 'therubymug/vim-pyte'
 Plug 'ptrr/proton-vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'acarapetis/vim-colors-github'
+"Plug 'dterei/VimCobaltColourScheme'
+Plug 'GertjanReynaert/cobalt2-vim-theme'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
