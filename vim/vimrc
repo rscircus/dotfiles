@@ -87,10 +87,10 @@ Plug 'lpenz/vimcommander'
 Plug 'tpope/vim-sleuth'
 
 " Writing:
-Plug 'reedes/vim-wordy'
+Plug 'reedes/vim-wordy', {'on': 'Wordy'}
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
-"Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
+Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
 "install vim-lexical when you need to, one day...
 
 " orga:
