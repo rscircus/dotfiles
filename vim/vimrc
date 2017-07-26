@@ -272,7 +272,7 @@ set smartindent                  " Helps indenting after/before specific keyword
 set backspace=indent,eol,start   " backspace through everything in insert mode
 set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,trail:▫,nbsp:▫
 set fillchars=diff:⣿,vert:│,fold:-
-"set showbreak=↪
+let &showbreak = '↳ '
 nnoremap <leader>tl :set list!<cr>
 map <leader>p :set invpaste paste?<cr>
 set pastetoggle=<leader>p
