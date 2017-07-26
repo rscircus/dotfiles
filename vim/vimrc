@@ -917,6 +917,8 @@ autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 "" Goyo:
 nnoremap <leader>G :Goyo<cr>
+let g:goyo_height='100%'
+let g:goyo_width='100'
 
 " Remove trailing whitespace
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
