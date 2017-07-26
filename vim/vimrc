@@ -25,6 +25,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'                         " Automatic (c)tag file generation
 Plug 'airblade/vim-gitgutter'                               " See what changed
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
@@ -45,6 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
+"Plug 'MikeCoder/markdown-preview.vim'
 "Plug 'rscircus/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -104,6 +106,7 @@ Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
 " Plug 'Rykka/riv.vim' "Doubled loading time
+Plug 'dbmrq/vim-ditto'
 
 " Color schemes:
 Plug 'larssmit/vim-getafe'
