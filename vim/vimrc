@@ -1,5 +1,5 @@
 " A good engineer invests time in crafting his tools.
-"
+
 " Author: Roland Siegbert
 "
 set nocompatible
@@ -58,7 +58,6 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
-
 Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
@@ -204,6 +203,7 @@ set backupskip  =
 set noswapfile "because there is git
 set undofile
 set undodir     =$HOME/.vim/files/undo/
+
 " Remember things between sessions:
 if has('nvim')
   set shada='100,<50,:20,%,n~/.nvim/_nviminfo
@@ -267,7 +267,7 @@ endif
 "     autocmd BufEnter * match OverLength /\%79v.*/
 " augroup END
 
-"" Whitespace
+"" Whitespace {{{
 set nowrap                       "No wrapping of lines per default
 set autoindent                   " Keep indent, when indented
 if has('breakindent')
@@ -285,6 +285,7 @@ nnoremap <leader>tl :set list!<cr>
 map <leader>p :set invpaste paste?<cr>
 set pastetoggle=<leader>p
 set showmode
+" }}}
 
 " Abbreviations:
 " Hard to type things {{{
@@ -317,6 +318,8 @@ let g:seoul256_light_background = 256
 
 let g:pencil_terminal_italics = 1
 let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
+let g:pencil_terminal_italics = 1
+let g:pencil_neutral_code_bg = 1
 
 let g:lucius_contrast="high"
 
@@ -369,9 +372,11 @@ if has("gui_running")
     color PaperColor
     set relativenumber          " show line numbers from current line to calc distances
     if has("gui_gtk2")
-      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+"      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 10
+      set guifont=Input\ 11
     else
-      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+"      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h10
+      set guifont=Input:h11
     endif
 endif
 
@@ -696,17 +701,11 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 0
 let g:vim_markdown_frontmatter = 0
+let g:vim_markdown_conceal = 0
 "" Gabrielelana:
 "let g:markdown_enable_conceal = 1
 "let g:markdown_enable_spell_checking = 0
-set conceallevel=2
 
-" Emojis in markdown:
-set completefunc=emoji#complete
-augroup emoji_complete
-    autocmd!
-    autocmd FileType markdown setlocal completefunc=emoji#complete
-augroup END
 
 " Syntastic Plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
@@ -815,7 +814,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
 "let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_theme='papercolor'
+let g:airline_theme='pencil'
 let g:airline_exclude_preview = 1                " via :help ctrlspace
 let g:airline_powerline_fonts = 1
 "reset airline symbols
@@ -1022,11 +1021,11 @@ let g:colorizer_auto_filetype='css,less,html'
 
 
 " Vimwiki:
-nmap <Leader>wf <Plug>VimwikiFollowLink
-let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
-          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
-          \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
-          \ 'template_ext': '.tpl'}]
+"let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
+"          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
+"          \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
+"          \ 'template_ext': '.tpl'}]
+
 " Orgahelp:
 nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor
 nnoremap <leader>cp YGp`  "copy current line to the end of buffer without moving cursor
@@ -1210,9 +1209,6 @@ let g:task_rc_override="rc.defaultheight=0"
 let g:task_report_name="list"
 let g:task_default_prompt = ['description', 'wait', 'due', 'project', 'tag']
 
-" Markdown:
-au! BufRead,BufNewFile *.md set filetype=markdown wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" TODO: Take care of vimwiki
 
 " LaTeX:
 let g:tex_flavor = 'latex'
