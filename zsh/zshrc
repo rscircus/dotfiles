@@ -197,6 +197,7 @@ note_ () {
 }
 
 alias n=note_
+alias o=xdg-open
 
 # taskwarrior, what's next/waiting - requires tasklib (py)
 #fun () {
