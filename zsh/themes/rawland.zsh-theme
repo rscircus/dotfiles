@@ -19,5 +19,7 @@ function mgit_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
 }
 
+# Assuming gtm-terminal is sourced
+
 PROMPT='%{$fg[green]%}%j>%{$reset_color%} '
-RPROMPT='$(task +in +PENDING count) $(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
+RPROMPT='%{$fg[black]%} ↻ $GTM_STATUS%{$reset_color%} ⎇ $(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
