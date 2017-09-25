@@ -608,7 +608,7 @@ augroup END
 " UTF8? ¦, ┆, or │
 let g:indentLine_char = '|'
 let g:indentLine_setColors = 1
-let g:indentLine_enabled = 1
+let g:indentLine_enabled = 0
 "let g:indentLine_color_term =  4
 nnoremap <leader>ig :IndentLinesToggle<cr>
 "GVim
