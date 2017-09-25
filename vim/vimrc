@@ -375,10 +375,10 @@ if has("gui_running")
     set relativenumber          " show line numbers from current line to calc distances
     if has("gui_gtk2")
 "      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 10
-      set guifont=Input\ 11
+      set guifont=Input\ 13
     else
 "      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h10
-      set guifont=Input:h11
+      set guifont=Input:h13
     endif
 endif
 
