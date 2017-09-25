@@ -90,6 +90,7 @@
     update = "!git add -A && git commit -m 'Update' && git pull --rebase && git push"
 
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log = diff-highlight | less -r
+    show = diff-highlight | less -r
+    diff = diff-highlight | less -r
+
