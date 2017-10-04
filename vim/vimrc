@@ -205,11 +205,10 @@ set backupskip  =
 set noswapfile "because there is git
 set undofile
 set undodir     =$HOME/.vim/files/undo/
+set termguicolors
 
-" Remember things between sessions:
 if has('nvim')
   set shada='100,<50,:20,%,n~/.nvim/_nviminfo
-  set termguicolors
 else
   set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 endif
