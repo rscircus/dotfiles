@@ -703,7 +703,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 0
 let g:vim_markdown_frontmatter = 0
-let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 1
 "" Gabrielelana:
 "let g:markdown_enable_conceal = 1
 "let g:markdown_enable_spell_checking = 0
@@ -1175,10 +1175,10 @@ if has('lua')
 "  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "  " \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"map <C-k>     <Plug>(neosnippet_expand_target)
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=0 concealcursor=niv
-endif
+"" For conceal markers.
+" if has('conceal')
+"   set conceallevel=0 concealcursor=niv
+" endif
 
 " NVIM:
 endif "has('lua')
