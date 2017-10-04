@@ -44,6 +44,7 @@ Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
 Plug 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 "Plug 'MikeCoder/markdown-preview.vim'
