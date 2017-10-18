@@ -17,6 +17,7 @@ cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
 
 ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket
 ln -sf ~/dotfiles/utils/todo/todo.sh ~/local/bin/t
+ln -sf ~/dotfiles/utils/ddgr ~/local/bin/ddgr
 
 
 ####
