@@ -1,0 +1,69 @@
+#!/bin/bash
+# mail window 1
+tmux -2 new-session -d -s 'workspace' -n 'pim'
+tmux split-window -h -p 30
+# org window 2
+tmux new-window -t 'workspace' -n 'org'
+# tmux split-window -v -p 40
+# tmux select-pane -t 0
+tmux split-window -h
+# tmux select-pane -t 2
+# tmux split-window -h
+# web window 3
+tmux new-window -t 'workspace' -n 'web'
+tmux split-window -h -p 40
+#tmux select-pane -t 1
+#tmux split-window -v
+# work window 4
+tmux new-window -t 'workspace' -n 'work'
+
+# Off for now:
+#  # chat window 4
+#  tmux new-window -t 'workspace' -n 'chat'
+#  tmux split-window -h -p 30
+#  # music window 5
+#  tmux new-window -t 'workspace' -n 'music'
+#  tmux split-window -v -p 15
+#  # news window 6
+#  tmux new-window -t 'workspace' -n 'news'
+#  tmux split-window -h
+#  tmux select-pane -t 2
+#  tmux split-window -v
+#  # monitor window 7
+#  tmux new-window -t 'workspace' -n 'mon'
+
+sleep 1
+
+tmux send-keys -t workspace:1.0 'cd ~/src/life.wiki' Enter
+tmux send-keys -t workspace:1.0 'vim diary/2017/2017.md' Enter
+tmux send-keys -t workspace:1.1 'ikhal' Enter
+tmux send-keys -t workspace:2.0 'ranger' Enter
+tmux send-keys -t workspace:2.1 'cd ~/src/life.wiki' Enter
+tmux send-keys -t workspace:2.1 'vim' Enter
+tmux send-keys -t workspace:3.0 'elinks https://duckduckgo.com' Enter
+tmux send-keys -t workspace:3.1 'ddgr' Enter
+#tmux send-keys -t workspace:3.1 'cd ~/src/life.wiki' Enter
+#tmux send-keys -t workspace:2.1 'vifm' Enter
+#tmux send-keys -t workspace:2.2 'wiki' Enter
+#tmux send-keys -t workspace:2.3 'openpasswords' Enter
+#tmux send-keys -t workspace:2.4 'scratch' Enter
+#tmux send-keys -t workspace:3.1 'elinks https://duckduckgo.com' Enter
+#tmux send-keys -t workspace:3.2 'openbookmarks' Enter
+#tmux send-keys -t workspace:3.3 'opensearch' Enter
+#tmux send-keys -t workspace:4.1 'irc' Enter
+#tmux send-keys -t workspace:4.2 'chat' Enter
+#tmux send-keys -t workspace:5.2 'cava' Enter
+#tmux send-keys -t workspace:6.1 'usenet' Enter
+#tmux send-keys -t workspace:6.2 'news' Enter
+#tmux send-keys -t workspace:6.3 'radio' Enter
+#tmux send-keys -t workspace:7.1 'monitor' Enter
+
+# change window focus
+#tmux select-pane -t workspace:1.2
+#tmux select-pane -t workspace:2.3
+#tmux select-pane -t workspace:3.3
+#tmux select-pane -t workspace:4.2
+#tmux select-pane -t workspace:5.1
+#tmux select-pane -t workspace:6.2
+tmux select-window -t workspace:1
+tmux attach -t workspace
