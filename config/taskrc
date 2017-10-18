@@ -31,10 +31,10 @@ journal.time=on
 dateformat.annotation=Y.m.d H:N
 
 # GTD
-urgency.user.tag.in.coefficient=15.0
+urgency.user.tag._Inbox.coefficient=15.0
 report.in.columns           = id,description
 report.in.description       = Inbox
-report.in.filter            = status:pending limit:page (+in)
+report.in.filter            = status:pending limit:page (+_Inbox)
 report.in.labels            = ID,Description
 
 # UDA
@@ -42,9 +42,10 @@ uda.xid.type=string #Required by asanawarrior
 
 # Urgency coefficients
 urgency.age.coefficient                       = 2.0   # coefficient for age
-urgency.user.tag.upcoming.coefficient         = 7.5
-urgency.user.tag._SomedayMaybe.coefficient    = -15.0 # Tasks in SomedayMaybe section.
-urgency.user.tag._WaitingFor.coefficient      = -10.0 # Tasks in WaitingFor section.
+urgency.user.tag._Now.coefficient             = 10.0
+urgency.user.tag._Next.coefficient            = 7.5
+urgency.user.tag._Someday.coefficient         = -15.0 # Tasks in SomedayMaybe section.
+urgency.user.tag._Waiting.coefficient         = -10.0 # Tasks in WaitingFor section.
 
 urgency.user.project.Learning.coefficient     = -7.0  # Coefficients for various Dgraph projects.
 urgency.user.project.Technical.coefficient    = 2.0
@@ -68,7 +69,7 @@ uda.estimate.label=Estimate
 #report.next.sort            = brainpower-,priority-,urgency-
 
 
-include ~/dotfiles/utils/task-light-256.theme
+#include ~/dotfiles/utils/task-light-256.theme
 
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
@@ -80,4 +81,4 @@ report._reviewed.filter=( reviewed.none: or reviewed.before:now-1week ) and ( +P
 
 context.work=+@work
 context.today=+today
-context.thesis=project:thesis or +thesis
+context.thesis=project:thesis or +thesis or pro:Thesis
