@@ -85,6 +85,8 @@ vman() { man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
 alias vman='vman'
 alias vim='vim --servername vim'
 alias zmv='noglob zmv -W'
+alias ls='exa'
+alias ll='exa -l'
 
 # Common exports:
 export TERM="xterm-256color"
