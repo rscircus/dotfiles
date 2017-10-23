@@ -206,6 +206,8 @@ set noswapfile "because there is git
 set undofile
 set undodir     =$HOME/.vim/files/undo/
 set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 if has('nvim')
   set shada='100,<50,:20,%,n~/.nvim/_nviminfo
@@ -816,7 +818,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
 "let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_theme='onehalfdark'
+let g:airline_theme='papercolor'
 let g:airline_exclude_preview = 1                " via :help ctrlspace
 let g:airline_powerline_fonts = 1
 "reset airline symbols
