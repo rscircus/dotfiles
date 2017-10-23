@@ -1182,6 +1182,7 @@ if has('lua')
 "   set conceallevel=0 concealcursor=niv
 " endif
 
+
 " NVIM:
 endif "has('lua')
 
@@ -1218,11 +1219,10 @@ let g:task_default_prompt = ['description', 'wait', 'due', 'project', 'tag']
 let g:tex_flavor = 'latex'
 au! FocusGained,BufRead,BufEnter,BufNewFile *.tex       set syntax=context wrap
 let g:vimtex_latexmk_options = '-verbose -pdf -synctex=1 -interaction=batchmode'
+let g:vimtex_view_method = 'zathura'
 "let g:vimtex_view_general_viewer = 'okular'
 "let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 "let g:vimtex_view_general_options_latexmk = '--unique'
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_method = 'zathura'
 
 " VimCompletesMe Integration:
 augroup VimCompletesMeTex
