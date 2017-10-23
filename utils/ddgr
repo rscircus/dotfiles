@@ -179,7 +179,7 @@ class DdgUrl(object):
         self.fragment = ''
 
         self._reg = None
-        self._num = 10
+        self._num = 6
         self._start = 0
         self._keywords = []
         self._site = None
