@@ -74,7 +74,7 @@ if has('lua')
 endif
 Plug 'ajh17/VimCompletesMe'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
-Plug 'tpope/vim-obsession'                                 " Obession
+"Plug 'tpope/vim-obsession'                                 " Obession
 "Plug 'lornix/vim-scrollbar'
 Plug 'flebel/vim-scroll-position'
 Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel 
