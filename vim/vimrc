@@ -66,7 +66,6 @@ Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'easymotion/vim-easymotion'
-Plug 'mileszs/ack.vim'                                     " Ack
 "  NVIM:
 if has('lua')
 "  Plug 'Shougo/neocomplete.vim'                              " note: needs if_lua
@@ -1096,14 +1095,6 @@ endif
 " Calendar
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
-
-" If silver searcher present:
-let g:ackprg = 'rg --vimgrep --no-heading'
-let g:ack_autoclose = 1
-let g:ackpreview = 1
-"cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack -i<Space>
-
 
 " FORTRESS:
 map <leader>ff :call fortress#format()<cr>
