@@ -788,6 +788,11 @@ else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 endif
 
+" FZF:
+map <Leader>f :Find<space>
+command! -bang -nargs=* Find call fzf#vim#grep( 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+
 " CtrlP auto cache clearing.
 " ----------------------------------------------------------------------------
 function! SetupCtrlP()
