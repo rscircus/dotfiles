@@ -905,6 +905,7 @@ let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeIgnore=['\~$', '\.pyc']
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize = 25
+"autocmd vimenter * NERDTree "Open on startup
 
 "" Rainbow Parentheses:
 map <leader>r :RainbowParenthesesToggle<cr>
