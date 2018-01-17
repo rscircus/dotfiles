@@ -1036,7 +1036,7 @@ let g:easy_align_delimiters = {
 \'stick_to_left': 0 } }
 
 " TabMan - Toggle:
-map <leader>ttm :TMToggle<cr>
+map <leader>tmt :TMToggle<cr>
 
 " Minimap
 map <leader>mm :Minimap<cr>
