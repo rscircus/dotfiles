@@ -43,8 +43,11 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 "Plug 'rscircus/vim-fortress'
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 "Plug 'MikeCoder/markdown-preview.vim'
@@ -647,6 +650,21 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
+let g:tagbar_type_pandoc = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '$HOME/dotfiles/utils/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
 " Redfine markdown tags
 "if executable('marktag')
 "    let g:tagbar_type_markdown = {
@@ -700,7 +718,10 @@ let g:tagbar_type_tex = {
 
 " Markdown:
 "" Plasticboy:
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_folding_level = 3
+let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 0
 let g:vim_markdown_frontmatter = 0
@@ -813,6 +834,7 @@ endif
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 :nmap <leader>tM :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 :nmap <leader>tm :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+"au BufRead,BufNewFile *.md,*.mkd set wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 
 
 "" Airline:
