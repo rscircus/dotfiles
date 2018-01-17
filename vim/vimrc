@@ -402,7 +402,7 @@ let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
 
 " Set region to British English
-set spelllang=en_gb
+set spelllang=en,de
 
 "" Copy and paste
 vmap <C-c> "+yi
