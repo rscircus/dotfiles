@@ -261,12 +261,6 @@ set formatoptions=qrn1
 set lbr                        " Do not break lines in the middle of words
 set formatprg=par\ -q
 
-" Enable basic mouse behavior such as resizing buffers.
-set mouse=a
-if exists('$TMUX')              " Support resizing in tmux
-  set ttymouse=xterm2
-endif
-
 " Highlight only the lines that go past 80 characters
 " augroup vimrc_autocmds
 "     autocmd BufEnter * highlight OverLength ctermbg=255 guibg=#592929
