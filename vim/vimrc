@@ -137,6 +137,7 @@ Plug 'acarapetis/vim-colors-github'
 "Plug 'dterei/VimCobaltColourScheme'
 Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'plan9-for-vimspace/acme-colors'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
