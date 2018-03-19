@@ -146,13 +146,14 @@ call plug#end()
 
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Basics: }}}
+" Basics: {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 let mapleader = ","
 let maplocalleader = "\<Space>"
 
 "" General vim options:
+set viewoptions=cursor,folds,slash,unix
 set shell=/bin/bash
 set encoding=utf-8
 set modelines=1              " Allows the usage of '" vim:foldmethod=marker:foldlevel=0' in individual files
@@ -211,6 +212,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 if has('nvim')
   set shada='100,<50,:20,%,n~/.nvim/_nviminfo
+
 else
   set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 endif
@@ -245,7 +247,7 @@ set wildmenu                   " autocompletion
 set wildmode=list:longest,list:full       " show all
 set wildignore+=*.a,*.o
 set wildignore+=*.mod "Fortran
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+"set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.DS_Store
 set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
@@ -264,6 +266,8 @@ set formatprg=par\ -q
 "     autocmd BufEnter * highlight OverLength ctermbg=255 guibg=#592929
 "     autocmd BufEnter * match OverLength /\%79v.*/
 " augroup END
+
+" }}} Basics
 
 "" Whitespace {{{
 set nowrap                       "No wrapping of lines per default
