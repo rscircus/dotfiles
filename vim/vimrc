@@ -725,7 +725,14 @@ let g:vim_markdown_conceal = 1
 "" Gabrielelana:
 "let g:markdown_enable_conceal = 1
 "let g:markdown_enable_spell_checking = 0
+" Pandoc:
+let g:pandoc#spell#enabled = 0
 
+" Markdown Preview:
+let g:mkdp_path_to_chrome = "/usr/bin/google-chrome-beta"
+
+" Table mode:
+let g:table_mode_corner='|'
 
 " Syntastic Plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
@@ -741,6 +748,9 @@ let g:gitgutter_grep_command = 'rg --color=never -e'
 " TaskPaper:
 :let g:notes_directories = ['~/usr/cld/orga/notes']
 :let g:notes_suffix = '.note'
+
+" OrgMode:
+let g:org_indent = 1
 
 "" TextBubbling:
 " single line
