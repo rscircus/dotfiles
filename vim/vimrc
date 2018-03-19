@@ -31,7 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
-"Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'                                " Multi-porpose linter (superslow)
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
@@ -42,18 +42,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-"Plug 'rscircus/vim-fortress'
-"Plug 'plasticboy/vim-markdown'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
-"Plug 'MikeCoder/markdown-preview.vim'
-"Plug 'rscircus/vim-markdown'
+ Plug 'iamcco/mathjax-support-for-mkdp'
+ Plug 'iamcco/markdown-preview.vim'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'tmux-plugins/vim-tmux-focus-events'
+"Plug 'tmux-plugins/vim-tmux-focus-events'                  " Ditched tmux due to color problems for now.
 Plug 'mtth/scratch.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'lukaszkorecki/workflowish'
@@ -65,16 +61,16 @@ Plug 'djoshea/vim-autoread'
 Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
-"Plug 'gorodinskiy/vim-coloresque'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'easymotion/vim-easymotion'
 Plug 'ajh17/VimCompletesMe'
 Plug 'sjl/gundo.vim'                                       " GundoToggle
-"Plug 'tpope/vim-obsession'                                 " Obession
-"Plug 'lornix/vim-scrollbar'
 Plug 'flebel/vim-scroll-position'
-Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel 
+Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 
 " File Manager:
 Plug 'lpenz/vimcommander'
@@ -87,7 +83,7 @@ Plug 'reedes/vim-wordy', {'on': 'Wordy'}
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
-"install vim-lexical when you need to, one day...
+" TODO: install vim-lexical when you need to, one day...
 
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
@@ -102,7 +98,6 @@ Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'chrisbra/NrrwRgn'
-" Plug 'Rykka/riv.vim' "Doubled loading time
 Plug 'dbmrq/vim-ditto'
 
 " Color schemes:
@@ -112,10 +107,9 @@ Plug 'brendonrapp/smyck-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Lokaltog/vim-distinguished'
-"Plug 'rscircus/vim-lucius'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'rscircus/summerfruit256.vim'
-Plug 'rscircus/vim-tomorrow-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sjl/badwolf'
@@ -126,9 +120,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'vim-scripts/mayansmoke'
 Plug 'therubymug/vim-pyte'
 Plug 'ptrr/proton-vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'acarapetis/vim-colors-github'
-"Plug 'dterei/VimCobaltColourScheme'
 Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'plan9-for-vimspace/acme-colors'
@@ -141,6 +133,9 @@ Plug 'reedes/vim-pencil'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+" }}} Plugins
+
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Basics: }}}
