@@ -290,8 +290,9 @@ set showmode
 
 " Abbreviations:
 " Hard to type things {{{
-iabbrev >> →
-iabbrev << ←
+"This fucks up programming in C++
+"iabbrev >> →
+"iabbrev << ←
 iabbrev ^^ ↑
 iabbrev VV ↓
 iabbrev aa λ
