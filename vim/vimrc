@@ -28,6 +28,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'                         " Automatic (c)tag file generation
 Plug 'airblade/vim-gitgutter'                               " See what changed
 Plug 'tpope/vim-fugitive'
+Plug 'sodapopcan/vim-twiggy'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
@@ -71,6 +72,9 @@ Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
+Plug 'wincent/terminus'
+Plug 'kopischke/vim-stay'                                  " Automated view session
+Plug 'vim-scripts/SyntaxRange'                             " Syntax color code in org-mode
 
 " File Manager:
 Plug 'lpenz/vimcommander'
@@ -94,6 +98,7 @@ Plug 'blindFS/vim-taskwarrior'
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
 Plug 'rscircus/taskpaper.vim', {'for': 'taskpaper'}
 Plug 'dhruvasagar/vim-dotoo'
+Plug 'jceb/vim-orgmode'
 Plug 'vim-voom/VOoM'
 Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-speeddating'
@@ -123,7 +128,10 @@ Plug 'ptrr/proton-vim'
 Plug 'acarapetis/vim-colors-github'
 Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'noahfrederick/vim-hemisu'
+Plug 'romainl/Apprentice'
 Plug 'plan9-for-vimspace/acme-colors'
+Plug 'kevinkoltz/vim-simplex'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
