@@ -44,8 +44,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 
 ####
-echo "Installing diff-highlight, ack and tpm for tmux..."
-####
+echo "Installing diff-highlight, tpm for tmux..."
+####
 
 # Install diff-highlight
 curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
@@ -107,9 +107,12 @@ done
 
 
 ####
-echo "Installing ripgre (requires cargo)..."
+echo "Installing ripgrep, fd-find, exa, bat..."
 ####
-cargo install ripgrep
+cargo install ripgrep       # faster grepping
+cargo install fd-find       # find things
+cargo install exa           # ls replacement
+cargo install bat           # cat replacement
 
 
 ####
@@ -122,10 +125,19 @@ git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plu
 
 
 ####
-echo "Installing thefuck..."
+echo "Installing thefuck, asciinema, visidata, youtube-dl..."
 ####
 pip install --user thefuck
+pip install --user asciinema
+pip install --user visidata
+pip install --user youtube-dl
 
+
+####
+echo "Installing tasklib (Python Taskwarrior)..."
+
+####
+pip install --user --upgrade git+git://github.com/tbabej/tasklib@develop
 
 ####
 echo "Installing TaskWarrior..."
@@ -136,11 +148,6 @@ cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=~/.local .
 make
 make install
 
-
-####
-echo "Installing tasklib (Python Taskwarrior)..."
-####
-pip install --user --upgrade git+git://github.com/tbabej/tasklib@develop
 
 
 ####
