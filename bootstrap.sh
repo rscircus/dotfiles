@@ -6,7 +6,6 @@ mkdir -p ~/local/share
 mkdir -p ~/local/include
 mkdir -p ~/local/src
 
-
 ####
 echo "Executables..."
 ####
@@ -14,11 +13,6 @@ echo "Executables..."
 # Copy ~/dotfiles/bin to ~/local/bin
 cp ~/dotfiles/bin/* ~/local/bin
 cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
-
-ln -sf ~/dotfiles/utils/bitpocket/bin/bitpocket ~/local/bin/bitpocket
-ln -sf ~/dotfiles/utils/todo/todo.sh ~/local/bin/t
-ln -sf ~/dotfiles/utils/ddgr ~/local/bin/ddgr
-
 
 ####
 echo "Installing oh-my-zsh..."
@@ -47,18 +41,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 echo "Installing diff-highlight, tpm for tmux..."
 ####
 
-# Install diff-highlight
-curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/local/bin/diff-highlight && chmod +x ~/local/bin/diff-highlight
-
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-
-# Autojump:
-git clone git://github.com/joelthelion/autojump.git ~/dotfiles/utils/autojump
-cd ~/dotfiles/utils/autojump
-./install.py
-
 
 ####
 echo "Installing driller..."
@@ -70,41 +55,7 @@ chmod +x ~/local/bin/driller
 echo "Installing marktag, doing & maid..."
 ####
 
-# Marktag (markdown support for tagbar)
-gem install --user-install marktag
-
-# Doing: https://github.com/ttscoff/doing
-gem install --user-install doing
-
-# Automatic housekeeping: https://github.com/benjaminoakes/maid
-gem install --user-install maid
-
-
-####
-echo "Installing tig..."
-####
-git clone https://github.com/jonas/tig ~/dotfiles/utils/tig
-cd ~/dotfiles/utils/tig
-make configure
-make
-cd ./src
-cp tig ~/local/bin
-
-
-####
-echo "Installing ag..."
-####
-
-# ag? https://github.com/ggreer/the_silver_searcher
-while true; do
-  read -p "Are you on Debian and do you want to install ag? [y/n]" yn
-  case $yn in
-    [Yy]* ) sudo apt-get install silversearcher-ag; break;;
-    [Nn]* ) break;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done
-
+exit
 
 ####
 echo "Installing ripgrep, fd-find, exa, bat..."
