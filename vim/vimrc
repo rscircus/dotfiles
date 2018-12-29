@@ -59,7 +59,8 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
-Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
+" Disabled due to libcurl problem
+"Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
@@ -76,6 +77,7 @@ Plug 'wincent/terminus'
 Plug 'kopischke/vim-stay'                                  " Automated view session
 Plug 'vim-scripts/SyntaxRange'                             " Syntax color code in org-mode
 Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
+Plug 'leafgarland/typescript-vim'                          " TypeScript Support
 
 " File Manager:
 Plug 'lpenz/vimcommander'
@@ -133,6 +135,7 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'romainl/Apprentice'
 Plug 'plan9-for-vimspace/acme-colors'
 Plug 'kevinkoltz/vim-simplex'
+Plug 'tomasr/molokai'
 
 " Distraction free writing:
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
