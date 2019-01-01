@@ -6,6 +6,7 @@ mkdir -p ~/local/share
 mkdir -p ~/local/include
 mkdir -p ~/local/src
 
+
 ####
 echo "Executables..."
 ####
@@ -13,6 +14,7 @@ echo "Executables..."
 # Copy ~/dotfiles/bin to ~/local/bin
 cp ~/dotfiles/bin/* ~/local/bin
 cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
+
 
 ####
 echo "Installing oh-my-zsh..."
@@ -38,12 +40,13 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 
 ####
-echo "Installing diff-highlight, tpm for tmux..."
+echo "Installing tpm for tmux..."
 ####
 
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+
 
 ####
 echo "Installing driller..."
@@ -55,7 +58,6 @@ chmod +x ~/local/bin/driller
 echo "Installing marktag, doing & maid..."
 ####
 
-exit
 
 ####
 echo "Installing ripgrep, fd-find, exa, bat..."
@@ -78,17 +80,19 @@ git clone git@github.com:jamesob/desk.git /tmp/desk && cp -r /tmp/desk/shell_plu
 ####
 echo "Installing thefuck, asciinema, visidata, youtube-dl..."
 ####
-pip install --user thefuck
-pip install --user asciinema
-pip install --user visidata
-pip install --user youtube-dl
+
+brew install thefuck
+brew install youtube-dl
+#pip install --user asciinema
+#pip install --user visidata
 
 
 ####
 echo "Installing tasklib (Python Taskwarrior)..."
-
 ####
+
 pip install --user --upgrade git+git://github.com/tbabej/tasklib@develop
+
 
 ####
 echo "Installing TaskWarrior..."
@@ -98,7 +102,6 @@ cd ~/dotfiles/utils/taskwarrior
 cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=~/.local .
 make
 make install
-
 
 
 ####
