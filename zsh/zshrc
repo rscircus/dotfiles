@@ -108,6 +108,7 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
+bindkey '^K' kill-line
 
 # Ignore duplicates
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
@@ -134,6 +135,7 @@ bindkey '^ ' autosuggest-accept
 alias mmv='noglob zmv -W'
 alias l='ls'
 alias ls='ls --color -h --group-directories-first'
+alias f='find . -iname'
 
 # RZ Cluster specific:
 if [ -n $WORK ]; then
@@ -147,8 +149,6 @@ fi
 
 # because I prefer gitgoodies:
 unalias gg
-# because I prefer graphicsmagick
-unlias gm
 
 # fasd-er!
 #eval "$(fasd --init auto)"
@@ -213,10 +213,16 @@ note_ () {
   local file="$dir/$id.md"
 
   mkdir -p $dir
-  vim "$file"
+  nvim "$file"
+}
+
+note_search_ () {
+  local id="$1"
+  ls -c "$LIFE/projects" | rg $id
 }
 
 alias n=note_
+alias ns=note_search_
 alias o=xdg-open
 
 # taskwarrior, what's next/waiting - requires tasklib (py)
@@ -272,7 +278,7 @@ alias o=xdg-open
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-source $HOME/.oh-my-git/prompt.sh
+#source $HOME/.oh-my-git/prompt.sh
 
 # Disabled because of CURL (3) issue
 # source ~/dotfiles/utils/gtm-plugin.sh
@@ -295,6 +301,16 @@ else
 fi
 u2018-12-29 16:51nset __conda_setup
 # <<< conda init <<<
+
+# add emacs.d
+export PATH="~/.emacs.d/bin:$PATH"
+
+#thefuck
+if hash fuck 2>/dev/null; then
+  echo "Some fucks given"
+else
+  eval $(thefuck --alias)
+fi
 
 # WINE
 export WINEARCH=win32
