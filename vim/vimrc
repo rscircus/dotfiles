@@ -841,10 +841,10 @@ if has("autocmd")
 endif
 
 
-:nmap <leader>tf :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+:nmap <leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
-:nmap <leader>tM :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
-:nmap <leader>tm :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+:nmap <leader>t8 :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+:nmap <leader>t2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 "au BufRead,BufNewFile *.md,*.mkd set wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 
 
