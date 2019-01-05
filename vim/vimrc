@@ -89,13 +89,14 @@ Plug 'tpope/vim-sleuth'
 Plug 'reedes/vim-wordy', {'on': 'Wordy'}
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
-Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
+"Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
+Plug 'kyuhi/vim-emoji-complete'
 " TODO: install vim-lexical when you need to, one day...
 
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
 " vimwikibundle: tasklib, Taskwarrior, vimwiki: - https://github.com/tbabej/taskwiki
-Plug 'blindFS/vim-taskwarrior'
+/github.com/"Plug 'blindFS/vim-taskwarrior'
 "Plug 'tbabej/taskwiki'
 "Plug 'vimwiki/vimwiki', {'branch':'dev'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
@@ -1135,10 +1136,6 @@ endif
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
-" FORTRESS:
-map <leader>ff :call fortress#format()<cr>
-imap <leader>ff :call fortress#format()<cr>
-
 " VimCommander:
 noremap <silent> <F12> :cal VimCommanderToggle()<CR>
 
@@ -1212,6 +1209,10 @@ let g:limelight_priority = -1
 " Disable all warnings
 "let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_mode=0
+
+" emoji
+let g:emoji_complete_overwrite_standard_keymaps = 1
+imap <F8> <Plug>(emoji-start-complete)
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
