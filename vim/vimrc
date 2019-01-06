@@ -96,7 +96,7 @@ Plug 'kyuhi/vim-emoji-complete'
 " orga:
 Plug 'vim-scripts/todo-txt.vim'
 " vimwikibundle: tasklib, Taskwarrior, vimwiki: - https://github.com/tbabej/taskwiki
-/github.com/"Plug 'blindFS/vim-taskwarrior'
+" Plug 'blindFS/vim-taskwarrior'
 "Plug 'tbabej/taskwiki'
 "Plug 'vimwiki/vimwiki', {'branch':'dev'}
 Plug 'vimoutliner/vimoutliner', {'for': 'otl'}
