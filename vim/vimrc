@@ -731,8 +731,11 @@ let g:vim_markdown_conceal = 1
 "" Gabrielelana:
 "let g:markdown_enable_conceal = 1
 "let g:markdown_enable_spell_checking = 0
+"
 " Pandoc:
 let g:pandoc#spell#enabled = 0
+let g:pandoc#syntax#conceal#blacklist = ['list']
+let g:pandoc#syntax#conceal#urls = 1
 
 " Markdown Preview:
 let g:mkdp_path_to_chrome = "/usr/bin/google-chrome-beta"
