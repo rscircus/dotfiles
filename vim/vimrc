@@ -72,7 +72,8 @@ Plug 'flebel/vim-scroll-position'
 Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+"  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 Plug 'wincent/terminus'
 Plug 'kopischke/vim-stay'                                  " Automated view session
 Plug 'vim-scripts/SyntaxRange'                             " Syntax color code in org-mode
