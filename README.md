@@ -1,9 +1,7 @@
 # My dotfiles:
-
 A bunch of dotfiles and a bootstrap script.
 
 # Preview:
-
 This is what you end up with after bootstrapping and running `:PlugInstall` in `vim`:
 
 ![](https://img42.com/BBSEs+)
@@ -11,7 +9,7 @@ This is what you end up with after bootstrapping and running `:PlugInstall` in `
 # Changelog
 All notable changes to this project will be documented in this portion.
 
-## 2017-06-20
+## 2019-06-08
 ### Added
 - linux/homebrew installation
 - Installation of a bunch of practical tools using brew
