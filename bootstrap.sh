@@ -82,6 +82,7 @@ echo "Linking rc files..."
 # Configuration files:
 ######################
 # TODO: Check if not overwriting files:
+# TODO: If overwriting -> backup
 #
 #ln -sf ~/dotfiles/config/bashrc ~/.bashrc
 ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
@@ -92,6 +93,7 @@ ln -sf ~/dotfiles/config/Xmodmap ~/.Xmodmap
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+touch ~/.zshrc_local
 
 
 ####
