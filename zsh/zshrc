@@ -308,6 +308,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Python virtualenvwrapper
-source /etc/bash_completion.d/virtualenvwrapper
-export WORKON_HOME=~/src/envs
+# TODO: Do you want this?
+# # Python virtualenvwrapper
+# source /etc/bash_completion.d/virtualenvwrapper
+# export WORKON_HOME=~/src/envs
