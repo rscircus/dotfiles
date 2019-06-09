@@ -60,10 +60,10 @@ echo "Prompt: (Warning: this can fail)"
 ####
 
 while true; do
-    read -p "Do you wish to install a bunch of brews?" yn
-    case $yn in
+    read -p "Do you wish to install a bunch of brews? [y/n]" answer
+    case $answer in
         [Yy]* ) make brews_install; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes [Y/y] or no [N/n].";;
     esac
 done
