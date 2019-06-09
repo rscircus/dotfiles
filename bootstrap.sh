@@ -22,6 +22,7 @@ echo "Installing oh-my-zsh..."
 # Install oh-my-zsh:
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 # TODO: This interrupts this script. Maybe a silent way is possible
+# TODO: This spawns a new shell in a shell, as far as I see..
 
 # Copy my theme into theme dir
 cp ~/dotfiles/zsh/themes/rawland.zsh-theme ~/.oh-my-zsh/themes
