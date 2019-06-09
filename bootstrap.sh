@@ -56,27 +56,19 @@ echo "Installing driller..."
 wget https://raw.githubusercontent.com/jonhiggs/driller/latest/driller -O ~/local/bin/driller
 chmod +x ~/local/bin/driller
 
-
 ####
-echo "Installing many practical bins via brew..."
+echo "Potentially installing many practical bins via brew..."
+echo "Prompt: (Warning: this can fail)"
 ####
 
-brew install diff-so-fancy        # fancy diffs in git and other tools
-brew install prettyping           # beautiful ping
-brew install fd			  # alternative to find, which does what one assumes
-brew install ripgrep              # fast grepping
-brew install bat		  # alternative to cat
-brew install exa                  # modern ls
-brew install fzf                  # fuzzy finder
-brew install fasd                 # quick access to files and directories
-brew install thefuck              # I made a mistake, correct it
-brew install tldr		  # tldr; alternative to man
-brew install youtube-dl		  # process youtube videos
-brew install ncdu		  # disk usage analyzer
-# TODO: Many of these packages need configuration... .linuxbrew/opt/fzf/install
-#pip install --user asciinema
-#pip install --user visidata
-
+while true; do
+    read -p "Do you wish to install a bunch of brews?" yn
+    case $yn in
+        [Yy]* ) make brews_install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes [Y/y] or no [N/n].";;
+    esac
+done
 
 # TODO:
 ####
