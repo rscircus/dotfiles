@@ -73,6 +73,7 @@ brew install thefuck              # I made a mistake, correct it
 brew install tldr		  # tldr; alternative to man
 brew install youtube-dl		  # process youtube videos
 brew install ncdu		  # disk usage analyzer
+# TODO: Many of these packages need configuration... .linuxbrew/opt/fzf/install
 #pip install --user asciinema
 #pip install --user visidata
 
