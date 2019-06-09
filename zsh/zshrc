@@ -283,25 +283,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # Disabled because of CURL (3) issue
 # source ~/dotfiles/utils/gtm-plugin.sh
 
-# SDKMAN
-export SDKMAN_DIR="/home/roland/.sdkman"
-[[ -s "/home/roland/.sdkman/bin/sdkman-init.sh" ]] && source "/home/roland/.sdkman/bin/sdkman-init.sh"
-
-# Anaconda
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/roland/.local/share/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/roland/.local/share/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/roland/.local/share/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/home/roland/.local/share/anaconda3/bin:$PATH"
-    fi
-fi
-u2018-12-29 16:51nset __conda_setup
-# <<< conda init <<<
-
 # add emacs.d
 export PATH="~/.emacs.d/bin:$PATH"
 
