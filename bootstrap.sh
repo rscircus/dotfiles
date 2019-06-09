@@ -15,7 +15,6 @@ echo "Executables get copied to ~/local/bin..."
 cp ~/dotfiles/bin/* ~/local/bin
 cp ~/dotfiles/utils/autohide-Panel.sh ~/local/bin
 
-
 ####
 echo "Installing oh-my-zsh..."
 ####
@@ -47,7 +46,6 @@ echo "Installing tpm for tmux..."
 # Install tmux add ons
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-
 
 ####
 echo "Installing driller..."
