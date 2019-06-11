@@ -334,6 +334,8 @@ let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
 let g:pencil_terminal_italics = 1
 let g:pencil_neutral_code_bg = 1
 
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
 let g:lucius_contrast="high"
 
 let g:gruvbox_contrast_light="hard"
