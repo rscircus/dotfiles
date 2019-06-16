@@ -1,6 +1,16 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
+;; General setup
+(setq user-full-name    "Roland Siegbert"
+      user-mail-address "roland@siegbert.info"
+
+      +doom-modeline-buffer-file-name-style 'relative-from-project
+
+      ;; TODO: Don't ask when killing emacs (really?)
+      confirm-kill-emacs nil
+      )
+
+;; Font
 (setq
  doom-font (font-spec :family "Iosevka Term Medium" :size 16)
  doom-big-font (font-spec :family "Iosevka Term Medium" :size 17)
