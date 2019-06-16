@@ -117,6 +117,43 @@
   (setq magit-module-sections-nested nil))
 
 ;;
+;;; eshell
+;; add fish-like autocompletion
+(def-package! esh-autosuggest
+  :defer t
+  :after eshell-mode
+  :config
+  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
+  ;; utilize completion from fish
+  (when (and (executable-find "fish")
+             (require 'fish-completion nil t))
+    (global-fish-completion-mode)))
+
+;; fix pcomplete-completions-at-point uses a deprecated calling function
+(add-hook 'eshell-mode-hook (lambda ()
+                              (remove-hook 'completion-at-point-functions #'pcomplete-completions-at-point t)))
+;; aliases
+(after! eshell
+  (set-eshell-alias!
+   "ff"  "+ivy/projectile-find-file"
+   "fd"  "counsel-projectile-find-dir"
+   "/p" "+ivy/project-search"
+   "/d" "+ivy/project-search-from-cwd"
+   "d"   "deer $1"
+   "l"   "ls -l"
+   "la"  "ls -la"
+   "gl"  "(call-interactively 'magit-log-current)"
+   "gs"  "magit-status"
+   "gc"  "magit-commit"
+   "gbD" "my/git-branch-delete-regexp $1"
+   "gbS" "my/git-branch-match $1"
+   "rg"  "rg --color=always $*"
+   "bat" "my/eshell-bat $1"))
+;; Improvements from howard abrahams
+;; programs that want to pause the output uses cat instead
+(setenv "PAGER" "cat")
+
+;;
 ;;; Keybinds
 
 (map! :m "M-j" #'multi-next-line
