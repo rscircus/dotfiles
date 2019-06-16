@@ -101,6 +101,20 @@
                     (calendar-absolute-from-gregorian (list month day year)))))
           'font-lock-face 'font-lock-function-name-face))
 
+;; Projectile
+(setq projectile-enable-caching nil)
+
+;; Magit
+;; automatic spellchecking in commit messages
+(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+;; mitigate terminal is dumb
+(setenv "EDITOR" "emacsclient")
+;; submodules
+(with-eval-after-load 'magit
+(magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules
+                            'magit-insert-unpulled-from-upstream)
+  (setq magit-module-sections-nested nil))
 
 ;;
 ;;; Keybinds
