@@ -68,7 +68,7 @@
 ;; place latex-captions below figures and tables
 (setq org-latex-caption-above nil)
 
-(setq org-directory "~/work/org/"
+(setq org-directory "~/org/"
       org-agenda-files (list org-directory)
       org-ellipsis " ▼ "
 
