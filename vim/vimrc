@@ -178,7 +178,7 @@ if has('persistent_undo')
 endif
 set clipboard=unnamed         " yank and paste with the system clipboard
 set splitright                " split windows always vertically
-au FocusLost * :wall          " Save on lost focus
+au FocusLost * silent! wa     " Save on lost focus
 set lazyredraw                " performance (wait till macro finishes)
 " Folding:
 set foldenable
