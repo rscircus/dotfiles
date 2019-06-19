@@ -60,7 +60,7 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
 " Disabled due to libcurl problem
-"Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
+Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
