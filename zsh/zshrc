@@ -281,7 +281,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 #source $HOME/.oh-my-git/prompt.sh
 
 # Disabled because of CURL (3) issue
-# source ~/dotfiles/utils/gtm-plugin.sh
+source ~/dotfiles/utils/gtm-plugin.sh
 
 # add emacs.d
 export PATH="~/.emacs.d/bin:$PATH"
