@@ -312,3 +312,6 @@ fi
 # # Python virtualenvwrapper
 # source /etc/bash_completion.d/virtualenvwrapper
 # export WORKON_HOME=~/src/envs
+#
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
