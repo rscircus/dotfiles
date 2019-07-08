@@ -95,6 +95,7 @@ ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 touch ~/.zshrc_local
+touch ~/.tmux_local
 
 
 ####
