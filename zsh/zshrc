@@ -90,6 +90,7 @@ alias grep='grep --color=auto'
 alias ls='exa'
 alias ll='exa -l'
 alias tree='tree --dirsfirst'
+alias clip='xsel -ib'
 
 # Common exports:
 export TERM="xterm-256color"
