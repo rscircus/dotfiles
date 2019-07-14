@@ -1,61 +1,46 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+;; Place your private configuration here
+
 ;; General setup
 (setq user-full-name    "Roland Siegbert"
       user-mail-address "roland@siegbert.info"
 
-      +doom-modeline-buffer-file-name-style 'relative-from-project
+      doom-modeline-buffer-file-name-style 'relative-from-project
+      doom-modeline-height 20
 
       ;; TODO: Don't ask when killing emacs (really?)
       confirm-kill-emacs nil
       )
+(custom-set-faces
+  '(mode-line ((t (:height 0.95))))
+  '(mode-line-inactive ((t (:height 0.95)))))
 
 ;; Font
 (setq
- doom-font (font-spec :family "Iosevka Term Medium" :size 16)
- doom-big-font (font-spec :family "Iosevka Term Medium" :size 17)
- doom-variable-pitch-font (font-spec :family "Input" :size 16))
-
-;; TODO
-;;;; (when IS-LINUX
-;;;;   (font-put doom-font :weight 'semi-light))
-;;;; (when IS-MAC
-;;;;   (setq ns-use-thin-smoothing t))
+;; doom-font (font-spec :family "Iosevka Term SS05" :size 16)
+;; doom-variable-pitch-font (font-spec :family "Noto Sans" :size 18))
+doom-font (font-spec :family "Input" :size 15)
+doom-variable-pitch-font (font-spec :family "Noto Sans" :size 14))
 
 ;; Themes
-(require 'doom-themes)
-
-;;; Frames/Windows
-(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
-(load-theme 'doom-Iosvkem' t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Enable custom neotree theme (all-the-icons must be installed!)
-(doom-themes-neotree-config)
-
-;; or for treemacs users
-(doom-themes-treemacs-config)
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
+;;; Leuven
+;; (add-to-list 'custom-theme-load-path "~/dotfiles/themes/emacs-leuven-theme")
+;; (load-theme 'leuven t)                  ; For Emacs 24+.
+;; (setq leuven-scale-outline-headlines nil)
+;; (setq leuven-scale-org-agenda-structure nil)
+(load-theme 'doom-dracula t)
 
 ;; Enable emoji globally
 (add-hook 'after-init-hook #'global-emojify-mode)
-
 
 ;;
 ;;; :lang org
 (after! org
   (add-to-list 'org-modules 'org-habit t))
+
+;; org-trello location
+(custom-set-variables '(org-trello-files '("~/src/org/life.org"))) ; can be more like ("a" "b")
 
 ;; Pop-rule
 (after! org
@@ -68,7 +53,7 @@
 ;; place latex-captions below figures and tables
 (setq org-latex-caption-above nil)
 
-(setq org-directory "~/org/"
+(setq org-directory "~/src/org/"
       org-agenda-files (list org-directory)
       org-ellipsis " ▼ "
 
