@@ -79,6 +79,7 @@ Plug 'kopischke/vim-stay'                                  " Automated view sess
 Plug 'vim-scripts/SyntaxRange'                             " Syntax color code in org-mode
 Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
 Plug 'leafgarland/typescript-vim'                          " TypeScript Support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " File Manager:
 Plug 'lpenz/vimcommander'
