@@ -65,7 +65,7 @@ Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'easymotion/vim-easymotion'
-Plug 'ajh17/VimCompletesMe'
+"Plug 'ajh17/VimCompletesMe'                                " tab-completion with minimalism in mind
 Plug 'sjl/gundo.vim'                                       " GundoToggle
 Plug 'flebel/vim-scroll-position'
 Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel
@@ -79,9 +79,11 @@ Plug 'vim-scripts/SyntaxRange'                             " Syntax color code i
 Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
 Plug 'leafgarland/typescript-vim'                          " TypeScript Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {
+  \ 'do': 'yarn install --frozen-lockfile',
+  \ 'for': 'go' }
 
-" File Manager:
+" File :Manager:
 Plug 'lpenz/vimcommander'
 
 " Automatic indentation settings:
@@ -153,7 +155,6 @@ call plug#end()
 " }}} Plugins
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Basics: {{{
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,6 +189,7 @@ set foldnestmax=5             " Maximum nesting
 set foldmethod=marker
 set relativenumber
 set number
+set tabstop=4
 
 " Command history movement:
 cnoremap <c-n>  <down>
@@ -619,7 +621,8 @@ augroup END
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Go:
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled=0
+let g:go_fmt_command="goimports"
 
 "
 " -------------------------------------------------------------------------------------------------
@@ -883,29 +886,46 @@ if has("python")
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
-" FASTER!
-if executable('rg')
-" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.5skvm9ypm
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  set grepprg=rg\ --color=never
-  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-  " and .agignore. Ignores hidden files by default.
-  let g:ctrlp_user_command = 'rg %s --files -g ""'
-elseif executable('ag')
-  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
-  " and .agignore. Ignores hidden files by default.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
-else
-  "ctrl+p ignore files in .gitignore
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-endif
-
 " FZF:
-map <Leader>f :Find<space>
-command! -bang -nargs=* Find call fzf#vim#grep( 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>), 1, <bang>0)
+"" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+" Override Colors command. You can safely do this in your .vimrc as fzf.vim
+" will not override existing commands.
+command! -bang Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>1 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%', '?'),
+  \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>1 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
 " CtrlP auto cache clearing.
@@ -1255,13 +1275,6 @@ let g:vimtex_view_method = 'zathura'
 "let g:vimtex_view_general_viewer = 'okular'
 "let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 "let g:vimtex_view_general_options_latexmk = '--unique'
-
-" VimCompletesMe Integration:
-augroup VimCompletesMeTex
-    autocmd!
-    autocmd FileType tex
-        \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
-  augroup END
 
 " LimeLight:
 " Color name (:help cterm-colors) or ANSI code
