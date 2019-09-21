@@ -841,7 +841,7 @@ let g:gitgutter_grep_command = 'rg --color=never -e'
 :let g:notes_suffix = '.note'
 
 " OrgMode:
-let g:org_indent = 1
+"let g:org_indent = 1
 
 "" TextBubbling:
 " single line
