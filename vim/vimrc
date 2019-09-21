@@ -79,9 +79,7 @@ Plug 'vim-scripts/SyntaxRange'                             " Syntax color code i
 Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
 Plug 'leafgarland/typescript-vim'                          " TypeScript Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {
-  \ 'do': 'yarn install --frozen-lockfile',
-  \ 'for': 'go' }
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'}
 
 " File :Manager:
 Plug 'lpenz/vimcommander'
