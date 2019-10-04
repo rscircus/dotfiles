@@ -1,7 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
-
 ;; General setup
 (setq user-full-name    "Roland Siegbert"
       user-mail-address "roland@siegbert.info"
@@ -12,38 +10,40 @@
       ;; TODO: Don't ask when killing emacs (really?)
       confirm-kill-emacs nil
       )
-(custom-set-faces
-  '(mode-line ((t (:height 0.95))))
-  '(mode-line-inactive ((t (:height 0.95)))))
 
 ;; Font
 (setq
-;; doom-font (font-spec :family "Iosevka Term SS05" :size 16)
-;; doom-variable-pitch-font (font-spec :family "Noto Sans" :size 18))
-doom-font (font-spec :family "Input" :size 15)
-doom-variable-pitch-font (font-spec :family "Noto Sans" :size 14))
-
-;; Themes
-;;; Leuven
-;; (add-to-list 'custom-theme-load-path "~/dotfiles/themes/emacs-leuven-theme")
-;; (load-theme 'leuven t)                  ; For Emacs 24+.
-;; (setq leuven-scale-outline-headlines nil)
-;; (setq leuven-scale-org-agenda-structure nil)
-(load-theme 'doom-dracula t)
+ doom-font (font-spec :family "Iosevka Term Medium" :size 16)
+ doom-big-font (font-spec :family "Iosevka Term Medium" :size 20))
+;;doom-variable-pitch-font (font-spec :family "Input" :size 14))
 
 ;; Enable emoji globally
 (add-hook 'after-init-hook #'global-emojify-mode)
+
+;;
+;;; :theme
+(load-theme 'doom-city-lights t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme (all-the-icons must be installed!)
+(doom-themes-neotree-config)
+
+;; or for treemacs users
+(setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+(doom-themes-treemacs-config)
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
 
 ;;
 ;;; :lang org
 (after! org
   (add-to-list 'org-modules 'org-habit t))
 
-;; org-trello location
-(custom-set-variables '(org-trello-files '("~/src/org/life.org"))) ; can be more like ("a" "b")
-
 ;; Pop-rule
- (after! org
+ (after! og
    (set-popup-rule! "^\\*Org Agenda.*\\*$" :size 0.5 :side 'right :vslot 1  :select t :quit t   :ttl nil :modeline nil :autosave t)
    (set-popup-rule! "^CAPTURE.*\\.org$"    :size 0.4 :side 'bottom          :select t                                  :autosave t))
 
@@ -74,14 +74,6 @@ doom-variable-pitch-font (font-spec :family "Noto Sans" :size 14))
 (setq org-todo-keywords
       '((sequence "TODO" "PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
-;; A bunch of reasonable defaults from:
-;; https://blog.aaronbieber.com/2016/01/30/dig-into-org-mode.html
-(setq org-capture-templates
-      '(("a" "My TODO task format." entry
-         (file "todo.org")
-         "* TODO %?
-SCHEDULED: %t")))
-
 (setq org-log-done (quote time))
 (setq org-log-redeadline (quote time))
 (setq org-log-reschedule (quote time))
@@ -89,6 +81,22 @@ SCHEDULED: %t")))
 (setq org-blank-before-new-entry (quote ((heading) (plain-list-item))))
 (setq org-agenda-text-search-extra-files '(agenda-archives))
 
+;; org-super-agenda
+(setq org-super-agenda-groups '((:name "Today"
+                                  :time-grid t
+                                  :scheduled today)
+                           (:name "Due today"
+                                  :deadline today)
+                           (:name "Important"
+                                  :priority "A")
+                           (:name "Overdue"
+                                  :deadline past)
+                           (:name "Due soon"
+                                  :deadline future)
+                           (:name "Big Outcomes"
+                                  :tag "bo")))
+
+;;
 ;; Org-Noter
 (def-package! org-noter
   :defer t
@@ -99,10 +107,12 @@ SCHEDULED: %t")))
      (:prefix "n"
        :desc "Org-noter-insert" :n "i" #'org-noter-insert-note))))
 
-;; Setup
+;;
+;; Setup org-noter
 (setq org-noter-always-create-frame nil
       org-noter-auto-save-last-location t)
 
+;;
 ;; Markdown
 (setq markdown-preview-stylesheets (list "http://thomasf.github.io/solarized-css/solarized-light.min.css"))
 
@@ -132,46 +142,14 @@ SCHEDULED: %t")))
                             'magit-insert-unpulled-from-upstream)
   (setq magit-module-sections-nested nil))
 
-;;
-;;; eshell
-;; add fish-like autocompletion
-(def-package! esh-autosuggest
-  :defer t
-  :after eshell-mode
-  :config
-  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
-  ;; utilize completion from fish
-  (when (and (executable-find "fish")
-             (require 'fish-completion nil t))
-    (global-fish-completion-mode)))
-
-;; fix pcomplete-completions-at-point uses a deprecated calling function
-(add-hook 'eshell-mode-hook (lambda ()
-                              (remove-hook 'completion-at-point-functions #'pcomplete-completions-at-point t)))
-;; aliases
-(after! eshell
-  (set-eshell-alias!
-   "ff"  "+ivy/projectile-find-file"
-   "fd"  "counsel-projectile-find-dir"
-   "/p" "+ivy/project-search"
-   "/d" "+ivy/project-search-from-cwd"
-   "d"   "deer $1"
-   "l"   "ls -l"
-   "la"  "ls -la"
-   "gl"  "(call-interactively 'magit-log-current)"
-   "gs"  "magit-status"
-   "gc"  "magit-commit"
-   "gbD" "my/git-branch-delete-regexp $1"
-   "gbS" "my/git-branch-match $1"
-   "rg"  "rg --color=always $*"
-   "bat" "my/eshell-bat $1"))
-;; Improvements from howard abrahams
-;; programs that want to pause the output uses cat instead
-(setenv "PAGER" "cat")
+;; prettier-js
+(add-hook!
+  js2-mode 'prettier-js-mode
+  (add-hook 'before-save-hook #'refmt-before-save nil t))
 
 ;;
 ;;; Keybinds
-
+(map! :ne "SPC / r" #'deadgrep)
 (map! :m "M-j" #'multi-next-line
       :m "M-k" #'multi-previous-line
 
