@@ -1015,8 +1015,8 @@ let g:gtm_plugin_status_enabled = 1
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+"let g:NERDTreeDirArrowExpandable = ''
+"et g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeIgnore=['\~$', '\.pyc']
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize = 25
