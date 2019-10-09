@@ -75,6 +75,9 @@ export PATH=$PATH:$HOME/.local/bin
 # Go
 export GOPATH=$HOME/local/src/go
 export PATH=$PATH:$GOPATH/bin
+# Ruby
+export GEM_HOME=$HOME/local/share/gems
+export PATH=$HOME/local/share/gems/bin:$PATH
 
 
 # Terminal 256 colors:
