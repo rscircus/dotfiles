@@ -79,7 +79,7 @@ Plug 'vim-scripts/SyntaxRange'                             " Syntax color code i
 Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
 Plug 'leafgarland/typescript-vim'                          " TypeScript Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }          " Conquer of Completion - framework + language-server client - pulling from release branch
 Plug 'tpope/vim-fireplace' " Add CIDER like clojure support
 
 " File :Manager:
