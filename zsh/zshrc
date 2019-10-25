@@ -292,11 +292,11 @@ source ~/dotfiles/utils/gtm-plugin.sh
 export PATH="~/.emacs.d/bin:$PATH"
 
 #thefuck
-if hash fuck 2>/dev/null; then
-  echo "Some fucks given"
-else
-  eval $(thefuck --alias)
-fi
+# if hash fuck 2>/dev/null; then
+#   echo "Some fucks given"
+# else
+#   eval $(thefuck --alias)
+# fi
 
 # WINE
 export WINEARCH=win32
