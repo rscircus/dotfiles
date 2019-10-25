@@ -217,7 +217,7 @@ note_ () {
   local file="$dir/$id.md"
 
   mkdir -p $dir
-  nvim "$file"
+  vim "$file"
 }
 
 note_search_ () {
