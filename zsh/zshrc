@@ -321,3 +321,5 @@ fi
 #
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+# Optout of assholes:
+DOTNET_CLI_TELEMETRY_OPTOUT=1
