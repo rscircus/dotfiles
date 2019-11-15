@@ -993,17 +993,10 @@ let g:NERDTreeGitStatusWithFlags = 1
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncNERDTree()
 
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-"| function! IsNERDTreeOpen()
-"|   "return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-"|   return 1 == 1
-"| endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" Sync: Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
 function! SyncNERDTree()
-  if &modifiable && strlen(expand('%')) > 0 && !&diff
+  if &modifiable && exists("g:NERDTree") && g:NERDTree.IsOpen() && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
     wincmd p
   endif
