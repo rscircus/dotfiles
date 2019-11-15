@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
 
 
 " IDEish:
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " Filemanagement
+Plug 'scrooloose/nerdtree'  " Filemanagement
 Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
@@ -1020,10 +1020,45 @@ map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
 "let g:NERDTreeDirArrowExpandable = ''
 "et g:NERDTreeDirArrowCollapsible = ''
-let NERDTreeIgnore=['\~$', '\.pyc']
-let NERDTreeRespectWildIgnore=1
-let NERDTreeWinSize = 25
+let g:NERDTreeRespectWildIgnore = 1
+let g:NERDTreeWinSize = 35
+let g:NERDTreeGitStatusWithFlags = 1
 "autocmd vimenter * NERDTree "Open on startup
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncNERDTree()
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+"| function! IsNERDTreeOpen()
+"|   "return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"|   return 1 == 1
+"| endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncNERDTree()
+  if &modifiable && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+" Source: https://github.com/scrooloose/nerdtree/issues/21
+  function! s:CloseIfOnlyNerdTreeLeft()
+    if exists("t:NERDTreeBufName")
+      if bufwinnr(t:NERDTreeBufName) != -1
+        if winnr("$") == 1
+          q
+        endif
+      endif
+    endif
+  endfunction
+
+" Close NERDTree if it is the last buffer open
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 "" Rainbow Parentheses:
 map <leader>r :RainbowParenthesesToggle<cr>
@@ -1046,22 +1081,6 @@ let fortran_more_precise = 1
 let b:fortran_dialect="f.90"
 hi link fortranTab NONE
 au BufRead,BufNewFile *.F,*.F90 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-" Source: https://github.com/scrooloose/nerdtree/issues/21
-  function! s:CloseIfOnlyNerdTreeLeft()
-    if exists("t:NERDTreeBufName")
-      if bufwinnr(t:NERDTreeBufName) != -1
-        if winnr("$") == 1
-          q
-        endif
-      endif
-    endif
-  endfunction
-
-" Close NERDTree if it is the last buffer open
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 "" Goyo:
 nnoremap <leader>G :Goyo<cr>
