@@ -690,6 +690,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " Indent Guides:
 " UTF8? ¦, ┆, or │
 let g:indentLine_char = '|'
@@ -1289,6 +1292,10 @@ let g:vimtex_quickfix_mode=0
 " emoji
 let g:emoji_complete_overwrite_standard_keymaps = 1
 imap <F8> <Plug>(emoji-start-complete)
+
+" prettier
+let g:prettier#exec_cmd_async = 1
+let g:prettier#autoformat = 1
 
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
