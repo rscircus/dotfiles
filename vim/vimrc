@@ -39,8 +39,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -871,25 +869,6 @@ vmap <C-Down> xp`[V`]
 " hi link CtrlSpaceSearch   Search
 " hi link CtrlSpaceStatus   StatusLine
 
-"" CtrlP:
-nnoremap <leader>bs :CtrlPBuffer<cr>
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)|\v[\/]html$\',
-  \ 'file': '\v\.(exe|o|so|dll)$',
-  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-  \ }
-if has("python")
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
 " FZF:
 "" Command for git grep
 " - fzf#vim#grep(command, with_column, [options], [fullscreen])
@@ -932,21 +911,7 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
-" CtrlP auto cache clearing.
-" ----------------------------------------------------------------------------
-function! SetupCtrlP()
-  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    augroup CtrlPExtension
-      autocmd!
-      autocmd FocusGained  * CtrlPClearCache
-      autocmd BufWritePost * CtrlPClearCache
-    augroup END
-  endif
-endfunction
-if has("autocmd")
-  autocmd VimEnter * :call SetupCtrlP()
-endif
-
+nnoremap <c-p> :Files<cr>
 
 :nmap <leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
