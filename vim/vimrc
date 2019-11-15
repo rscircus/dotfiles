@@ -132,7 +132,7 @@ Plug 'vim-scripts/mayansmoke'
 Plug 'therubymug/vim-pyte'
 Plug 'ptrr/proton-vim'
 Plug 'acarapetis/vim-colors-github'
-Plug 'GertjanReynaert/cobalt2-vim-theme'
+Plug 'rscircus/cobalt2-vim-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'noahfrederick/vim-hemisu'
 Plug 'romainl/Apprentice'
