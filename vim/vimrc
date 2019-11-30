@@ -112,6 +112,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'dbmrq/vim-ditto'
 
 " Color schemes:
+Plug 'robertmeta/nofrils'
 Plug 'larssmit/vim-getafe'
 Plug 'morhetz/gruvbox'
 Plug 'brendonrapp/smyck-vim'
