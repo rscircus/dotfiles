@@ -137,7 +137,7 @@ Plug 'rscircus/cobalt2-vim-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'noahfrederick/vim-hemisu'
 Plug 'romainl/Apprentice'
-Plug 'plan9-for-vimspace/acme-colors'
+Plug 'rscircus/acme-colors'
 Plug 'kevinkoltz/vim-simplex'
 Plug 'tomasr/molokai'
 
