@@ -41,8 +41,9 @@ Plug 'godlygeek/tabular'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'kien/tabman.vim', { 'on': 'TMToggle' }
 Plug 'tpope/vim-surround'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc'
+" TODO: Disable pandoc as it slows down everything
+"Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'vim-pandoc/vim-pandoc'
 Plug 'mzlogin/vim-markdown-toc'
 "Plug 'suan/vim-instant-markdown', {'for': ['markdown', 'pandoc']}
 Plug 'dhruvasagar/vim-table-mode'
