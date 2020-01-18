@@ -45,7 +45,6 @@ Plug 'tpope/vim-surround'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 "Plug 'vim-pandoc/vim-pandoc'
 Plug 'mzlogin/vim-markdown-toc'
-"Plug 'suan/vim-instant-markdown', {'for': ['markdown', 'pandoc']}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events'                  " Ditched tmux due to color problems for now.
@@ -802,35 +801,6 @@ let g:tagbar_type_tex = {
 "     \ ],
 "     \ 'sort'    : 0,
 "     \ }
-
-" Markdown:
-"" Plasticboy:
-" let g:vim_markdown_folding_disabled = 0
-" let g:vim_markdown_override_foldtext = 0
-" let g:vim_markdown_folding_level = 3
-" let g:vim_markdown_folding_style_pythonic = 1
-" let g:vim_markdown_math = 1
-" let g:vim_markdown_toc_autofit = 0
-" let g:vim_markdown_frontmatter = 0
-" let g:vim_markdown_conceal = 1
-"" Gabrielelana:
-"let g:markdown_enable_conceal = 1
-"let g:markdown_enable_spell_checking = 0
-
-" Automatic word-wrapping
-au BufRead,BufNewFile *.md setlocal textwidth=80
-
-" Pandoc:
-let g:pandoc#spell#enabled = 0
-let g:pandoc#syntax#conceal#blacklist = ['list']
-let g:pandoc#syntax#conceal#urls = 1
-let g:pandoc#syntax#conceal#use = 1
-
-" Markdown Preview:
-let g:mkdp_path_to_chrome = "/usr/bin/google-chrome-beta"
-
-" Table mode:
-let g:table_mode_corner='|'
 
 " Syntastic Plugin:
 let g:syntastic_fortran_flags = '-ffree-form'
