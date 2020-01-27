@@ -57,7 +57,8 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
 " Disabled due to libcurl problem
-Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
+" TODO: Joplin doesn't handle the external editor well
+"Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
@@ -722,7 +723,7 @@ let g:scratch_persistence_file = 'scratch.vim'
 
 " markdown2ctags: Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
-    \ 'ctagstype': 'markdown',
+    \ 'ctagstype': 'markdown.pandoc',
     \ 'ctagsbin' : '$HOME/dotfiles/utils/markdown2ctags/markdown2ctags.py',
     \ 'ctagsargs' : '-f - --sort=yes',
     \ 'kinds' : [
@@ -941,17 +942,17 @@ let g:airline_right_alt_sep = ''
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
 
-"" Git Time Metrics Airline:
-function! AirlineInit()
-  if exists('*GTMStatusline')
-    call airline#parts#define_function('gtmstatus', 'GTMStatusline')
-    let g:airline_section_b = airline#section#create([g:airline_section_b, ' ', '[', 'gtmstatus', ']'])
-  endif
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
-
-" Enable the status Plugin
-let g:gtm_plugin_status_enabled = 1
+" "" Git Time Metrics Airline:
+" function! AirlineInit()
+"   if exists('*GTMStatusline')
+"     call airline#parts#define_function('gtmstatus', 'GTMStatusline')
+"     let g:airline_section_b = airline#section#create([g:airline_section_b, ' ', '[', 'gtmstatus', ']'])
+"   endif
+" endfunction
+" autocmd User AirlineAfterInit call AirlineInit()
+"
+" " Enable the status Plugin
+" let g:gtm_plugin_status_enabled = 1
 
 
 "" NERDTree:
@@ -959,39 +960,25 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<cr>
 map <leader>nf :NERDTreeFind<cr>
 "let g:NERDTreeDirArrowExpandable = ''
-"et g:NERDTreeDirArrowCollapsible = ''
+"let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeRespectWildIgnore = 1
 let g:NERDTreeWinSize = 35
 let g:NERDTreeGitStatusWithFlags = 1
-"autocmd vimenter * NERDTree "Open on startup
 
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncNERDTree()
-
-" Sync: Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
-function! SyncNERDTree()
-  if &modifiable && exists("g:NERDTree") && g:NERDTree.IsOpen() && strlen(expand('%')) > 0 && !&diff
+function! SyncTree()
+  if &modifiable && % == '.git/COMMIT_EDITMSG' && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
     wincmd p
   endif
 endfunction
 
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-" Source: https://github.com/scrooloose/nerdtree/issues/21
-  function! s:CloseIfOnlyNerdTreeLeft()
-    if exists("t:NERDTreeBufName")
-      if bufwinnr(t:NERDTreeBufName) != -1
-        if winnr("$") == 1
-          q
-        endif
-      endif
-    endif
-  endfunction
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 
 " Close NERDTree if it is the last buffer open
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "" Rainbow Parentheses:
 map <leader>r :RainbowParenthesesToggle<cr>
