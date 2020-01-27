@@ -968,7 +968,7 @@ let g:NERDTreeGitStatusWithFlags = 1
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
 function! SyncTree()
-  if &modifiable && % == '.git/COMMIT_EDITMSG' && strlen(expand('%')) > 0 && !&diff
+  if &modifiable && expand('%:e') == '.git/COMMIT_EDITMSG' && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
     wincmd p
   endif
