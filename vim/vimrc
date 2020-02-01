@@ -19,21 +19,23 @@ call plug#begin('~/.vim/plugged')
 
 
 " IDEish:
-Plug 'scrooloose/nerdtree'  " Filemanagement
-Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
 Plug 'wellle/context.vim' " Crazy code support
+Plug 'scrooloose/nerdtree' " Filemanagement
+Plug 'lambdalisue/fern.vim' " Alternative to NERDTree
+Plug 'lambdalisue/fern-renderer-devicons.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin' " ... and git
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'                         " Automatic (c)tag file generation
-Plug 'airblade/vim-gitgutter'                               " See what changed
+Plug 'ludovicchabant/vim-gutentags' " Automatic (c)tag file generation
+Plug 'airblade/vim-gitgutter' " See what changed
 Plug 'tpope/vim-fugitive'
 Plug 'sodapopcan/vim-twiggy'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-unimpaired'
 Plug 'kien/rainbow_parentheses.vim'
-"Plug 'scrooloose/syntastic'                                " Multi-porpose linter (superslow)
+"Plug 'scrooloose/syntastic' " Multi-porpose linter (superslow)
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
@@ -48,7 +50,7 @@ Plug 'tpope/vim-surround'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'tmux-plugins/vim-tmux-focus-events'                  " Ditched tmux due to color problems for now.
+"Plug 'tmux-plugins/vim-tmux-focus-events' " Ditched tmux due to color problems for now.
 Plug 'mtth/scratch.vim'
 "Plug 'vim-ctrlspace/vim-ctrlspace' // conflicting with go
 Plug 'lukaszkorecki/workflowish'
@@ -59,29 +61,29 @@ Plug 'junegunn/vim-slash'
 Plug 'djoshea/vim-autoread'
 " Disabled due to libcurl problem
 " TODO: Joplin doesn't handle the external editor well
-"Plug 'git-time-metric/gtm-vim-plugin'                      " git-time-metric
+"Plug 'git-time-metric/gtm-vim-plugin' " git-time-metric
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'moll/vim-bbye'
 Plug 'easymotion/vim-easymotion'
-"Plug 'ajh17/VimCompletesMe'                                " tab-completion with minimalism in mind
-Plug 'sjl/gundo.vim'                                       " GundoToggle
+"Plug 'ajh17/VimCompletesMe' " tab-completion with minimalism in mind
+Plug 'sjl/gundo.vim' " GundoToggle
 Plug 'flebel/vim-scroll-position'
-Plug 'gryf/zoom.vim'                                       " Zooming with CTRL-+/- and MouseWheel
+Plug 'gryf/zoom.vim' " Zooming with CTRL-+/- and MouseWheel
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 "  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 Plug 'wincent/terminus'
-Plug 'kopischke/vim-stay'                                  " Automated view session
-Plug 'vim-scripts/SyntaxRange'                             " Syntax color code in org-mode
-Plug 'chrisbra/vim-diff-enhanced'                          " Enhanced diff (like diff-highlight)
-Plug 'leafgarland/typescript-vim'                          " TypeScript Support
+Plug 'kopischke/vim-stay' " Automated view session
+Plug 'vim-scripts/SyntaxRange' " Syntax color code in org-mode
+Plug 'chrisbra/vim-diff-enhanced' " Enhanced diff (like diff-highlight)
+Plug 'leafgarland/typescript-vim' " TypeScript Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }          " Conquer of Completion - framework + language-server client - pulling from release branch
 Plug 'tpope/vim-fireplace' " Add CIDER like clojure support
-Plug 'previm/previm'                                       "Preview for markdown, reSt, textile and AsciiDoc
+Plug 'previm/previm' "Preview for markdown, reSt, textile and AsciiDoc
 
 " File :Manager:
 Plug 'lpenz/vimcommander'
@@ -115,6 +117,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'dbmrq/vim-ditto'
 
 " Color schemes:
+Plug 'cocopon/iceberg.vim'
 Plug 'robertmeta/nofrils'
 Plug 'larssmit/vim-getafe'
 Plug 'morhetz/gruvbox'
