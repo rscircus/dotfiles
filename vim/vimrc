@@ -343,6 +343,7 @@ let g:pencil_terminal_italics = 1
 let g:pencil_neutral_code_bg = 1
 
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+"let g:fern#renderer = "devicons"
 
 let g:lucius_contrast="high"
 
