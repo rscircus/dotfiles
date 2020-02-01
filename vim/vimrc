@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
 " IDEish:
 Plug 'scrooloose/nerdtree'  " Filemanagement
 Plug 'Xuyuanp/nerdtree-git-plugin'                          " ... and git
+Plug 'wellle/context.vim' " Crazy code support
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
