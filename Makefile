@@ -17,6 +17,8 @@ brews_install:
     brew install --HEAD denisidoro/tools/navi # interactive cheatsheet tool for the cli
     brew tap git-time-metric/gtm      # git time metrics
     brew install gtm
+    brew tap augmentable-dev/tickgit
+    brew install tickgit
     # brew install visidata            # cli spreadsheets 
     # TODO: Still in a pull request:
     # visidata 0.98.1 (new formula) (https://github.com/Homebrew/homebrew-core/pull/21577)
