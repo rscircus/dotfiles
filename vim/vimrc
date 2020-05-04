@@ -48,6 +48,7 @@ Plug 'tpope/vim-surround'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 "Plug 'vim-pandoc/vim-pandoc'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'ferrine/md-img-paste.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'tmux-plugins/vim-tmux-focus-events' " Ditched tmux due to color problems for now.
@@ -83,7 +84,8 @@ Plug 'leafgarland/typescript-vim' " TypeScript Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }          " Conquer of Completion - framework + language-server client - pulling from release branch
 Plug 'tpope/vim-fireplace' " Add CIDER like clojure support
-Plug 'previm/previm' "Preview for markdown, reSt, textile and AsciiDoc
+"Plug 'previm/previm' "Preview for markdown, reSt, textile and AsciiDoc
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " File :Manager:
 Plug 'lpenz/vimcommander'
@@ -899,7 +901,7 @@ nnoremap <c-p> :Files<cr>
 :nmap <leader>tc :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 :nmap <leader>t8 :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 :nmap <leader>t2 :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
-"au BufRead,BufNewFile *.md,*.mkd set wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+au BufRead,BufNewFile *.md,*.mkd set wrap expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent wrap
 
 
 "" Airline:
@@ -1119,6 +1121,12 @@ let g:colorizer_auto_filetype='css,less,html'
 "          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
 "          \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
 "          \ 'template_ext': '.tpl'}]
+
+" Markdown:
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+let g:mdip_imgdir = 'img'
+"let g:mdip_imgname = 'image'
 
 " Orgahelp:
 nnoremap <leader>mv ddGp` "move current line to the end of buffer without moving cursor
