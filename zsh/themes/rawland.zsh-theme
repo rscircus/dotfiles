@@ -13,6 +13,11 @@ function amiroot() {
   fi
 }
 
+function prompt_dir {
+  echo ${${:-/${(j:/:)${(M)${(s:/:)${(D)PWD:h}}#(|.)[^.]}}/${PWD:t}}//\/~/\~}
+}
+
+
 function mgit_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   #echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
@@ -22,4 +27,4 @@ function mgit_prompt_info() {
 # Assuming gtm-terminal is sourced
 
 PROMPT='%{$fg[green]%}%j>%{$reset_color%} '
-RPROMPT='%{$fg[black]%} ↻ $GTM_STATUS%{$reset_color%} ⎇ $(mgit_prompt_info) %{$fg[cyan]%}%~%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
+RPROMPT='%{$fg[green]%} ↻ $GTM_STATUS%{$reset_color%} ⎇ $(mgit_prompt_info) %{$fg[cyan]%} $(prompt_dir)%{$reset_color%}$(amiroot)%{$fg[magenta]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}'
