@@ -119,6 +119,9 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'dbmrq/vim-ditto'
 
 " Color schemes:
+Plug 'hzchirs/vim-material'
+Plug 'kaicataldo/material.vim'
+"Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'cocopon/iceberg.vim'
 Plug 'robertmeta/nofrils'
 Plug 'larssmit/vim-getafe'
