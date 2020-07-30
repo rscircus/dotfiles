@@ -35,10 +35,11 @@ git clone https://github.com/zsh-users/zsh-completions $HOME/.oh-my-zsh/custom/p
 ####
 echo "Install linux/homebrew..."
 ####
-git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
-mkdir ~/.linuxbrew/bin
-ln -s ../Homebrew/bin/brew ~/.linuxbrew/bin
-eval $(~/.linuxbrew/bin/brew shellenv)
+#git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+#mkdir ~/.linuxbrew/bin
+#ln -s ../Homebrew/bin/brew ~/.linuxbrew/bin
+#eval $(~/.linuxbrew/bin/brew shellenv)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 ####
 echo "Installing tpm for tmux..."
