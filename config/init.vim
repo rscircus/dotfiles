@@ -16,6 +16,9 @@ Plug 'rscircus/acme-colors'
 " Autocompletion
 Plug 'prabirshrestha/asyncomplete.vim'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc' }
 Plug 'junegunn/fzf.vim'
@@ -38,6 +41,9 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Scroll position
 Plug 'flebel/vim-scroll-position'
+
+" Neoterm
+Plug 'kassio/neoterm'
 
 
 "" Language Specific:
