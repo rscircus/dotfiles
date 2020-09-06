@@ -98,6 +98,14 @@ ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 touch ~/.zshrc_local
 touch ~/.tmux_local
 
+# Nvim
+mkdir -p ~/.config/nvim/
+mkdir -p ~/.local/share/nvim/site
+mkdir -p ~/.local/share/nvim/site/autoload
+wget -O ~/.local/share/nvim/site/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -s ~/dotfiles/config/init.vim ~/.config/nvim/init.vim
+
+# VS code - TODO: Ditch this because of tracking/telemetry
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
