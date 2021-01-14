@@ -9,14 +9,15 @@
 # Load dependencies:
 pmodload 'helper'
 
-function prompt_rscircus_pwd {
+function prompt_dir {
   local pwd="${PWD/#$HOME/~}"
 
   if [[ "$pwd" == (#m)[/~] ]]; then
-    _prompt_rscircus_pwd="$MATCH"
+    _prompt_dir="$MATCH"
     unset MATCH
   else
-    _prompt_rscircus_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+    #_prompt_dir="${${${(@j:/:M)${(@s:/:)PWD}##.#?}:h}%/}/${PWD:t}"
+    _prompt_dir="${${:-/${(j:/:)${(M)${(s:/:)${(D)PWD:h}}#(|.)[^.]}}/${PWD:t}}//\/~/\~}"
   fi
 }
 
@@ -25,7 +26,7 @@ function prompt_rscircus_precmd {
   unsetopt XTRACE KSH_ARRAYS
 
   # Format PWD.
-  prompt_rscircus_pwd
+  prompt_dir
 
   # Get Git repository information.
   if (( $+functions[git-info] )); then
@@ -80,8 +81,8 @@ function prompt_rscircus_setup {
   PROMPT='%F{green}⇒%f '
 
   # Right:
-  RPROMPT='${git_info:+${(e)git_info[rprompt]}} %F{cyan}${_prompt_rscircus_pwd}%f%(!. %B%F{red}root%f%b.)%F{magenta}@%f%F{yellow}%m%f'
-  #RPROMPT='${git_info:+${(e)git_info[rprompt]}}${editor_info[keymap]} %F{cyan}${_prompt_rscircus_pwd}%f%(!. %B%F{red}root%f%b.)%F{magenta}@%f%F{yellow}%m%f'
+  RPROMPT='${git_info:+${(e)git_info[rprompt]}} %F{cyan}${_prompt_dir}%f%(!. %B%F{red}root%f%b.)%F{magenta}@%f%F{yellow}%m%f'
+  #RPROMPT='${git_info:+${(e)git_info[rprompt]}}${editor_info[keymap]} %F{cyan}${_prompt_dir}%f%(!. %B%F{red}root%f%b.)%F{magenta}@%f%F{yellow}%m%f'
 
   # Correction:
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
