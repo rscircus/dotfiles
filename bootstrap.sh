@@ -1,4 +1,7 @@
-#TODO: Input such that the user doesn't destroy his/her existing config files
+# TODO: gtm
+# TODO: fonts are missing
+# TODO: Input such that the user doesn't destroy his/her existing config files
+# TODO: diff-so-fancy is missing
 
 ####
 echo "Create local *nix-ish filesystem..."
@@ -131,3 +134,4 @@ echo "Installing hosts based adblocking: hosts-gen...(sudo required)"
 # echo "Add this to root's crontab -e:"
 # echo "@weekly gethostszero"
 # echo "@weekly hosts-gen"
+

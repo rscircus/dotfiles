@@ -8,7 +8,7 @@ brews_install:
     brew install bat                  # alternative to cat
     brew install exa                  # modern ls
     brew install fzf                  # fuzzy finder
-    brew install fasd                 # quick access to files and directories
+    #brew install fasd                 # quick access to files and directories
     brew install zoxide
     brew install thefuck              # I made a mistake, correct it
     brew install tldr                 # tldr; alternative to man
@@ -20,6 +20,6 @@ brews_install:
     brew install gtm
     brew tap augmentable-dev/tickgit
     brew install tickgit
-    # brew install visidata            # cli spreadsheets 
+    # brew install visidata            # cli spreadsheets
     # TODO: Still in a pull request:
     # visidata 0.98.1 (new formula) (https://github.com/Homebrew/homebrew-core/pull/21577)
