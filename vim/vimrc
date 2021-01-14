@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
 
 
 " IDEish:
-Plug 'wellle/context.vim' " Crazy code support
+"Plug 'wellle/context.vim' " Crazy code support
 Plug 'scrooloose/nerdtree' " Filemanagement
 Plug 'lambdalisue/fern.vim' " Alternative to NERDTree
 Plug 'lambdalisue/fern-renderer-devicons.vim'
@@ -98,7 +98,7 @@ Plug 'reedes/vim-wordy', {'on': 'Wordy'}
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex', {'for': 'tex'}
 "Plug 'junegunn/vim-emoji' " Doesn't work nicely. gnome-terminal doesn't support TC
-Plug 'kyuhi/vim-emoji-complete'
+"Plug 'kyuhi/vim-emoji-complete
 " TODO: install vim-lexical when you need to, one day...
 
 " orga:
