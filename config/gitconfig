@@ -1,5 +1,6 @@
 [core]
     editor = /usr/bin/vim
+    pager = delta
 
 [color]
     diff = auto
@@ -91,13 +92,20 @@
     update = "!git add -A && git commit -m 'Update' && git pull --rebase && git push"
 
 [pager]
-    log = diff-so-fancy | less -r
-    diff = diff-so-fancy | less --tabs=1,5 -RFX
-    show = diff-so-fancy | less --tabs=1,5 -RFX
-
+ #   log = diff-so-fancy | less -r
+ #   diff = diff-so-fancy | less --tabs=1,5 -RFX
+ #   show = diff-so-fancy | less --tabs=1,5 -RFX
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

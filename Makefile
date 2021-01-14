@@ -1,7 +1,7 @@
 .RECIPEPREFIX +=                          # Allow the usage of spaces here
 
 brews_install:
-    brew install diff-so-fancy        # fancy diffs in git and other tools
+    brew install delta                # fancy fast diffs
     brew install prettyping           # beautiful ping
     brew install fd                   # alternative to find, which does what one assumes
     brew install ripgrep              # fast grepping
