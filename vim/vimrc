@@ -1281,6 +1281,8 @@ let g:prettier#autoformat = 1
 " previm
 let g:previm_open_cmd = 'xdg-open'
 
+
+
 " Sources:
 " https://amix.dk/vim/vimrc.html ~Amir Salihefendic
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/ ~Steve Losh
