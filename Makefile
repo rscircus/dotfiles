@@ -8,10 +8,10 @@ brews_install:
     brew install bat                  # alternative to cat
     brew install exa                  # modern ls
     brew install fzf                  # fuzzy finder
-    #brew install fasd                 # quick access to files and directories
+    brew install fasd                 # quick access to files and directories
     brew install zoxide
     brew install thefuck              # I made a mistake, correct it
-    brew install tldr                 # tldr; alternative to man
+    brew install tealdeer             # tldr; alternative to man
     brew install youtube-dl           # process youtube videos
     brew install ncdu                 # disk usage analyzer
     brew install asciinema            # screencast from terminal
